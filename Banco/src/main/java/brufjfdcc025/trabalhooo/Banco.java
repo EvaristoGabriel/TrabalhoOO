@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package brufjfdcc025.trabalhooo;
-
-/**
- *
- * @author gabriel
- */
+/*
+        Trabalho de Orientação a Objetos
+    Alunos: Gabriel Evaristo,
+            Israel Louback,
+            Mariana Richa
+*/
 public class Banco {
-    
+    public static void main(String[] args) {
+        
+    }
 }
