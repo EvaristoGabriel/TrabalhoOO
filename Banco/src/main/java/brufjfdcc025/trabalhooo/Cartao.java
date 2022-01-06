@@ -1,8 +1,22 @@
 package brufjfdcc025.trabalhooo;
 
-public class Cartao {
-    private String nomeTitular, numero, senha;
+import java.util.Calendar;
 
+public class Cartao {
+    private String nomeTitular, numero, senha, cvv;
+    private Calendar vencimento;
+    
+    public Cartao (){
+        //funcao calendar para vencimento
+        vencimento=;
+        //random para cvv
+        int a, b, c;
+        a = (int)(Math.random()*10);
+        b = (int)(Math.random()*10);
+        c = (int)(Math.random()*10);
+        this.cvv=Integer.toString(a)+Integer.toString(b)+Integer.toString(c);
+    }
+    
     public String getNomeTitular() {
         return nomeTitular;
     }
@@ -26,6 +40,16 @@ public class Cartao {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public String getCvv() {
+        return cvv;
+    }
+
+    public Calendar getVencimento() {
+        return vencimento;
+    }
+    
+    
     
     
 }

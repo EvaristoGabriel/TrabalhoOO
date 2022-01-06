@@ -1,15 +1,12 @@
 package brufjfdcc025.trabalhooo;
 
-public class Pessoa {
+public class PessoaFisica{
     //nome, cpf, Endereço, nascimento
     private String nome, cpf, nascimento,ocupacao,telefone,rg;
     private Endereco endereco;
 
-    public Pessoa(/*String nome, String cpf, String nascimento, Endereco endereco*/) {
-//        this.nome = nome;
-//        this.cpf = cpf;
-//        this.nascimento = nascimento;
-//        this.endereco = endereco;
+    public PessoaFisica() {
+        this.endereco = new Endereco();
     }
     
     public String getNome() {
