@@ -12,18 +12,15 @@ import javax.swing.JOptionPane;
             Mariana Richa
  */
 public class Banco {
-    
-    
-    
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
         Set<Cliente> clientes = new HashSet<>();
 
         System.out.println("Bem vindo! Já tem cadastro? ");
-        System.out.println("1-Sim\n2-Não\n(Digite 1 ou 2)");
+        System.out.println("1-Sim\n2-Não");
         int cad = teclado.nextInt();
-        String buffer = teclado.nextLine();
+        String espaco = teclado.nextLine();
         switch (cad) {
             case 1:
                 System.out.println("Qual o numero do seu cpf? ");
@@ -32,35 +29,24 @@ public class Banco {
                 System.out.println("Qual sua senha? ");
                 String senha = teclado.next();
                 for (Cliente c : clientes) {
-                    if (numero.equals(c.getCpf()) && senha.equals(c.getSenha())) {
+                    if (numero.equals(c.pessoaf.getCpf()) && senha.equals(c.getSenha())) {
                         
                     }
                 }
 
                 break;
             case 2:
-                Cliente cliente = new Cliente();
-                //fazendo o cadastro do cliente
-                System.out.println("Vamos fazer seu cadastro: ");
-                System.out.println("Qual seu nome: ");
-                cliente.setNome(teclado.nextLine());
-                cliente.setCpf(teclado.nextLine());
-                cliente.setNascimento(teclado.nextLine());
-                System.out.println("Rua: ");
-                String rua = teclado.nextLine();
-                System.out.println("Bairro: ");
-                String bairro = teclado.nextLine();
-                System.out.println("Cep: ");
-                String cep = teclado.nextLine();
-                System.out.println("Numero: ");
-                int num = teclado.nextInt();
-                System.out.println("Complemento: ");
-                int comp = teclado.nextInt();
-                cliente.setEndereco(rua, bairro, cep, num, comp);
-                System.out.println(cliente.getEndereco());
-                //adicionando no conjunto de clientes
+                System.out.println("Qual tipo de conta:\n1- Pessoa Física\n2- Pessoa Jurídica");
+                int opc = teclado.nextInt();
+                if(opc != 1 && opc != 2){
+                    while(opc != 1 && opc != 2){
+                        System.out.println("Opção Invalida, digite 1 ou 2");
+                        opc = teclado.nextInt();
+                    }
+                }
+                Cliente cliente = new Cliente(opc);
                 clientes.add(cliente);
-                System.out.println(clientes);
+                //System.out.println(clientes);
                 break;
             default:
                 System.out.println("Opção Inválida");

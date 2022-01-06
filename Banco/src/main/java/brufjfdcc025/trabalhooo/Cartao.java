@@ -8,7 +8,7 @@ public class Cartao {
     
     public Cartao (){
         //funcao calendar para vencimento
-        vencimento=;
+        
         //random para cvv
         int a, b, c;
         a = (int)(Math.random()*10);
