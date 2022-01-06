@@ -32,6 +32,8 @@ public class Cliente {
             System.out.println("Complemento: ");
             int comp = teclado.nextInt();
             pessoaf.setEndereco(rua, bairro, cep, num, comp);
+            System.out.println("Qual a senha para acesso: ");
+            setSenha(teclado.next());
        }
            
        else
