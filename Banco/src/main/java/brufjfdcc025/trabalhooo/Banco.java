@@ -12,10 +12,13 @@ import javax.swing.JOptionPane;
             Mariana Richa
  */
 public class Banco {
+    
+    
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-
-        Set<Cliente> clientes = new HashSet<>();
+        
+        Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
+        
         boolean continuar = true;
         while(continuar){
             System.out.println("Bem vindo! Já tem cadastro? ");
@@ -24,14 +27,14 @@ public class Banco {
             String espaco = teclado.nextLine();
             switch (cad){
                 case 1:
-                    System.out.println("Qual o numero do seu cpf? ");
+                    System.out.println("Qual o numero do seu cpf/cnpj? ");
                     System.out.println("(sem os pontos)");
                     String numero = teclado.next();
                     System.out.println("Qual sua senha? ");
                     String senha = teclado.next();
                     boolean encontrado = false;
                     for (Cliente c : clientes) {
-                        if (numero.equals(c.pessoaf.getCpf()) && senha.equals(c.getSenha())) {
+                        if ((numero.equals(c.pessoaf.getCpf()) || numero.equals(c.pessoaj.getCnpj())) && senha.equals(c.getSenha())) {
                             encontrado = true;
                             System.out.println("Cadastro encontrado....\nLogando....");
                         }

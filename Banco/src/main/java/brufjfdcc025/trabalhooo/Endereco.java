@@ -2,9 +2,17 @@ package brufjfdcc025.trabalhooo;
 
 public class Endereco {
     //rua, bairro, numero, cep, complemento
-    private String rua, bairro, cep;
+    private String cidade, rua, bairro, cep;
     private int numero, complemento;
 
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+    
     public String getRua() {
         return rua;
     }
@@ -47,7 +55,7 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Rua: " + rua + "\nBairro: " + bairro + "\nCep: " + cep + "\nNumero: " + numero + "\nComplemento: " + complemento;
+        return "Cidade: " +cidade+ "Rua: " + rua + "\nBairro: " + bairro + "\nCep: " + cep + "\nNumero: " + numero + "\nComplemento: " + complemento;
     }
     
     

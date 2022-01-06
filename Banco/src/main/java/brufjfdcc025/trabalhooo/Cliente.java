@@ -21,6 +21,8 @@ public class Cliente {
             pessoaf.setCpf(teclado.nextLine());
             System.out.println("Qual seu nascimento: ");
             pessoaf.setNascimento(teclado.nextLine());
+            System.out.println("Cidade:");
+            String cidade = teclado.nextLine();
             System.out.println("Rua: ");
             String rua = teclado.nextLine();
             System.out.println("Bairro: ");
@@ -31,7 +33,7 @@ public class Cliente {
             int num = teclado.nextInt();
             System.out.println("Complemento: ");
             int comp = teclado.nextInt();
-            pessoaf.setEndereco(rua, bairro, cep, num, comp);
+            pessoaf.setEndereco(cidade,rua, bairro, cep, num, comp);
             System.out.println("Qual a senha para acesso: ");
             setSenha(teclado.next());
        }
@@ -43,6 +45,8 @@ public class Cliente {
             pessoaj.setNome(teclado.nextLine());
             System.out.println("Qual o CNPJ: ");
             pessoaj.setCnpj(teclado.nextLine());
+            System.out.println("Cidade:");
+            String cidade = teclado.nextLine();
             System.out.println("Rua: ");
             String rua = teclado.nextLine();
             System.out.println("Bairro: ");
@@ -51,7 +55,11 @@ public class Cliente {
             String cep = teclado.nextLine();
             System.out.println("Numero: ");
             int num = teclado.nextInt();
-            pessoaj.setEndereco(rua, bairro, cep, num);
+            System.out.println("Complemento: ");
+            int comp = teclado.nextInt();
+            pessoaj.setEndereco(cidade,rua, bairro, cep, num, comp);
+            System.out.println("Qual a senha para acesso: ");
+            setSenha(teclado.next());
        }
            
        //fazendo o cadastro do cliente
@@ -65,7 +73,7 @@ public class Cliente {
         System.out.println("Menu\n1)Transferência\n2)Pagamento\n3)Depósito\n4)Pix\n5)Verificar Extrato\n6)Verificar Saldo\n7)Saque\n8)Empréstimo");
         int x=teclado.nextInt();
         switch(x){
-            case 1:
+            case 1: 
                 break;
             case 2:
                 break;

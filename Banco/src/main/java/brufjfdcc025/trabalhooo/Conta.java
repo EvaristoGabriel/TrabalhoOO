@@ -51,13 +51,16 @@ public class Conta {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
+    
+    
+    //funcionalidades do programa
+    
     private void setSaldo(float saldo) {
         this.saldo = saldo;
     }
     
-    //funcionalidades do programa
     public void deposito (){
+        System.out.println("Insira o valor do depósito:");
         float val;
         val=teclado.nextFloat();
         extrato.add(new Extrato("Depósito",val));
@@ -91,11 +94,18 @@ public class Conta {
         float val;
         num=teclado.next();
         val=teclado.nextFloat();
+        
         //procurar na lista de clientes pelo numero da conta
     }
     
     
     
+    /*implementar funções:
+    criar cartao
+    renovar cartao
+    emprestimos
+    
+    */
     
     
 }

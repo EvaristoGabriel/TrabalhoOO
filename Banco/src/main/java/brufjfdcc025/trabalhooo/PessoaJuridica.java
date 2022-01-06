@@ -12,11 +12,13 @@ public class PessoaJuridica {
         this.cnpj = cnpj;
     }
 
-    public void setEndereco(String rua, String bairro, String cep, int numero) {
+    public void setEndereco(String cidade, String rua, String bairro, String cep, int numero, int complemento) {
+        this.endereco.setCidade(cidade);
         this.endereco.setRua(rua);
         this.endereco.setBairro(bairro);
         this.endereco.setCep(cep);
         this.endereco.setNumero(numero);
+        this.endereco.setComplemento(complemento);
     }
 
     public String getCnpj() {

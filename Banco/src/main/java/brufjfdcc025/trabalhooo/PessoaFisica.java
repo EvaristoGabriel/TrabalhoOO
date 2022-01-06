@@ -38,7 +38,8 @@ public class PessoaFisica{
         return endereco;
     }
 
-    public void setEndereco(String rua, String bairro, String cep, int numero, int complemento) {
+    public void setEndereco(String cidade, String rua, String bairro, String cep, int numero, int complemento) {
+        this.endereco.setCidade(cidade);
         this.endereco.setRua(rua);
         this.endereco.setBairro(bairro);
         this.endereco.setCep(cep);
