@@ -1,5 +1,6 @@
 package brufjfdcc025.trabalhooo;
 
+import brufjfdcc025.trabalhooo.menu.Menu;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -68,7 +69,7 @@ public class Cliente {
     }
     
     
-    
+    Menu menu= new Menu();
     public void menu (){
         System.out.println("Menu\n1)Transferência\n2)Pagamento\n3)Depósito\n4)Pix\n5)Verificar Extrato\n6)Verificar Saldo\n7)Saque\n8)Empréstimo");
         int x=teclado.nextInt();

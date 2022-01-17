@@ -1,5 +1,6 @@
 package brufjfdcc025.trabalhooo;
 
+import brufjfdcc025.trabalhooo.menu.Menu;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -12,15 +13,18 @@ import javax.swing.JOptionPane;
             Mariana Richa
  */
 public class Banco {
-    
-    
+
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        
+
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
-        
+
         boolean continuar = true;
-        while(continuar){
+        Menu menu = new Menu();
+        menu.montaMenu();
+        menu.mostraMenu();
+        while (continuar) {
+
             System.out.println("Bem vindo! Já tem cadastro? ");
             System.out.println("1-Sim\n2-Não");
             int cad = teclado.nextInt();
@@ -72,6 +76,7 @@ public class Banco {
                 continuar = true;
             else
                 continuar =false;
+             
         }
     }
 }
