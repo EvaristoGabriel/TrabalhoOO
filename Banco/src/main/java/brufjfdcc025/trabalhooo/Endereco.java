@@ -5,6 +5,15 @@ public class Endereco {
     private String cidade, rua, bairro, cep;
     private int numero, complemento;
 
+    public Endereco(String cidade, String rua, String bairro, String cep, int numero, int complemento) {
+        this.cidade = cidade;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.cep = cep;
+        this.numero = numero;
+        this.complemento = complemento;
+    }
+
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }

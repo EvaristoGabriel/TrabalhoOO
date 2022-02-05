@@ -11,61 +11,8 @@ public class Cliente {
     private Conta contac, contap;
     Scanner teclado = new Scanner(System.in);
 
-    public Cliente(int opc) {
-       System.out.println("Vamos fazer seu cadastro: ");
-       if (opc==1)
-       {
-            pessoaf=new PessoaFisica();
-            System.out.println("Qual seu nome: ");
-            pessoaf.setNome(teclado.nextLine());
-            System.out.println("Qual seu cpf: ");
-            pessoaf.setCpf(teclado.nextLine());
-            System.out.println("Qual seu nascimento: ");
-            pessoaf.setNascimento(teclado.nextLine());
-            System.out.println("Cidade:");
-            String cidade = teclado.nextLine();
-            System.out.println("Rua: ");
-            String rua = teclado.nextLine();
-            System.out.println("Bairro: ");
-            String bairro = teclado.nextLine();
-            System.out.println("Cep: ");
-            String cep = teclado.nextLine();
-            System.out.println("Numero: ");
-            int num = teclado.nextInt();
-            System.out.println("Complemento: ");
-            int comp = teclado.nextInt();
-            pessoaf.setEndereco(cidade,rua, bairro, cep, num, comp);
-            System.out.println("Qual a senha para acesso: ");
-            setSenha(teclado.next());
-       }
-           
-       else
-       {
-            pessoaj= new PessoaJuridica(); 
-            System.out.println("Qual seu nome: ");
-            pessoaj.setNome(teclado.nextLine());
-            System.out.println("Qual o CNPJ: ");
-            pessoaj.setCnpj(teclado.nextLine());
-            System.out.println("Cidade:");
-            String cidade = teclado.nextLine();
-            System.out.println("Rua: ");
-            String rua = teclado.nextLine();
-            System.out.println("Bairro: ");
-            String bairro = teclado.nextLine();
-            System.out.println("Cep: ");
-            String cep = teclado.nextLine();
-            System.out.println("Numero: ");
-            int num = teclado.nextInt();
-            System.out.println("Complemento: ");
-            int comp = teclado.nextInt();
-            pessoaj.setEndereco(cidade,rua, bairro, cep, num, comp);
-            System.out.println("Qual a senha para acesso: ");
-            setSenha(teclado.next());
-       }
-           
-       //fazendo o cadastro do cliente
-        
-        
+    public Cliente(String nome, String cpf, String nascimento, String ocupacao, String rg, String telefone, Endereco end) {
+        pessoaf = new PessoaFisica(cpf, nascimento, ocupacao, rg, telefone, nome, end);
     }
     
     

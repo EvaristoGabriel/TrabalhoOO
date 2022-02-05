@@ -1,22 +1,33 @@
 package brufjfdcc025.trabalhooo;
 
-public class PessoaFisica{
+public class PessoaFisica extends Pessoa{
     //nome, cpf, Endereço, nascimento
-    private String nome, cpf, nascimento,ocupacao,telefone,rg;
-    private Endereco endereco;
+    private String cpf, nascimento,ocupacao,rg;
 
-    public PessoaFisica() {
-        this.endereco = new Endereco();
+    public PessoaFisica(String cpf, String nascimento, String ocupacao, String rg, String telefone, String nome, Endereco endereco) {
+        super(telefone, nome, endereco);
+        this.cpf = cpf;
+        this.nascimento = nascimento;
+        this.ocupacao = ocupacao;
+        this.rg = rg;
     }
     
-    public String getNome() {
-        return nome;
+    public String getRg() {
+        return rg;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+    
+    public String getOcupacao() {
+        return ocupacao;
     }
 
+    public void setOcupacao(String ocupacao) {
+        this.ocupacao = ocupacao;
+    }
+    
     public String getCpf() {
         return cpf;
     }
@@ -34,22 +45,9 @@ public class PessoaFisica{
     }
     
     
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String cidade, String rua, String bairro, String cep, int numero, int complemento) {
-        this.endereco.setCidade(cidade);
-        this.endereco.setRua(rua);
-        this.endereco.setBairro(bairro);
-        this.endereco.setCep(cep);
-        this.endereco.setNumero(numero);
-        this.endereco.setComplemento(complemento);
-    }
-
     @Override
     public String toString() {
-        return "Nome: " + nome + "\nCpf: " + cpf + "\nNascimento: " + nascimento + "\nEndereco: " + endereco;
+        return "Nome: " + this.getNome() + "\nCpf: " + cpf + "\nNascimento: " + nascimento + "\nEndereco: " + this.getEndereco();
     }
     
     
