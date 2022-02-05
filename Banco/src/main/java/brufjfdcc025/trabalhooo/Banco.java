@@ -18,7 +18,7 @@ public class Banco {
         Scanner teclado = new Scanner(System.in);
 
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
-
+        Cartao car = new Cartao();
         boolean continuar = true;
         Menu menu = new Menu();
         menu.montaMenu();
@@ -76,7 +76,6 @@ public class Banco {
                 continuar = true;
             else
                 continuar =false;
-             
         }
     }
 }

@@ -1,13 +1,17 @@
 package brufjfdcc025.trabalhooo;
 
-import java.util.Calendar;
+import java.time.YearMonth;
 
 public class Cartao {
     private String nomeTitular, numero, senha, cvv;
-    private Calendar vencimento;
+    private Data vencimento;
     
     public Cartao (){
-        //funcao calendar para vencimento
+        // vencimento
+        int mes, ano;
+        mes = YearMonth.now().getMonthValue();
+        ano = YearMonth.now().getYear();
+        this.vencimento = new Data(mes, ano);
         
         //random para cvv
         int a, b, c;
@@ -45,7 +49,7 @@ public class Cartao {
         return cvv;
     }
 
-    public Calendar getVencimento() {
+    public Data getVencimento() {
         return vencimento;
     }
     

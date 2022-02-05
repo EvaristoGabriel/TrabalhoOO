@@ -351,5 +351,5 @@ public class Menu extends JFrame {
         this.add(painel2);//adiciona menu opcoes
         this.setVisible(true);//torna-o visivel
     }
-
+    
 }
