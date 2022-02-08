@@ -19,14 +19,11 @@ public class Banco {
         Scanner teclado = new Scanner(System.in);
 
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
-        
-        Cliente c = new Cliente("Gabriel", "13253329682", "06112000", "Estudante", "Mg18765432", "98868281", new Endereco("Jf", "Barao", "JG", "36015040", 23, 302));
-        String json = JSON.toJSON(c);
-        System.out.println("json = "+json);
-        
+        Menu tela = new Menu();
+        tela.mostraMenu();
 //        System.out.println("Vamos fazer seu cadastro: ");
-//       if (opc==1)
-//       {
+//        if (opc==1)
+//        {
 //            pessoaf=new PessoaFisica();
 //            System.out.println("Qual seu nome: ");
 //            pessoaf.setNome(teclado.nextLine());
@@ -49,10 +46,10 @@ public class Banco {
 //            pessoaf.setEndereco(new Endereco(cidade,rua,  bairro, cep, num, comp));
 //            System.out.println("Qual a senha para acesso: ");
 //            setSenha(teclado.next());
-//       }
-//           
-//       else
-//       {
+//        }
+//
+//        else
+//        {
 //            pessoaj= new PessoaJuridica(); 
 //            System.out.println("Qual seu nome: ");
 //            pessoaj.setNome(teclado.nextLine());
@@ -73,14 +70,13 @@ public class Banco {
 //            pessoaj.setEndereco(new Endereco(cidade,rua,  bairro, cep, num, comp));
 //            System.out.println("Qual a senha para acesso: ");
 //            setSenha(teclado.next());
-//       }
+//        }
 //        Cartao car = new Cartao();
 //        boolean continuar = true;
 //        Menu menu = new Menu();
 //        menu.montaMenu();
 //        menu.mostraMenu();
 //        while (continuar) {
-//
 //            System.out.println("Bem vindo! Já tem cadastro? ");
 //            System.out.println("1-Sim\n2-Não");
 //            int cad = teclado.nextInt();
