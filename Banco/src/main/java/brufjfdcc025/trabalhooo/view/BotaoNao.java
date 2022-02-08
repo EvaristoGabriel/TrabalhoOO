@@ -1,18 +1,14 @@
 package brufjfdcc025.trabalhooo.view;
 
-import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import org.graalvm.compiler.nodes.NodeView;
 
-public class BotaoSim implements ActionListener{
+public class BotaoNao implements ActionListener{
 
     private final Menu tela;
 
-    public BotaoSim(Menu tela) {
+    public BotaoNao(Menu tela) {
         this.tela = tela;
     }
     
@@ -20,13 +16,12 @@ public class BotaoSim implements ActionListener{
     public void actionPerformed(ActionEvent event) {
         try{
            tela.painel.setVisible(false);
-           tela.menuLogin();
+           tela.menuCadastra();
            tela.repaint();   
         }catch(Exception e){
             JOptionPane.showMessageDialog(tela, "Deu ruim!");
             tela.painel.setVisible(true);
         }
-        
     }
     
 }

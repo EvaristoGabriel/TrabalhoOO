@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import static javax.swing.border.TitledBorder.LEFT;
 
 /**
@@ -25,7 +26,7 @@ public class Menu extends JFrame {
    JList<Cliente> listaClientes;
    // JFrame frame;
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelLogin, painelOperacoes;
+    JPanel painel, painelRegistro, painelOperacoes;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
     JTextField jNome;
@@ -49,12 +50,85 @@ public class Menu extends JFrame {
     JTextField jSaque;
     JTextField jEmprestimo;    
 
-    private void menuInicial() {
+    public void menuPossuiConta(){
+        JPanel painelPossuiConta = new JPanel();
+        painelPossuiConta.setLayout(new GridLayout(0,1,10,10));
+        JLabel pergunta = new JLabel("Já possui uma conta?");
+        
+        JPanel painelBotoes = new JPanel();
+        painelBotoes.setLayout(new GridLayout(0,1,10,10));
+        JButton btSim = new JButton("Sim");
+        btSim.addActionListener(new BotaoSim(this));
+        JButton btNao = new JButton("Não");
+        btNao.addActionListener(new BotaoNao(this));
+        
+        painelBotoes.add(btSim);
+        painelBotoes.add(btNao);
+        
+        painelPossuiConta.add(pergunta);
+        painelPossuiConta.add(painelBotoes);
+        
+        painel.add(painelPossuiConta, BorderLayout.CENTER);
+    }
+    
+    public void menuLogin(){
+        JPanel painelLogin = new JPanel();
+        painelLogin.setVisible(true);
+        JPanel label = new JPanel();
+        label.setLayout(new GridLayout(0,1,10,10));
+        JLabel cpf = new JLabel("CPF/CNPJ:");
+        label.add(cpf);
+        JLabel senha = new JLabel("Senha:");
+        label.add(senha);
+        
+        painelLogin.add(label);
+        
+        JPanel campos = new JPanel();
+        campos.setLayout(new GridLayout(0,1,10,10));
+        JTextField jtCpf = new JTextField(TAMANHO);
+        campos.add(jtCpf);
+        JTextField jtSenha = new JTextField(TAMANHO);
+        campos.add(jtSenha);
+        
+        painelLogin.add(campos);
+        
+        JPanel painelBotoes = new JPanel();
+        JButton btEntrar = new JButton("Entrar");
+        //btEntrar.addActionListener(new BotaoEntrar(this));
+        painelBotoes.add(btEntrar);
+        
+        painelLogin.add(painelBotoes);
+        
+        this.add(painelLogin, BorderLayout.CENTER);
+    }
+    
+    public void menuPerguntaPessoa(){
+        JPanel PerguntaPessoa = new JPanel();
+        PerguntaPessoa.setLayout(new GridLayout(0,1,10,10));
+        JLabel pergunta = new JLabel("Que tipo de pessoa você é: ");
+        
+        JPanel painelBotoes = new JPanel();
+        painelBotoes.setLayout(new GridLayout(0,1,10,10));
+        JButton btPFis = new JButton("Pessoa Física");
+        JButton btPJuri = new JButton("Pessoa Jurídica");
+        
+        painelBotoes.add(btPFis);
+        painelBotoes.add(btPJuri);
+        
+        PerguntaPessoa.add(pergunta);
+        PerguntaPessoa.add(painelBotoes);
+        
+        painel.add(PerguntaPessoa, BorderLayout.CENTER);
+        
+    }
+    
+    public void menuCadastra() {
           
         JPanel jpMenuInicial = new JPanel(); //painel com dados do menu
+        jpMenuInicial.setVisible(true);
         jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
         //jpMenuInicial.setLayout(new BorderLayout());
-        jpMenuInicial.setPreferredSize(new Dimension(450, 800));
+        jpMenuInicial.setSize(new Dimension(450, 800));
         jpMenuInicial.setLayout(new GridLayout(25, 5));
         
         //adiciona os labels para e as caixas de texto para da campo.
@@ -105,7 +179,7 @@ public class Menu extends JFrame {
         jTelefone = new JTextField(TAMANHO);
         jpMenuInicial.add(jTelefone);
 
-        painel.add(jpMenuInicial, BorderLayout.CENTER);
+        this.add(jpMenuInicial, BorderLayout.CENTER);
         //botao para registrar cadastro
         JPanel btnPainel = new JPanel();
         //falta fazer o action listener para ele realizar a acao.
@@ -114,18 +188,19 @@ public class Menu extends JFrame {
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
     }
     
-    private void menuOpcoes() {
+    public void menuOpcoes() {
         JPanel jpMenuOpcoes = new JPanel();
+        jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
         jpMenuOpcoes.setLayout(new BorderLayout());
-        jpMenuOpcoes.setPreferredSize(new Dimension(250, 230)); //dimensao preferida do jpane
+        //jpMenuOpcoes.setPreferredSize(new Dimension(250, 230)); //dimensao preferida do jpane
 
-        JScrollPane listaPanel = new JScrollPane();
+        //JScrollPane listaPanel = new JScrollPane();
 
         //listaClientes = new JList<>(); //lista para armazenar os clientes
        // listaPanel.add(listaClientes);
 
-        jpMenuOpcoes.add(listaPanel, BorderLayout.CENTER);
+        //jpMenuOpcoes.add(listaPanel, BorderLayout.CENTER);
        //cria os botoes para cada operacao e adiciona eles no painel
         JPanel btnPainel = new JPanel();
         JButton btnEmprestimo = new JButton("Emprestimo");
@@ -136,7 +211,7 @@ public class Menu extends JFrame {
         JButton btnPix = new JButton("PIX");
         JButton btnVerificarExtrato = new JButton("Verificar Extrato");
         JButton btnVerificarSaldo = new JButton("Verificar Saldo");
-        btnPainel.setLayout(new GridLayout(10, 5));
+        btnPainel.setLayout(new GridLayout(0, 2,10,10));
         btnPainel.add(btnEmprestimo);
         btnPainel.add(btnSaque);
         btnPainel.add(btnTransferencias);
@@ -148,57 +223,9 @@ public class Menu extends JFrame {
 
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
 
-        painelOperacoes.add(jpMenuOpcoes, BorderLayout.CENTER);
+        painel.add(jpMenuOpcoes, BorderLayout.CENTER);
     }
     
-    private void menuLogin(){
-        painelLogin = new JPanel();
-        painelLogin.setVisible(false);
-        JPanel label = new JPanel();
-        label.setLayout(new GridLayout(0,1,10,10));
-        JLabel cpf = new JLabel("CPF/CNPJ:");
-        label.add(cpf);
-        JLabel senha = new JLabel("Senha:");
-        label.add(senha);
-        
-        JPanel campos = new JPanel();
-        campos.setLayout(new GridLayout(0,1,10,10));
-        JTextField jtCpf = new JTextField(TAMANHO);
-        campos.add(jtCpf);
-        JTextField jtSenha = new JTextField(TAMANHO);
-        campos.add(jtSenha);
-        
-        JPanel painelBotoes = new JPanel();
-        JButton btEntrar = new JButton("Entrar");
-        //btEntrar.addActionListener(new BotaoEntrar(this));
-        painelBotoes.add(btEntrar);
-        
-        painel.add(label, BorderLayout.WEST);
-        painel.add(campos, BorderLayout.CENTER);
-        painel.add(painelBotoes, BorderLayout.SOUTH);
-        
-    }
-    
-    private void menuPossuiConta(){
-        JPanel painelPossuiConta = new JPanel();
-        painelPossuiConta.setLayout(new GridLayout(0,1,10,10));
-        JLabel pergunta = new JLabel("Já possui uma conta?");
-        
-        JPanel painelBotoes = new JPanel();
-        painelBotoes.setLayout(new GridLayout(0,1,10,10));
-        JButton btSim = new JButton("Sim");
-        btSim.addActionListener(new BotaoSim(this));
-        JButton btNao = new JButton("Não");
-        
-        painelBotoes.add(btSim);
-        painelBotoes.add(btNao);
-        
-        painelPossuiConta.add(pergunta);
-        painelPossuiConta.add(painelBotoes);
-        
-        painel.add(painelPossuiConta, BorderLayout.CENTER);
-    }
-
     private void configuraClientes() {
         //frame = new JFrame();
         painel = new JPanel();
@@ -217,18 +244,11 @@ public class Menu extends JFrame {
          this.painelOperacoes.setLayout(new BorderLayout());
     }
 
-    public void montaMenu() {
-        //chama os metodos para configurar o menu
-        configuraMenu();
-        configuraClientes();
-        menuInicial();
-        menuOpcoes();
-        mostraMenu();
-    }
-
     public void mostraMenu() {
         this.setSize(500,600);
         this.setVisible(true);
+        this.setPreferredSize(new Dimension(500, 300));
+        
         
         //this.addWindowListener(new AtualizaDados(this));
         
