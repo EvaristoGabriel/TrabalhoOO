@@ -26,7 +26,7 @@ public class Menu extends JFrame {
    JList<Cliente> listaClientes;
    // JFrame frame;
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes;
+    JPanel painel, painelRegistro, painelOperacoes,painelLogin, painelPossuiConta;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
     JTextField jNome;
@@ -51,7 +51,8 @@ public class Menu extends JFrame {
     JTextField jEmprestimo;    
 
     public void menuPossuiConta(){
-        JPanel painelPossuiConta = new JPanel();
+        painelPossuiConta = new JPanel();
+        painelPossuiConta.setVisible(true);
         painelPossuiConta.setLayout(new GridLayout(0,1,10,10));
         JLabel pergunta = new JLabel("Já possui uma conta?");
         
@@ -72,7 +73,7 @@ public class Menu extends JFrame {
     }
     
     public void menuLogin(){
-        JPanel painelLogin = new JPanel();
+        painelLogin = new JPanel();
         painelLogin.setVisible(true);
         JPanel label = new JPanel();
         label.setLayout(new GridLayout(0,1,10,10));
@@ -252,7 +253,7 @@ public class Menu extends JFrame {
         
         //this.addWindowListener(new AtualizaDados(this));
         
-        this.painel = new JPanel();
+        painel = new JPanel();
         
         //this.painel.setLayout(new BorderLayout());
         
