@@ -2,7 +2,7 @@ package brufjfdcc025.trabalhooo;
 
 import brufjfdcc025.trabalhooo.arq.Arquivo;
 import brufjfdcc025.trabalhooo.arq.JSON;
-import brufjfdcc025.trabalhooo.menu.Menu;
+import brufjfdcc025.trabalhooo.view.Menu;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;

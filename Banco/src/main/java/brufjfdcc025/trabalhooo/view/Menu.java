@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package brufjfdcc025.trabalhooo.menu;
+package brufjfdcc025.trabalhooo.view;
 //imports do swing
 import brufjfdcc025.trabalhooo.AtualizaDados;
 import brufjfdcc025.trabalhooo.Cliente;
@@ -29,8 +24,8 @@ public class Menu extends JFrame {
 
    JList<Cliente> listaClientes;
    // JFrame frame;
-    JPanel painel;
-    JPanel painel2;
+   //painel é o painel principal
+    JPanel painel, painelRegistro, painelLogin, painelOperacoes;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
     JTextField jNome;
@@ -118,7 +113,7 @@ public class Menu extends JFrame {
         btnPainel.add(btnCadastro); //adiciona ele no formulario
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
     }
-
+    
     private void menuOpcoes() {
         JPanel jpMenuOpcoes = new JPanel();
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
@@ -153,13 +148,61 @@ public class Menu extends JFrame {
 
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
 
-        painel2.add(jpMenuOpcoes, BorderLayout.CENTER);
+        painelOperacoes.add(jpMenuOpcoes, BorderLayout.CENTER);
+    }
+    
+    private void menuLogin(){
+        painelLogin = new JPanel();
+        painelLogin.setVisible(false);
+        JPanel label = new JPanel();
+        label.setLayout(new GridLayout(0,1,10,10));
+        JLabel cpf = new JLabel("CPF/CNPJ:");
+        label.add(cpf);
+        JLabel senha = new JLabel("Senha:");
+        label.add(senha);
+        
+        JPanel campos = new JPanel();
+        campos.setLayout(new GridLayout(0,1,10,10));
+        JTextField jtCpf = new JTextField(TAMANHO);
+        campos.add(jtCpf);
+        JTextField jtSenha = new JTextField(TAMANHO);
+        campos.add(jtSenha);
+        
+        JPanel painelBotoes = new JPanel();
+        JButton btEntrar = new JButton("Entrar");
+        //btEntrar.addActionListener(new BotaoEntrar(this));
+        painelBotoes.add(btEntrar);
+        
+        painel.add(label, BorderLayout.WEST);
+        painel.add(campos, BorderLayout.CENTER);
+        painel.add(painelBotoes, BorderLayout.SOUTH);
+        
+    }
+    
+    private void menuPossuiConta(){
+        JPanel painelPossuiConta = new JPanel();
+        painelPossuiConta.setLayout(new GridLayout(0,1,10,10));
+        JLabel pergunta = new JLabel("Já possui uma conta?");
+        
+        JPanel painelBotoes = new JPanel();
+        painelBotoes.setLayout(new GridLayout(0,1,10,10));
+        JButton btSim = new JButton("Sim");
+        btSim.addActionListener(new BotaoSim(this));
+        JButton btNao = new JButton("Não");
+        
+        painelBotoes.add(btSim);
+        painelBotoes.add(btNao);
+        
+        painelPossuiConta.add(pergunta);
+        painelPossuiConta.add(painelBotoes);
+        
+        painel.add(painelPossuiConta, BorderLayout.CENTER);
     }
 
     private void configuraClientes() {
         //frame = new JFrame();
         painel = new JPanel();
-        painel2= new JPanel();
+        painelOperacoes= new JPanel();
         //frame.getContentPane().add(painel);
 
     }
@@ -170,8 +213,8 @@ public class Menu extends JFrame {
 
         this.painel = new JPanel(); //painel 1
         this.painel.setLayout(new BorderLayout()); //referencia de onde sera adicionado o painel
-        this.painel2= new JPanel(); //painel 2
-         this.painel2.setLayout(new BorderLayout());
+        painelOperacoes= new JPanel(); //painel 2
+         this.painelOperacoes.setLayout(new BorderLayout());
     }
 
     public void montaMenu() {
@@ -184,11 +227,23 @@ public class Menu extends JFrame {
     }
 
     public void mostraMenu() {
-        //this.add(painel); //adiciona menu inicial
-        this.setVisible(true); //torna-o visivel
-        //this.add(painel2);//adiciona menu opcoes
-        this.setVisible(true);//torna-o visivel
-        this.addWindowListener(new  AtualizaDados(this));
+        this.setSize(500,600);
+        this.setVisible(true);
+        
+        //this.addWindowListener(new AtualizaDados(this));
+        
+        this.painel = new JPanel();
+        
+        //this.painel.setLayout(new BorderLayout());
+        
+        menuPossuiConta();
+        
+        this.add(this.painel);
+        
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        this.pack();
+        this.setLocationRelativeTo(null);
         
         this.repaint();
     }

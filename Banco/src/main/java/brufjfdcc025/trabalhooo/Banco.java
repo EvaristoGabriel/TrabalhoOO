@@ -1,7 +1,7 @@
 package brufjfdcc025.trabalhooo;
 
 import brufjfdcc025.trabalhooo.arq.JSON;
-import brufjfdcc025.trabalhooo.menu.Menu;
+import brufjfdcc025.trabalhooo.view.Menu;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -19,6 +19,9 @@ public class Banco {
         Scanner teclado = new Scanner(System.in);
 
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
+        
+        Cliente c = new Cliente("1234", "32988628281", "Gabriel", new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, 13));
+        clientes.add(c);
         Menu tela = new Menu();
         tela.mostraMenu();
 //        System.out.println("Vamos fazer seu cadastro: ");

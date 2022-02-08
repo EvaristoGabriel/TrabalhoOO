@@ -1,6 +1,6 @@
 package brufjfdcc025.trabalhooo;
 
-import brufjfdcc025.trabalhooo.menu.Menu;
+import brufjfdcc025.trabalhooo.view.Menu;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
