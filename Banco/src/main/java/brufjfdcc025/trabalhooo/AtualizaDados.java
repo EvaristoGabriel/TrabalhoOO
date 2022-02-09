@@ -33,7 +33,7 @@ public class AtualizaDados implements WindowListener{
             for(Cliente c : clientes){
                 modelo.addElement(c);
             }
-            tela.getListaClientes().setModel(modelo);
+           // tela.getListaClientes().setModel(modelo);
             tela.repaint();
             
         } catch (Exception ex) {

@@ -1,14 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package brufjfdcc025.trabalhooo.view;
 
-/**
- *
- * @author Israel Louback
- */
-public class BotaoPagamento {
-    
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class BotaoPagamento implements ActionListener {
+
+    private final Menu tela;
+
+    public BotaoPagamento(Menu tela) {
+        this.tela = tela;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent event) {
+
+        try {
+
+        } catch (Exception e) {
+
+        }
+
+    }
+
 }

@@ -3,7 +3,7 @@ package brufjfdcc025.trabalhooo.view;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BotaoTransferencia implements ActionListener{
+public class BotaoTransferencia implements ActionListener {
 
     private final Menu tela;
 
@@ -12,14 +12,12 @@ public class BotaoTransferencia implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
-//        try{
-//            
-//        }catch(){
-//            
-//        }
-//            
+    public void actionPerformed(ActionEvent event) {
+
+        try {
+
+        } catch (Exception e) {
+        }
 //        
     }
-    }
+}

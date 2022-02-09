@@ -25,9 +25,8 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
-   JList listaClientes;
-
    Set<Cliente> clientes = new HashSet<>();
+    JList ListaClientes =new JList<>();
 
    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
@@ -99,10 +98,10 @@ public class Menu extends JFrame {
         
         JPanel campos = new JPanel();
         campos.setLayout(new GridLayout(0,1,10,10));
-        JTextField jtCpf = new JTextField(TAMANHO);
-        campos.add(jtCpf);
-        JTextField jtSenha = new JTextField(TAMANHO);
-        campos.add(jtSenha);
+        jCpf = new JTextField(TAMANHO);
+        campos.add(jCpf);
+        jSenha = new JTextField(TAMANHO);
+        campos.add(jSenha);
         
         painelLogin.add(campos);
         
@@ -533,13 +532,6 @@ public class Menu extends JFrame {
         this.jEmprestimo = jEmprestimo;
     }
 
-    public JList<Cliente> getListaClientes() {
-        return listaClientes;
-    }
-
-    public void setListaClientes(JList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
-    }
     public Set<Cliente> getClientes() {
         return clientes;
     }
@@ -547,4 +539,13 @@ public class Menu extends JFrame {
     public void setClientes(Set<Cliente> clientes) {
         this.clientes = clientes;
     }
+
+    public JList getListaClientes() {
+        return ListaClientes;
+    }
+
+    public void setListaClientes(JList ListaClientes) {
+        this.ListaClientes = ListaClientes;
+    }
+    
 }
