@@ -5,7 +5,7 @@ public class PessoaFisica extends Cliente{
     private String cpf, nascimento,ocupacao,rg;
 
     public PessoaFisica(String cpf, String nascimento, String ocupacao, String rg, String telefone, String nome, String senha, Endereco endereco) {
-        super(senha, telefone, nome, endereco);
+        super(senha, telefone, nome);
         this.cpf = cpf;
         this.nascimento = nascimento;
         this.ocupacao = ocupacao;

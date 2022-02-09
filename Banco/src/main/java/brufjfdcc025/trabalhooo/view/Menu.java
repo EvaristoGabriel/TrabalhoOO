@@ -26,7 +26,7 @@ public class Menu extends JFrame {
    JList<Cliente> listaClientes;
    // JFrame frame;
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
     JTextField jNome;
@@ -40,6 +40,7 @@ public class Menu extends JFrame {
     JTextField jNumero;
     JTextField jCep;
     JTextField jSenha;
+    JTextField jRg;
     JTextField jCnpj;
     JTextField jTransferencias;
     JTextField jPagamento;
@@ -104,6 +105,7 @@ public class Menu extends JFrame {
     }
     
     public void menuPerguntaPessoa(){
+        this.painelPossuiConta.setVisible(false);
         PerguntaPessoa  = new JPanel();
         PerguntaPessoa.setVisible(true);
         PerguntaPessoa.setLayout(new GridLayout(0,1,10,10));
@@ -112,7 +114,9 @@ public class Menu extends JFrame {
         JPanel painelBotoes = new JPanel();
         painelBotoes.setLayout(new GridLayout(0,1,10,10));
         JButton btPFis = new JButton("Pessoa Física");
+        btPFis.addActionListener(new BotaoPessoaFisica(this));
         JButton btPJuri = new JButton("Pessoa Jurídica");
+        btPJuri.addActionListener(new BotaoPessoaJuridica(this));
         
         painelBotoes.add(btPFis);
         painelBotoes.add(btPJuri);
@@ -120,13 +124,14 @@ public class Menu extends JFrame {
         PerguntaPessoa.add(pergunta);
         PerguntaPessoa.add(painelBotoes);
         
-        painel.add(PerguntaPessoa, BorderLayout.CENTER);
+        this.add(PerguntaPessoa, BorderLayout.CENTER);
         
     }
     
-    public void menuCadastra() {
-          
-       jpMenuInicial = new JPanel(); //painel com dados do menu
+    public void menuCadastraJuridica() {
+        this.PerguntaPessoa.setVisible(false);
+        
+        jpMenuInicial = new JPanel(); //painel com dados do menu
         
         jpMenuInicial.setVisible(true);
         jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
@@ -139,58 +144,124 @@ public class Menu extends JFrame {
         jNome = new JTextField(TAMANHO);
         jpMenuInicial.add(jNome);
 
-        jpMenuInicial.add(new JLabel("Data de Nascimento: "));
-        jDataNascimento = new JTextField(TAMANHO);
-        jpMenuInicial.add(jDataNascimento);
-
-        jpMenuInicial.add(new JLabel("CEP: "));
-        jCep = new JTextField(TAMANHO);
-        jpMenuInicial.add(jCep);
-
-        jpMenuInicial.add(new JLabel("CPF: "));
-        jCpf = new JTextField(TAMANHO);
-        jpMenuInicial.add(jCpf);
-
-        jpMenuInicial.add(new JLabel("Bairro: "));
-        jBairro = new JTextField(TAMANHO);
-        jpMenuInicial.add(jBairro);
-
-        jpMenuInicial.add(new JLabel("Numero: " +" (somente numeros) "));
-        jNumero = new JTextField(TAMANHO);
-        jpMenuInicial.add(jNumero);
-
-        jpMenuInicial.add(new JLabel("Complemento: "));
-        jComplemento = new JTextField(TAMANHO);
-        jpMenuInicial.add(jComplemento);
-
-        jpMenuInicial.add(new JLabel("Senha: "));
+        jpMenuInicial.add(new JLabel("Senha"));
         jSenha = new JTextField(TAMANHO);
         jpMenuInicial.add(jSenha);
-
-        //jpMenuInicial.add(new JLabel("CNPJ: "));
-        //jCnpj = new JTextField(size);
-        //jpMenuInicial.add(jCnpj);
-        jpMenuInicial.add(new JLabel("Cidade: "));
-        jCidade = new JTextField(TAMANHO);
-        jpMenuInicial.add(jCidade);
-
-        jpMenuInicial.add(new JLabel("Rua: "));
-        jRua = new JTextField(TAMANHO);
-        jpMenuInicial.add(jRua);
 
         jpMenuInicial.add(new JLabel("Telefone: "));
         jTelefone = new JTextField(TAMANHO);
         jpMenuInicial.add(jTelefone);
         
+        jpMenuInicial.add(new JLabel("CNPJ: "));
+        jCnpj = new JTextField(TAMANHO);
+        jpMenuInicial.add(jCnpj);
+        
         this.add(jpMenuInicial, BorderLayout.CENTER);
         //botao para registrar cadastro
         JPanel btnPainel = new JPanel();
         //falta fazer o action listener para ele realizar a acao.
-        JButton btnCadastro = new JButton("Realizar Cadastro");
-        btnCadastro.addActionListener(new BotaoCadastrarCliente(this));
-        btnPainel.add(btnCadastro); //adiciona ele no formulario
+        JButton btnProximo = new JButton("Próximo");
+        btnProximo.addActionListener(new BotaoProximoFisico(this));
+        btnPainel.add(btnProximo); //adiciona ele no formulario
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
        
+    }
+    
+    public void menuCadastraFisica() {
+        this.PerguntaPessoa.setVisible(false);
+      
+        jpMenuInicial = new JPanel(); //painel com dados do menu
+        
+        jpMenuInicial.setVisible(true);
+        jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
+        //jpMenuInicial.setLayout(new BorderLayout());
+        jpMenuInicial.setSize(new Dimension(450, 800));
+        jpMenuInicial.setLayout(new GridLayout(25, 5));
+        
+        //adiciona os labels para e as caixas de texto para da campo.
+        //cpf, nascimento,ocupacao,rg
+        jpMenuInicial.add(new JLabel("Nome: "));
+        jNome = new JTextField(TAMANHO);
+        jpMenuInicial.add(jNome);
+
+        jpMenuInicial.add(new JLabel("Senha"));
+        jSenha = new JTextField(TAMANHO);
+        jpMenuInicial.add(jSenha);
+
+        jpMenuInicial.add(new JLabel("Telefone: "));
+        jTelefone = new JTextField(TAMANHO);
+        jpMenuInicial.add(jTelefone);
+        
+        jpMenuInicial.add(new JLabel("CPF: "));
+        jCpf = new JTextField(TAMANHO);
+        jpMenuInicial.add(jCpf);
+        
+        jpMenuInicial.add(new JLabel("Ocupação: "));
+        jCpf = new JTextField(TAMANHO);
+        jpMenuInicial.add(jCpf);
+        
+        jpMenuInicial.add(new JLabel("Nascimento: "));
+        jDataNascimento = new JTextField(TAMANHO);
+        jpMenuInicial.add(jDataNascimento);
+        
+        jpMenuInicial.add(new JLabel("RG: "));
+        jRg = new JTextField(TAMANHO);
+        jpMenuInicial.add(jRg);
+        
+        this.add(jpMenuInicial, BorderLayout.CENTER);
+        //botao para registrar cadastro
+        JPanel btnPainel = new JPanel();
+        //falta fazer o action listener para ele realizar a acao.
+        JButton btnProximo = new JButton("Próximo");
+        btnProximo.addActionListener(new BotaoProximoFisico(this));
+        btnPainel.add(btnProximo); //adiciona ele no formulario
+        jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
+       
+    }
+    
+    public void menuCadastraEndereco(){
+        this.jpMenuInicial.setVisible(false);
+        
+        jpMenuEndereco = new JPanel();
+        jpMenuEndereco.setVisible(true);
+        jpMenuEndereco.setBorder(BorderFactory.createTitledBorder("ENDEREÇO"));
+        jpMenuEndereco.setSize(new Dimension(450, 800));
+        jpMenuEndereco.setLayout(new GridLayout(25, 5));
+        
+        
+        jpMenuEndereco.add(new JLabel("CEP: "));
+        jCep = new JTextField(TAMANHO);
+        jpMenuEndereco.add(jCep);
+
+        jpMenuEndereco.add(new JLabel("Bairro: "));
+        jBairro = new JTextField(TAMANHO);
+        jpMenuEndereco.add(jBairro);
+
+        jpMenuEndereco.add(new JLabel("Numero: " +" (somente numeros) "));
+        jNumero = new JTextField(TAMANHO);
+        jpMenuEndereco.add(jNumero);
+
+        jpMenuEndereco.add(new JLabel("Complemento: "));
+        jComplemento = new JTextField(TAMANHO);
+        jpMenuEndereco.add(jComplemento);
+
+        jpMenuEndereco.add(new JLabel("Cidade: "));
+        jCidade = new JTextField(TAMANHO);
+        jpMenuEndereco.add(jCidade);
+
+        jpMenuEndereco.add(new JLabel("Rua: "));
+        jRua = new JTextField(TAMANHO);
+        jpMenuEndereco.add(jRua);
+        
+        JPanel btnPainel = new JPanel();
+        //falta fazer o action listener para ele realizar a acao.
+        JButton btnCadastro = new JButton("Realizar Cadastro");
+        btnCadastro.addActionListener(new BotaoCadastrarCliente(this));
+        btnPainel.add(btnCadastro);
+        
+        jpMenuEndereco.add(btnPainel);
+        
+        this.add(jpMenuEndereco, BorderLayout.CENTER);
     }
     
     public void menuOpcoes() {

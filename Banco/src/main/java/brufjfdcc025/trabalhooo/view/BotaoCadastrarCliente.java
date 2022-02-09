@@ -21,9 +21,10 @@ public class BotaoCadastrarCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         try {
-            int x = Integer.parseInt(tela.getjNumero().getText());
-            tela.jpMenuInicial.setVisible(false);
+            //int x = Integer.parseInt(tela.getjNumero().getText());
+            //Cadastrar o cliente na lista de clientes
             JOptionPane.showMessageDialog(tela, "Cadastro realizado!");
+            tela.jpMenuInicial.setVisible(false);
             tela.menuLogin();
             tela.repaint();
 

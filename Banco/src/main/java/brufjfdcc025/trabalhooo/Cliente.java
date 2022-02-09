@@ -10,11 +10,11 @@ public class Cliente {
     private Endereco endereco;
     //private Scanner teclado = new Scanner(System.in);
 
-    public Cliente(String senha, String telefone, String nome, Endereco endereco) {
+    public Cliente(String senha, String telefone, String nome) {
         this.senha = senha;
         this.telefone = telefone;
         this.nome = nome;
-        this.endereco = endereco;
+        //this.endereco = endereco;
     }
     
     
