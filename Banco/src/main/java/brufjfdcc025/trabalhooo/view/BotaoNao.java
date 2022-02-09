@@ -16,7 +16,7 @@ public class BotaoNao implements ActionListener{
     public void actionPerformed(ActionEvent event) {
         try{
            tela.painel.setVisible(false);
-           tela.menuCadastra();
+           tela.menuPerguntaPessoa();
            tela.repaint();   
         }catch(Exception e){
             JOptionPane.showMessageDialog(tela, "Deu ruim!");

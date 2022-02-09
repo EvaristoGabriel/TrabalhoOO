@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import org.graalvm.compiler.nodes.NodeView;
+//import org.graalvm.compiler.nodes.NodeView;
 
 public class BotaoSim implements ActionListener{
 

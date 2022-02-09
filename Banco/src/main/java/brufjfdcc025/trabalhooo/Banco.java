@@ -1,6 +1,6 @@
 package brufjfdcc025.trabalhooo;
 
-import brufjfdcc025.trabalhooo.arq.JSON;
+import brufjfdcc025.trabalhooo.control.JSON;
 import brufjfdcc025.trabalhooo.view.Menu;
 import java.util.HashSet;
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class Banco {
 
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
         
-        Cliente c = new Cliente("1234", "32988628281", "Gabriel", new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, 13));
+        Cliente c = new Cliente("1234", "32988628281", "Gabriel", new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, "13"));
         clientes.add(c);
         Menu tela = new Menu();
         tela.mostraMenu();

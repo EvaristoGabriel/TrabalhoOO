@@ -1,4 +1,4 @@
-package brufjfdcc025.trabalhooo.arq;
+package brufjfdcc025.trabalhooo.control;
 
 import brufjfdcc025.trabalhooo.Cliente;
 import com.google.gson.Gson;

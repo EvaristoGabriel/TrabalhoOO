@@ -2,10 +2,10 @@ package brufjfdcc025.trabalhooo;
 
 public class Endereco {
     //rua, bairro, numero, cep, complemento
-    private String cidade, rua, bairro, cep;
-    private int numero, complemento;
+    private String cidade, rua, bairro, cep, complemento;
+    private int numero;
 
-    public Endereco(String cidade, String rua, String bairro, String cep, int numero, int complemento) {
+    public Endereco(String cidade, String rua, String bairro, String cep, int numero, String complemento) {
         this.cidade = cidade;
         this.rua = rua;
         this.bairro = bairro;
@@ -54,11 +54,11 @@ public class Endereco {
         this.numero = numero;
     }
 
-    public int getComplemento() {
+    public String getComplemento() {
         return complemento;
     }
 
-    public void setComplemento(int complemento) {
+    public void setComplemento(String complemento) {
         this.complemento = complemento;
     }
 
