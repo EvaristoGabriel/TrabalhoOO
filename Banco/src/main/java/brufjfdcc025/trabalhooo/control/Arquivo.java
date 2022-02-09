@@ -1,4 +1,4 @@
-package brufjfdcc025.trabalhooo.arq;
+package brufjfdcc025.trabalhooo.control;
 
 import java.io.BufferedWriter;
 import java.io.File;
