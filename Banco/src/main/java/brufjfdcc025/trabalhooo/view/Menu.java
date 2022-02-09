@@ -29,7 +29,7 @@ public class Menu extends JFrame {
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
 
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
@@ -230,22 +230,6 @@ public class Menu extends JFrame {
        
     }
 
-    public JTextField getjOcupacao() {
-        return jOcupacao;
-    }
-
-    public void setjOcupacao(JTextField jOcupacao) {
-        this.jOcupacao = jOcupacao;
-    }
-
-    public JTextField getjRg() {
-        return jRg;
-    }
-
-    public void setjRg(JTextField jRg) {
-        this.jRg = jRg;
-    }
-    
     public void menuCadastraEndereco(){
         this.jpMenuInicial.setVisible(false);
         
@@ -292,7 +276,9 @@ public class Menu extends JFrame {
     }
     
     public void menuOpcoes() {
-        JPanel jpMenuOpcoes = new JPanel();
+//        painelLogin.setVisible(false);
+        
+        jpMenuOpcoes = new JPanel();
         jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
         jpMenuOpcoes.setLayout(new BorderLayout());
@@ -325,8 +311,16 @@ public class Menu extends JFrame {
         btnPainel.add(btnVerificarSaldo);
 
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
+        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this));
+        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
+       // btnPix.addActionListener(new BotaoVerificarExtrato(this));
+        btnTransferencias.addActionListener(new BotaoTransferencia(this));
+        btnPagamento.addActionListener(new BotaoPagamento(this));
+        btnDeposito.addActionListener(new BotaoDeposito(this));
+        btnSaque.addActionListener(new BotaoSaque(this));
+        btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
 
-        painel.add(jpMenuOpcoes, BorderLayout.CENTER);
+        this.add(jpMenuOpcoes, BorderLayout.CENTER);
     }
     
     private void configuraClientes() {
@@ -548,4 +542,19 @@ public class Menu extends JFrame {
         this.ListaClientes = ListaClientes;
     }
     
+        public JTextField getjOcupacao() {
+        return jOcupacao;
+    }
+
+    public void setjOcupacao(JTextField jOcupacao) {
+        this.jOcupacao = jOcupacao;
+    }
+
+    public JTextField getjRg() {
+        return jRg;
+    }
+
+    public void setjRg(JTextField jRg) {
+        this.jRg = jRg;
+    }
 }
