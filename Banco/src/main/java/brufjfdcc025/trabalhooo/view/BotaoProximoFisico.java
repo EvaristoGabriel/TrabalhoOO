@@ -1,6 +1,7 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.Cliente;
+import brufjfdcc025.trabalhooo.PessoaFisica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -21,11 +22,14 @@ public class BotaoProximoFisico implements ActionListener {
         
         try{
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
-                    tela.getjNome().getText().isEmpty()){
+                    tela.getjNome().getText().isEmpty() || tela.getjOcupacao().getText().isEmpty() ||
+                    tela.getjRg().getText().isEmpty() || tela.getjCpf().getText().isEmpty()){
                 int x = 100/0;
             }
-            Cliente cliente = new Cliente(tela.getjSenha().getText(), tela.getjTelefone().getText(),
-                    tela.getjNome().getText());
+            PessoaFisica cliente = new PessoaFisica(tela.getjCpf().getText(), tela.getjDataNascimento().getText(),
+                                                    tela.getjOcupacao().getText(), tela.getjRg().getText(),
+                                                    tela.getjTelefone().getText(), tela.getjNome().getText(),
+                                                    tela.getjSenha().getText());
             modelo.addElement(cliente);
             tela.menuCadastraEndereco();
             tela.repaint(); 

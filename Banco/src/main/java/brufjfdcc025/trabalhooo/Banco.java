@@ -19,10 +19,9 @@ public class Banco {
         Scanner teclado = new Scanner(System.in);
 
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
-        
-        Cliente c = new Cliente("1234", "32988628281", "Gabriel");//, new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, "13"));
+        PessoaFisica c = new PessoaFisica("12345678984", "06081999", "advogado", "MG187654894", "329889565487", "Gerivaldo", "1234");//, new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, "13"));
         clientes.add(c);
-        Menu tela = new Menu();
+        Menu tela = new Menu(clientes);
         tela.mostraMenu();
 //        System.out.println("Vamos fazer seu cadastro: ");
 //        if (opc==1)

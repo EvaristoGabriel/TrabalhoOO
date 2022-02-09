@@ -4,7 +4,7 @@ import brufjfdcc025.trabalhooo.view.Menu;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class Cliente {
+public abstract class Cliente {
     private String senha;
     private String telefone, nome;
     private Endereco endereco;

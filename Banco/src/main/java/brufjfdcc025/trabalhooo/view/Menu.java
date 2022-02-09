@@ -5,6 +5,8 @@ import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,33 +25,39 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
-   JList<Cliente> listaClientes;
-   // JFrame frame;
+   Set<Cliente> clientes = new HashSet<>();
+
    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
+
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
-    JTextField jNome;
+    JTextField jBairro;
+    JTextField jCep;
+    JTextField jCidade;
+    JTextField jCnpj;
+    JTextField jComplemento;
     JTextField jCpf;
     JTextField jDataNascimento;
-    JTextField jTelefone;
-    JTextField jCidade;
-    JTextField jBairro;
-    JTextField jRua;
-    JTextField jComplemento;
-    JTextField jNumero;
-    JTextField jCep;
-    JTextField jSenha;
-    JTextField jRg;
-    JTextField jCnpj;
-    JTextField jTransferencias;
-    JTextField jPagamento;
     JTextField jDeposito;
+    JTextField jEmprestimo;    
+    JTextField jNome;
+    JTextField jNumero;
+    JTextField jOcupacao;
+    JTextField jPagamento;
     JTextField jPix;
+    JTextField jRg;
+    JTextField jRua;
+    JTextField jSaque;
+    JTextField jSenha;
+    JTextField jTelefone;
+    JTextField jTransferencias;
     JTextField jVerificarExtrato;
     JTextField jVerificarSaldo;
-    JTextField jSaque;
-    JTextField jEmprestimo;    
+
+    public Menu(Set<Cliente> clientes) {
+        this.clientes = clientes;
+    }
 
     public void menuPossuiConta(){
         painelPossuiConta = new JPanel();
@@ -74,6 +82,10 @@ public class Menu extends JFrame {
     }
     
     public void menuLogin(){
+        
+        //this.jpMenuEndereco.setVisible(false);
+        for(Cliente c : clientes)
+            System.out.println(c.toString());
         painelLogin = new JPanel();
         painelLogin.setVisible(true);
         JPanel label = new JPanel();
@@ -96,7 +108,7 @@ public class Menu extends JFrame {
         
         JPanel painelBotoes = new JPanel();
         JButton btEntrar = new JButton("Entrar");
-        //btEntrar.addActionListener(new BotaoEntrar(this));
+        btEntrar.addActionListener(new BotaoEntrar(this));
         painelBotoes.add(btEntrar);
      
         painelLogin.add(painelBotoes);
@@ -161,7 +173,7 @@ public class Menu extends JFrame {
         JPanel btnPainel = new JPanel();
         //falta fazer o action listener para ele realizar a acao.
         JButton btnProximo = new JButton("Próximo");
-        btnProximo.addActionListener(new BotaoProximoFisico(this));
+        btnProximo.addActionListener(new BotaoProximoJuridico(this));
         btnPainel.add(btnProximo); //adiciona ele no formulario
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
        
@@ -197,8 +209,8 @@ public class Menu extends JFrame {
         jpMenuInicial.add(jCpf);
         
         jpMenuInicial.add(new JLabel("Ocupação: "));
-        jCpf = new JTextField(TAMANHO);
-        jpMenuInicial.add(jCpf);
+        jOcupacao = new JTextField(TAMANHO);
+        jpMenuInicial.add(jOcupacao);
         
         jpMenuInicial.add(new JLabel("Nascimento: "));
         jDataNascimento = new JTextField(TAMANHO);
@@ -217,6 +229,22 @@ public class Menu extends JFrame {
         btnPainel.add(btnProximo); //adiciona ele no formulario
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
        
+    }
+
+    public JTextField getjOcupacao() {
+        return jOcupacao;
+    }
+
+    public void setjOcupacao(JTextField jOcupacao) {
+        this.jOcupacao = jOcupacao;
+    }
+
+    public JTextField getjRg() {
+        return jRg;
+    }
+
+    public void setjRg(JTextField jRg) {
+        this.jRg = jRg;
     }
     
     public void menuCadastraEndereco(){
@@ -505,11 +533,12 @@ public class Menu extends JFrame {
         this.jEmprestimo = jEmprestimo;
     }
 
-    public JList<Cliente> getListaClientes() {
-        return listaClientes;
+    public Set<Cliente> getClientes() {
+        return clientes;
     }
 
-    public void setListaClientes(JList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
+    public void setClientes(Set<Cliente> clientes) {
+        this.clientes = clientes;
     }
+
 }

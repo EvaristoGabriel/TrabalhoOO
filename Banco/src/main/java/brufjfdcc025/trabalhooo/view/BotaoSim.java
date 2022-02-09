@@ -17,8 +17,9 @@ public class BotaoSim implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent event) {
         try{
-           tela.menuLogin();
-           tela.repaint();   
+            tela.painel.setVisible(false);
+            tela.menuLogin();
+            tela.repaint();   
         }catch(Exception e){
             JOptionPane.showMessageDialog(tela, "Deu ruim!");
             tela.painel.setVisible(true);

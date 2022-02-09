@@ -1,6 +1,7 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.Cliente;
+import brufjfdcc025.trabalhooo.PessoaJuridica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
@@ -20,11 +21,11 @@ public class BotaoProximoJuridico implements ActionListener {
         
         try{
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
-                    tela.getjNome().getText().isEmpty()){
+                    tela.getjNome().getText().isEmpty() || tela.getjCnpj().getText().isEmpty()){
                 int x = 100/0;
             }
-            Cliente cliente = new Cliente(tela.getjSenha().getText(), tela.getjTelefone().getText(),
-                    tela.getjNome().getText());
+            PessoaJuridica cliente = new PessoaJuridica(tela.getjCnpj().getText(), tela.getjTelefone().getText(),
+                    tela.getjNome().getText(),tela.getjSenha().getText());
             modelo.addElement(cliente);
             tela.menuCadastraEndereco();
             tela.repaint(); 
@@ -33,6 +34,6 @@ public class BotaoProximoJuridico implements ActionListener {
         }
             
         
-    }{
+    }
     
 }
