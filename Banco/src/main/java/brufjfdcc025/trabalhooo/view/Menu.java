@@ -26,6 +26,7 @@ import static javax.swing.border.TitledBorder.LEFT;
 public class Menu extends JFrame {
 
    Set<Cliente> clientes = new HashSet<>();
+    JList ListaClientes =new JList<>();
 
    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
@@ -540,5 +541,15 @@ public class Menu extends JFrame {
     public void setClientes(Set<Cliente> clientes) {
         this.clientes = clientes;
     }
+
+    public JList getListaClientes() {
+        return ListaClientes;
+    }
+
+    public void setListaClientes(JList ListaClientes) {
+        this.ListaClientes = ListaClientes;
+    }
+    
+    
 
 }
