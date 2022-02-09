@@ -230,7 +230,7 @@ public class Menu extends JFrame {
        
     }
 
-    public void menuCadastraEndereco(){
+    public void menuCadastraEndereco(String nome){
         this.jpMenuInicial.setVisible(false);
         
         jpMenuEndereco = new JPanel();
@@ -267,7 +267,7 @@ public class Menu extends JFrame {
         JPanel btnPainel = new JPanel();
         //falta fazer o action listener para ele realizar a acao.
         JButton btnCadastro = new JButton("Realizar Cadastro");
-        btnCadastro.addActionListener(new BotaoCadastrarCliente(this));
+        btnCadastro.addActionListener(new BotaoCadastrarCliente(this, nome));
         btnPainel.add(btnCadastro);
         
         jpMenuEndereco.add(btnPainel);
@@ -339,12 +339,29 @@ public class Menu extends JFrame {
         this.setPreferredSize(new Dimension(500, 300));
         
         
-        //this.addWindowListener(new AtualizaDados(this));
+        this.addWindowListener(new AtualizaDados(this));
+        
+        for(Cliente c: clientes)
+            System.out.println(c);
         
         painel = new JPanel();
         
         //this.painel.setLayout(new BorderLayout());
-        
+        /*"nascimento": "06081999",
+        "ocupacao": "advogado",
+        "rg": "MG187654894",
+        "senha": "1234",
+        "telefone": "329889565487",
+        "nome": "Gerivaldo",
+        "cpfcnpj": "12",
+        "endereco": {
+            "cidade": "JF",
+            "rua": "Rio Branco",
+            "bairro": "Centro",
+            "cep": "3698788",
+            "complemento": "13",
+            "numero": 102
+        }*/
         menuPossuiConta();
         
         this.add(this.painel);

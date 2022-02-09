@@ -69,7 +69,7 @@ public abstract class Cliente {
 
     @Override
     public String toString() {
-        return "Nome: " + this.nome + "\nTelefone: " + this.telefone + "\nEndereco: " + this.endereco;
+        return this.nome ;
     }
     
     

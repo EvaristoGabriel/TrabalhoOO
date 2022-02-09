@@ -26,8 +26,11 @@ public class BotaoProximoJuridico implements ActionListener {
             }
             PessoaJuridica cliente = new PessoaJuridica(tela.getjCnpj().getText(), tela.getjTelefone().getText(),
                     tela.getjNome().getText(),tela.getjSenha().getText());
+            
             modelo.addElement(cliente);
-            tela.menuCadastraEndereco();
+            tela.getListaClientes().setModel(modelo);
+            tela.getClientes().add(cliente);
+            tela.menuCadastraEndereco(tela.getjNome().getText());
             tela.repaint(); 
         }catch(ArithmeticException e){
             JOptionPane.showMessageDialog(tela, "Não deixe campos vazios");

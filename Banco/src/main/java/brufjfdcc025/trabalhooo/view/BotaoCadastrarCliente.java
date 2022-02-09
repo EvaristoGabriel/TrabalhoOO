@@ -24,9 +24,11 @@ public class BotaoCadastrarCliente implements ActionListener {
     private final Menu tela;
     Set<Cliente> clientes;
     private static final String caminho = "dados.json";
+    String nome;
 
-    public BotaoCadastrarCliente(Menu tela) {
+    public BotaoCadastrarCliente(Menu tela, String nome) {
         this.tela = tela;
+        this.nome = nome;
     }
 
     @Override
@@ -37,21 +39,24 @@ public class BotaoCadastrarCliente implements ActionListener {
                     tela.getjBairro().getText(), tela.getjCep().getText(),
                     Integer.parseInt(tela.getjNumero().getText()),
                     tela.getjComplemento().getText());
-            //arrumar um jeito de colocar o endereço no cliente
-
+            for(Cliente c : tela.getClientes())
+            {
+               if(c.getNome().equals(nome)){
+                   c.setEndereco(end);
+                   System.out.println(c);
+               }
+            }
             JOptionPane.showMessageDialog(tela, "Cadastro realizado!");
             String json = JSON.toJSON(clientes);
             Arquivo.escreverArquivo(caminho, json);
-            tela.painel.setVisible(false);
+            tela.jpMenuEndereco.setVisible(false);
             tela.menuLogin();
             tela.repaint();
 
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(tela, "Nao foi possivel realizar o cadastro. Um ou mais campo preenchido incorretamente!");
             tela.painel.setVisible(false);
             tela.repaint();
-        } catch (IOException ex) {
-            Logger.getLogger(BotaoCadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
 }

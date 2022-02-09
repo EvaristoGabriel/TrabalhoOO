@@ -28,15 +28,13 @@ public class AtualizaDados implements WindowListener{
             String dados = Arquivo.lerArquivo(caminho);
             Set<Cliente> clientes = JSON.toClientes(dados);
             
-            DefaultListModel<Cliente> modelo = new DefaultListModel<>();
-            
             for(Cliente c : clientes){
-                modelo.addElement(c);
+                tela.getClientes().add(c);
             }
-           // tela.getListaClientes().setModel(modelo);
             tela.repaint();
             
         } catch (Exception ex) {
+            System.out.println(ex);
             JOptionPane.showMessageDialog(tela, "Não foi possível ler os dados!", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
