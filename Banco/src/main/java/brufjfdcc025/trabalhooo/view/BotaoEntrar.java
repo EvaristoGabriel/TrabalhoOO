@@ -19,8 +19,16 @@ public class BotaoEntrar implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent event) {
         try{
-            for(Cliente c : clientes)
-                System.out.println(c.toString());
+            for(Cliente c : tela.getClientes()){
+                System.out.println(c);
+               // System.out.println("tela.getjCpf().getText() = "+tela.getjCpf().getText());
+                System.out.println("c.getCpfcnpj() = "+c.getCpfcnpj());
+                System.out.println("tela.getjSenha().getText() = "+tela.getjSenha().getText());
+                System.out.println("c.getSenha()"+c.getSenha());
+//                if(tela.getjCpf().getText().equals(c.getCpfcnpj()) && 
+//                        tela.getjSenha().getText().equals(c.getSenha()))
+//                    JOptionPane.showMessageDialog(tela, "Bem vindo "+c.getNome()+"!");
+            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(tela, "Algo deu errado", "ERROR", JOptionPane.ERROR_MESSAGE);
         }

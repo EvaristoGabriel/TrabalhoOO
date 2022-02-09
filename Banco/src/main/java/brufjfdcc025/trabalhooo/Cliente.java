@@ -1,47 +1,16 @@
 package brufjfdcc025.trabalhooo;
 
-import brufjfdcc025.trabalhooo.view.Menu;
-import java.util.Scanner;
-import javax.swing.JOptionPane;
-
 public abstract class Cliente {
     private String senha;
-    private String telefone, nome;
+    private String telefone, nome, cpfcnpj;
     private Endereco endereco;
-    //private Scanner teclado = new Scanner(System.in);
 
     public Cliente(String senha, String telefone, String nome) {
         this.senha = senha;
         this.telefone = telefone;
         this.nome = nome;
-        //this.endereco = endereco;
     }
     
-    
-//    Menu menu= new Menu();
-//    public void menu (){
-//        System.out.println("Menu\n1)Transferência\n2)Pagamento\n3)Depósito\n4)Pix\n5)Verificar Extrato\n6)Verificar Saldo\n7)Saque\n8)Empréstimo");
-//        int x=teclado.nextInt();
-//        switch(x){
-//            case 1: 
-//                break;
-//            case 2:
-//                break;
-//            case 3:
-//                break;
-//            case 4:
-//                break;
-//            case 5:
-//                break;
-//            case 6:
-//                break;
-//            case 7:
-//                break;
-//            case 8:
-//                break;
-//        }
-//    }
-
     public String getSenha() {
         return senha;
     }
@@ -76,6 +45,14 @@ public abstract class Cliente {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getCpfcnpj() {
+        return cpfcnpj;
+    }
+
+    public void setCpfcnpj(String cpfcnpj) {
+        this.cpfcnpj = cpfcnpj;
     }
 
     public void setNome(String nome) {
