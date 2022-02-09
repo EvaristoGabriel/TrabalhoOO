@@ -230,22 +230,6 @@ public class Menu extends JFrame {
        
     }
 
-    public JTextField getjOcupacao() {
-        return jOcupacao;
-    }
-
-    public void setjOcupacao(JTextField jOcupacao) {
-        this.jOcupacao = jOcupacao;
-    }
-
-    public JTextField getjRg() {
-        return jRg;
-    }
-
-    public void setjRg(JTextField jRg) {
-        this.jRg = jRg;
-    }
-    
     public void menuCadastraEndereco(){
         this.jpMenuInicial.setVisible(false);
         
@@ -292,6 +276,8 @@ public class Menu extends JFrame {
     }
     
     public void menuOpcoes() {
+//        painelLogin.setVisible(false);
+        
         JPanel jpMenuOpcoes = new JPanel();
         jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
@@ -326,7 +312,7 @@ public class Menu extends JFrame {
 
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
 
-        painel.add(jpMenuOpcoes, BorderLayout.CENTER);
+        this.add(jpMenuOpcoes, BorderLayout.CENTER);
     }
     
     private void configuraClientes() {
@@ -548,4 +534,19 @@ public class Menu extends JFrame {
         this.ListaClientes = ListaClientes;
     }
     
+        public JTextField getjOcupacao() {
+        return jOcupacao;
+    }
+
+    public void setjOcupacao(JTextField jOcupacao) {
+        this.jOcupacao = jOcupacao;
+    }
+
+    public JTextField getjRg() {
+        return jRg;
+    }
+
+    public void setjRg(JTextField jRg) {
+        this.jRg = jRg;
+    }
 }

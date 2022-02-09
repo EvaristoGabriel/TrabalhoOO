@@ -20,7 +20,7 @@ public class Banco {
 
         Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
         
-        PessoaFisica c = new PessoaFisica("12345678984", "06081999", "advogado", "MG187654894", "329889565487", "Gerivaldo", "1234");//, new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, "13"));
+        PessoaFisica c = new PessoaFisica("12", "06081999", "advogado", "MG187654894", "329889565487", "Gerivaldo", "1234");//, new Endereco("JF", "Rio Branco", "Centro", "3698788", 102, "13"));
         clientes.add(c);
         Menu tela = new Menu(clientes);
         tela.mostraMenu();
