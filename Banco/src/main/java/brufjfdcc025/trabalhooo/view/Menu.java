@@ -29,7 +29,7 @@ public class Menu extends JFrame {
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
 
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
@@ -278,7 +278,7 @@ public class Menu extends JFrame {
     public void menuOpcoes() {
 //        painelLogin.setVisible(false);
         
-        JPanel jpMenuOpcoes = new JPanel();
+        jpMenuOpcoes = new JPanel();
         jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
         jpMenuOpcoes.setLayout(new BorderLayout());
@@ -311,6 +311,14 @@ public class Menu extends JFrame {
         btnPainel.add(btnVerificarSaldo);
 
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
+        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this));
+        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
+       // btnPix.addActionListener(new BotaoVerificarExtrato(this));
+        btnTransferencias.addActionListener(new BotaoTransferencia(this));
+        btnPagamento.addActionListener(new BotaoPagamento(this));
+        btnDeposito.addActionListener(new BotaoDeposito(this));
+        btnSaque.addActionListener(new BotaoSaque(this));
+        btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
 
         this.add(jpMenuOpcoes, BorderLayout.CENTER);
     }

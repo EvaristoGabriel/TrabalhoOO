@@ -2,11 +2,11 @@ package brufjfdcc025.trabalhooo;
 
 public class PessoaFisica extends Cliente{
     //nome, cpf, Endereço, nascimento
-    private String nascimento,ocupacao,rg;
+    private String nascimento,ocupacao,rg, cpf;
 
-    public PessoaFisica(String cpf, String nascimento, String ocupacao, String rg, String telefone, String nome, String senha){//, Endereco endereco) {
+    public PessoaFisica(String cpf, String nascimento, String ocupacao, String rg, String telefone, String nome, String senha){
         super(senha, telefone, nome);
-        this.setCpfcnpj(cpf);
+        this.cpf = cpf;
         this.nascimento = nascimento;
         this.ocupacao = ocupacao;
         this.rg = rg;
@@ -38,8 +38,21 @@ public class PessoaFisica extends Cliente{
    
     @Override
     public String toString() {
-        return "Nome: " + this.getNome() + "\nCpf: " + this.getCpfcnpj() + "\nNascimento: " + nascimento + "\nEndereco: " + this.getEndereco();
+        return "Nome: " + this.getNome() + "\nCpf: " + this.getCpf() + "\nNascimento: " + nascimento + "\nEndereco: " + this.getEndereco();
     }
-    
+
+    @Override
+    public String getTipo() {
+        return "F";
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+ 
     
 }

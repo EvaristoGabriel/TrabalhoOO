@@ -1,6 +1,8 @@
 package brufjfdcc025.trabalhooo.control;
 
 import brufjfdcc025.trabalhooo.Cliente;
+import brufjfdcc025.trabalhooo.PessoaFisica;
+import brufjfdcc025.trabalhooo.PessoaJuridica;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
@@ -24,9 +26,15 @@ public class JSON {
         return gson.toJson(clientes);
     }
     
-    public static Set<Cliente> toClientes(String json){
+    public static Set<Cliente> toPessoaFisica(String json){
         Gson gson = new Gson();
-        Type clientesType = new TypeToken<Set<Cliente>>(){}.getType();
+        Type clientesType = new TypeToken<Set<PessoaFisica>>(){}.getType();
+        return gson.fromJson(json, clientesType);
+    }
+    
+    public static Set<Cliente> toPessoaJuridica(String json){
+        Gson gson = new Gson();
+        Type clientesType = new TypeToken<Set<PessoaJuridica>>(){}.getType();
         return gson.fromJson(json, clientesType);
     }
 }

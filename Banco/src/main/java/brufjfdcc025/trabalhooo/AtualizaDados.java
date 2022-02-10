@@ -12,11 +12,12 @@ import java.util.Set;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
+import brufjfdcc025.trabalhooo.PessoaFisica;
 
 public class AtualizaDados implements WindowListener{
 
     private Menu tela;
-    private static  final String caminho = "dados.json";
+    private static  final String PessoaJuridica = "Juridica.json", PessoaFisica = "Fisica.json";
 
     public AtualizaDados(Menu tela) {
         this.tela = tela;
@@ -25,8 +26,10 @@ public class AtualizaDados implements WindowListener{
     @Override
     public void windowOpened(WindowEvent e) {
         try {
-            String dados = Arquivo.lerArquivo(caminho);
-            Set<Cliente> clientes = JSON.toClientes(dados);
+            String dados1 = Arquivo.lerArquivo(PessoaFisica);
+            String dados2 = Arquivo.lerArquivo(PessoaJuridica);
+            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
+            clientes = JSON.toPessoaJuridica(dados2);
             
             for(Cliente c : clientes){
                 tela.getClientes().add(c);
@@ -44,13 +47,23 @@ public class AtualizaDados implements WindowListener{
         try{
             ListModel<Cliente> modelo = tela.getListaClientes().getModel();
             Set<Cliente> clientes = new HashSet<>();
-
+            
             for(int i=0; i< modelo.getSize(); i++){
                 clientes.add(modelo.getElementAt(i));
             }
-
-            String toJSON = JSON.toJSON(clientes);
-            Arquivo.escreverArquivo(caminho, toJSON);
+            
+            for(Cliente c : clientes){
+                if(c.getTipo().equals("F")){
+                    String toJSON = JSON.toJSON(c);
+                    Arquivo.escreverArquivo(PessoaFisica, toJSON);
+                }
+                else{
+                    String toJSON = JSON.toJSON(c);
+                    Arquivo.escreverArquivo(PessoaJuridica, toJSON);
+                }
+            }
+                
+            
         }
         catch(IOException ex){
             JOptionPane.showMessageDialog(tela, "Não foi possível salvar os dados!", "ERROR", JOptionPane.ERROR_MESSAGE);

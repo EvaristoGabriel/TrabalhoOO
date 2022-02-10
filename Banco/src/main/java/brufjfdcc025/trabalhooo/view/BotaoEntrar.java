@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import brufjfdcc025.trabalhooo.Cliente;
+import brufjfdcc025.trabalhooo.PessoaFisica;
+import brufjfdcc025.trabalhooo.PessoaJuridica;
 
 public class BotaoEntrar implements ActionListener {
     private final Menu tela;
@@ -21,10 +23,22 @@ public class BotaoEntrar implements ActionListener {
         try{
             boolean login = false;
             for(Cliente c : tela.getClientes()){
-                if(tela.getjCpf().getText().equals(c.getCpfcnpj()) && 
+                //usar mascara para ver se é fisica ou juridica
+                if(c.getTipo().equals("F")){
+                    PessoaFisica p = (PessoaFisica) c;
+                    if(p.getCpf().equals(tela.getjCpf().getText()) && 
                         tela.getjSenha().getText().equals(c.getSenha())){
-                    JOptionPane.showMessageDialog(tela, "Bem vindo "+c.getNome()+"!");
-                    login = true;
+                        JOptionPane.showMessageDialog(tela, "Bem vindo "+c.getNome()+"!");
+                        login = true;
+                    }
+                }
+                else{
+                    PessoaJuridica p = (PessoaJuridica) c;
+                    if(p.getCnpj().equals(tela.getjCpf().getText()) && 
+                        tela.getjSenha().getText().equals(c.getSenha())){
+                        JOptionPane.showMessageDialog(tela, "Bem vindo "+c.getNome()+"!");
+                        login = true;
+                    }
                 }
             }        
             if(login != true){

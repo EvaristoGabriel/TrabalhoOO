@@ -59,44 +59,7 @@ public class Conta {
         this.saldo = saldo;
     }
     
-    public void deposito (){
-        System.out.println("Insira o valor do depósito:");
-        float val;
-        val=teclado.nextFloat();
-        extrato.add(new Extrato("Depósito",val));
-        val+=this.saldo;
-        setSaldo(val);
-        System.out.println("Depósito efetuado. Saldo atual: R$"+getSaldo());
-        
-    }
-    
-    public void getExtrato(){
-        for (Extrato e:extrato)
-            System.out.println(e.imprime());
-    }
-    
-    public void saque(){
-        float val=teclado.nextFloat();
-        
-        float val1=this.saldo-val;
-        if(val1>=0.0){    
-            setSaldo(val1);
-            extrato.add(new Extrato("Saque",val));
-            System.out.println("Saque efetuado. Saldo atual: R$"+getSaldo());
-        }
-        else
-            System.out.println("Saldo insuficiente. Saldo atual: R$"+getSaldo());
-        
-    }
-    
-    public void transferencia(){
-        String num; //numero da conta que vai ser transferido
-        float val;
-        num=teclado.next();
-        val=teclado.nextFloat();
-        
-        //procurar na lista de clientes pelo numero da conta
-    }
+   
     
     
     

@@ -2,7 +2,7 @@ package brufjfdcc025.trabalhooo;
 
 public abstract class Cliente {
     private String senha;
-    private String telefone, nome, cpfcnpj;
+    private String telefone, nome;
     private Endereco endereco;
 
     public Cliente(String senha, String telefone, String nome) {
@@ -47,14 +47,6 @@ public abstract class Cliente {
         return nome;
     }
 
-    public String getCpfcnpj() {
-        return cpfcnpj;
-    }
-
-    public void setCpfcnpj(String cpfcnpj) {
-        this.cpfcnpj = cpfcnpj;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -72,5 +64,5 @@ public abstract class Cliente {
         return this.nome ;
     }
     
-    
+    public abstract String getTipo();
 }
