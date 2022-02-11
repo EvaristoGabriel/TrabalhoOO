@@ -45,9 +45,8 @@ public class BotaoRealizaPix implements ActionListener {
             for (Cliente c : tela.getClientes()) {
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
-                    System.out.println(this.cpf);
-                    System.out.println(p.getCpf());
-                    if (p.getCpf().equals("1")) {
+                  
+                    if (p.getCpf().equals(tela.getjCpf().getText())) {
                         cpf = true;
                         p.getConta().setSaldo(valPix);
                         p.getConta().addExtrato("Pix", valPix, Calendar.getInstance().getTime());

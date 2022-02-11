@@ -11,36 +11,30 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Israel Louback
- */
-public class BotaoVoltar  implements ActionListener{
-    
-      private final Menu tela;
-      Cliente cliente;
-   
 
-    public BotaoVoltar(Menu tela, Cliente cliente) {
-      
+public class BotaoVoltarTransferencia implements ActionListener {
+
+    private final Menu tela;
+    Cliente cliente;
+
+    public BotaoVoltarTransferencia(Menu tela, Cliente cliente) {
+
         this.tela = tela;
-        this.cliente=cliente;
+        this.cliente = cliente;
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        try{
-            tela.panelPix.setVisible(false);
-            //tela.panelTransferencia.setVisible(true);
+
+        try {
+
+            tela.panelTransferencia.setVisible(false);
             tela.repaint();
             tela.menuOpcoes(cliente);
-            
-        }catch(Exception e2){
-            
+
+        } catch (Exception e2) {
+
         }
     }
-    
-    
+
 }
