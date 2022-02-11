@@ -33,7 +33,6 @@ public class BotaoVoltar  implements ActionListener{
         
         try{
             tela.panelPix.setVisible(false);
-            //tela.panelTransferencia.setVisible(true);
             tela.repaint();
             tela.menuOpcoes(cliente);
             
