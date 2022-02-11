@@ -348,12 +348,12 @@ public class Menu extends JFrame {
         
         painel = new JPanel();
         this.setSize(500,600);
-        this.setVisible(true);
+        
         this.setPreferredSize(new Dimension(500, 300));
         
         
         this.addWindowListener(new AtualizaDados(this));
-        
+        this.setVisible(true);
         for(Cliente c: clientes)
             System.out.println(c);
         
