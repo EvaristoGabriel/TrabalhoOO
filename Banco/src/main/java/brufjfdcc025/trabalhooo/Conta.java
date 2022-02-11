@@ -13,50 +13,45 @@ public class Conta {
     Scanner teclado = new Scanner(System.in);
     
     private List <Extrato> extrato;
-    private String tipo, numero, senha;
+    private String numero;
     private float saldo;
-    private Cartao cartao;
+    
+    
 
     public Conta() {
-        cartao = new Cartao();
+        
         extrato = new ArrayList<>();
     }
 
-    public String getTipo() {
-        return tipo;
-    }
+    
 
     public String getNumero() {
         return numero;
     }
 
-    public String getSenha() {
-        return senha;
-    }
+    
 
     public float getSaldo() {
         return saldo;
     }
-
-    public Cartao getCartao() {
-        return cartao;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     
-
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void addExtrato(String tipo, float valor, Date data){
+        extrato.add(new Extrato(tipo,valor,data));
+        this.saldo+=valor;
     }
     
+    public String imprimeExtrato(){
+        String imprime="";
+        for (Extrato e : extrato){
+            imprime+="\n"+e;
+            
+        }
+        imprime+="\n            Total: R$"+ this.saldo;
+        return imprime;
+    }
     
-    //funcionalidades do programa
-    
-    private void setSaldo(float saldo) {
-        this.saldo = saldo;
+    public void setSaldo(float saldo) {
+        this.saldo += saldo;
     }
     
    
@@ -64,8 +59,7 @@ public class Conta {
     
     
     /*implementar funções:
-    criar cartao
-    renovar cartao
+  
     emprestimos
     
     */

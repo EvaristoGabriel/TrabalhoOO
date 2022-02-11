@@ -26,6 +26,7 @@ public class AtualizaDados implements WindowListener{
     
     @Override
     public void windowOpened(WindowEvent e) {
+        System.out.println("AAAAAAAAAA");
         try {
             String dados1 = Arquivo.lerArquivo(PessoaFisica);
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
@@ -44,6 +45,18 @@ public class AtualizaDados implements WindowListener{
             for(Cliente c : tela.getClientes()){
                 System.out.println("C = "+c);
             }
+            
+            tela.addClientes(JSON.toPessoaFisica(dados1));
+            tela.addClientes(JSON.toPessoaJuridica(dados2));
+            System.out.println(tela.getClientes());
+//            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
+//            clientes = JSON.toPessoaJuridica(dados2);
+//            for(Cliente c : clientes){
+//                System.out.println(c); 
+//            }
+//            for(Cliente c : clientes){
+//                tela.getClientes().add(c);
+//            }
             tela.repaint();
             
         } catch (Exception ex) {

@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package brufjfdcc025.trabalhooo;
+
+import java.util.Date;
+
 /**
  *
  * @author Mari Richa
@@ -10,20 +13,31 @@ package brufjfdcc025.trabalhooo;
 public class Extrato {
     private String tipo;
     private float val;
-    //data
+    private Date data;
     
-    public Extrato(String tipo, float valor){
+    public Extrato(String tipo, float valor, Date data){
         this.tipo=tipo;
         this.val=valor;
+        this.data=data;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public float getVal() {
+        return val;
+    }
+
+    public Date getData() {
+        return data;
     }
     
-    public String imprime(){
-        return ("Tipo: "+tipo+ " Valor: R$"+ val);
-    }
+    
     
     @Override
     public String toString() {
-        return ("Tipo: "+tipo+ " Valor: R$"+ val);
+        return ("Tipo: "+tipo+ " Valor: R$"+ val +"  " + data);
     }
     
     

@@ -25,12 +25,14 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
-   Set<Cliente> clientes = new HashSet<>();
+   Set<Cliente> clientes;
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
+    
+    JButton btnVoltar;
 
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
     JTextField jBairro;
@@ -275,22 +277,14 @@ public class Menu extends JFrame {
         this.add(jpMenuEndereco, BorderLayout.CENTER);
     }
     
-    public void menuOpcoes() {
+    public void menuOpcoes(Cliente cliente) {
 //        painelLogin.setVisible(false);
         
         jpMenuOpcoes = new JPanel();
         jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
         jpMenuOpcoes.setLayout(new BorderLayout());
-        //jpMenuOpcoes.setPreferredSize(new Dimension(250, 230)); //dimensao preferida do jpane
-
-        //JScrollPane listaPanel = new JScrollPane();
-
-        //listaClientes = new JList<>(); //lista para armazenar os clientes
-       // listaPanel.add(listaClientes);
-
-        //jpMenuOpcoes.add(listaPanel, BorderLayout.CENTER);
-       //cria os botoes para cada operacao e adiciona eles no painel
+        
         JPanel btnPainel = new JPanel();
         JButton btnEmprestimo = new JButton("Emprestimo");
         JButton btnSaque = new JButton("Saque");
@@ -300,6 +294,9 @@ public class Menu extends JFrame {
         JButton btnPix = new JButton("PIX");
         JButton btnVerificarExtrato = new JButton("Verificar Extrato");
         JButton btnVerificarSaldo = new JButton("Verificar Saldo");
+        JButton btnSair = new JButton("Sair");
+        btnVoltar = new JButton ("Voltar");
+        
         btnPainel.setLayout(new GridLayout(0, 2,10,10));
         btnPainel.add(btnEmprestimo);
         btnPainel.add(btnSaque);
@@ -309,16 +306,22 @@ public class Menu extends JFrame {
         btnPainel.add(btnPix);
         btnPainel.add(btnVerificarExtrato);
         btnPainel.add(btnVerificarSaldo);
-
+       // btnPainel.add(btnSair);
+  
+        
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
-        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this));
-        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
-       // btnPix.addActionListener(new BotaoVerificarExtrato(this));
-        btnTransferencias.addActionListener(new BotaoTransferencia(this));
+        jpMenuOpcoes.add(btnSair,BorderLayout.SOUTH);
+        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this,cliente));
+        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this,cliente));
+        btnPix.addActionListener(new BotaoPix(this,cliente));
+        btnTransferencias.addActionListener(new BotaoTransferencia(this,cliente));
         btnPagamento.addActionListener(new BotaoPagamento(this));
         btnDeposito.addActionListener(new BotaoDeposito(this));
         btnSaque.addActionListener(new BotaoSaque(this));
         btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
+        btnSair.addActionListener(new BotaoSair(this));
+        
+        
 
         this.add(jpMenuOpcoes, BorderLayout.CENTER);
     }
@@ -342,6 +345,8 @@ public class Menu extends JFrame {
     }
 
     public void mostraMenu() {
+        
+        painel = new JPanel();
         this.setSize(500,600);
         this.setVisible(true);
         this.setPreferredSize(new Dimension(500, 300));
@@ -352,7 +357,7 @@ public class Menu extends JFrame {
         for(Cliente c: clientes)
             System.out.println(c);
         
-        painel = new JPanel();
+        
         
         //this.painel.setLayout(new BorderLayout());
         /*"nascimento": "06081999",
@@ -370,7 +375,11 @@ public class Menu extends JFrame {
             "complemento": "13",
             "numero": 102
         }*/
-        menuPossuiConta();
+        menuPossuiConta(); 
+//        for(Cliente c : clientes){
+//            menuOpcoes(c);
+//            break;
+//        }
         
         this.add(this.painel);
         
@@ -549,6 +558,12 @@ public class Menu extends JFrame {
 
     public void setClientes(Set<Cliente> clientes) {
         this.clientes = clientes;
+    }
+    
+    public void addClientes(Set<Cliente> clientes) {
+         for(Cliente c : clientes){
+                this.clientes.add(c);
+            }
     }
 
     public JList getListaClientes() {

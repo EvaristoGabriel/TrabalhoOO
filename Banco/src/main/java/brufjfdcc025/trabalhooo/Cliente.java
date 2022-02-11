@@ -4,11 +4,15 @@ public abstract class Cliente {
     private String senha;
     private String telefone, nome;
     private Endereco endereco;
+    private Conta conta;
+    
+    
 
     public Cliente(String senha, String telefone, String nome) {
         this.senha = senha;
         this.telefone = telefone;
         this.nome = nome;
+        this.conta = new Conta();
     }
     
     public String getSenha() {
@@ -19,21 +23,11 @@ public abstract class Cliente {
         this.senha = senha;
     }
 
-//    public Conta getContac() {
-//        return contac;
-//    }
-//
-//    public void setContac(Conta contac) {
-//        this.contac = contac;
-//    }
-//
-//    public Conta getContap() {
-//        return contap;
-//    }
-//
-//    public void setContap(Conta contap) {
-//        this.contap = contap;
-//    }
+    public Conta getConta() {
+        return conta;
+    }
+    
+    
 
     public String getTelefone() {
         return telefone;

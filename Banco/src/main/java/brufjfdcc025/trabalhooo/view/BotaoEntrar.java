@@ -11,6 +11,7 @@ import brufjfdcc025.trabalhooo.PessoaFisica;
 import brufjfdcc025.trabalhooo.PessoaJuridica;
 
 public class BotaoEntrar implements ActionListener {
+
     private final Menu tela;
     Set<Cliente> clientes;
 
@@ -20,41 +21,45 @@ public class BotaoEntrar implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        try{
+        try {
             boolean login = false;
-            for(Cliente c : tela.getClientes()){
+            Cliente cliente = null;
+            for (Cliente c : tela.getClientes()) {
                 //usar mascara para ver se é fisica ou juridica
-                if(c.getTipo().equals("F")){
+                if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
-                    if(p.getCpf().equals(tela.getjCpf().getText()) && 
-                        tela.getjSenha().getText().equals(c.getSenha())){
-                        JOptionPane.showMessageDialog(tela, "Bem vindo "+c.getNome()+"!");
+                    if (p.getCpf().equals(tela.getjCpf().getText())
+                            && tela.getjSenha().getText().equals(c.getSenha())) {
+                        JOptionPane.showMessageDialog(tela, "Bem vindo " + c.getNome() + "!");
                         login = true;
+                        
+                        cliente = c;
+                        break;
                     }
-                }
-                else{
+                } else {
                     PessoaJuridica p = (PessoaJuridica) c;
-                    if(p.getCnpj().equals(tela.getjCpf().getText()) && 
-                        tela.getjSenha().getText().equals(c.getSenha())){
-                        JOptionPane.showMessageDialog(tela, "Bem vindo "+c.getNome()+"!");
+                    if (p.getCnpj().equals(tela.getjCpf().getText())
+                            && tela.getjSenha().getText().equals(c.getSenha())) {
+                        JOptionPane.showMessageDialog(tela, "Bem vindo " + c.getNome() + "!");
                         login = true;
+                        
+                        cliente = c;
+                        break;
                     }
                 }
-            }        
-            if(login != true){
-                JOptionPane.showMessageDialog(tela, "Usuário não encontrado!", "Usuário",JOptionPane.ERROR_MESSAGE);
+                
             }
-            else{
+            if (login != true) {
+                JOptionPane.showMessageDialog(tela, "Usuário não encontrado!", "Usuário", JOptionPane.ERROR_MESSAGE);
+            } else {
                 tela.painelLogin.setVisible(false);
-                tela.menuOpcoes();
+                tela.menuOpcoes(cliente);
                 tela.repaint();
             }
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(tela, "Algo deu errado", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-            
-        
+
     }
 }
-    
