@@ -15,27 +15,31 @@ import javax.swing.JTextField;
  *
  * @author Israel Louback
  */
-public class BotaoVoltar implements ActionListener {
-
-    private final Menu tela;
-    Cliente cliente;
+public class BotaoVoltar  implements ActionListener{
+    
+      private final Menu tela;
+      Cliente cliente;
+   
 
     public BotaoVoltar(Menu tela, Cliente cliente) {
-
+      
         this.tela = tela;
-        this.cliente = cliente;
+        this.cliente=cliente;
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        try {
-            tela.setVisible(false);
-            tela.menuOpcoes(cliente);
-
-        } catch (Exception e2) {
-
+        
+        try{
+           tela.repaint();
+           tela.menuOpcoes(cliente);
+           tela.repaint();
+            
+        }catch(Exception e2){
+            
         }
     }
-
+    
+    
 }
