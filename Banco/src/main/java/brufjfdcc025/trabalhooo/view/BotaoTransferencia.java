@@ -1,5 +1,6 @@
 package brufjfdcc025.trabalhooo.view;
 
+import brufjfdcc025.trabalhooo.Cliente;
 import com.sun.org.apache.xerces.internal.util.DOMUtil;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -13,10 +14,13 @@ import javax.swing.JTextField;
 public class BotaoTransferencia implements ActionListener {
 
     private final Menu tela;
+    Cliente cliente;
     JPanel panelTransferencia;
 
-    public BotaoTransferencia(Menu tela) {
+    public BotaoTransferencia(Menu tela, Cliente cliente) {
         this.tela = tela;
+        this.cliente=cliente;
+                
     }
 
     @Override
@@ -34,32 +38,28 @@ public class BotaoTransferencia implements ActionListener {
                 panelTransferencia = new JPanel();
                 panelTransferencia.setVisible(true);
                 JLabel nome = new JLabel("Nome:");
-                JLabel tipoConta = new JLabel("Tipo da conta:");
-                JLabel numConta = new JLabel("Numero da conta :");
+                JLabel numConta = new JLabel("Número da conta:");
                 JLabel cpfJLabel = new JLabel("CPF: ");
 
                 JTextField nomeDestinatario = new JTextField(15);
-                JTextField tipoDestinatario = new JTextField(15);
                 JTextField numeroConta = new JTextField(15);
                 JTextField cpf = new JTextField(15);
                 panelTransferencia.add(nome);
                 panelTransferencia.add(nomeDestinatario);
-                panelTransferencia.add(tipoConta);
-                panelTransferencia.add(tipoDestinatario);
                 panelTransferencia.add(numConta);
                 panelTransferencia.add(numeroConta);
                 panelTransferencia.add(cpfJLabel);
                 panelTransferencia.add(cpf);
 
                 JButton btntransferir = new JButton("Transferir");
-                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela, cpf, nomeDestinatario, tipoDestinatario, numeroConta));
+                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela, cpf,numeroConta, nomeDestinatario));
 
                 panelTransferencia.add(btntransferir);
 
                 tela.add(panelTransferencia, BorderLayout.CENTER);
                 JButton btnVoltar = new JButton("Voltar");
                 tela.add(btnVoltar,BorderLayout.SOUTH);
-                btnVoltar.addActionListener(new BotaoVoltar(tela));
+                btnVoltar.addActionListener(new BotaoVoltar(tela,cliente));
                
             }
 

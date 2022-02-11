@@ -8,14 +8,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import brufjfdcc025.trabalhooo.Cliente;
 
 public class BotaoPix  implements ActionListener{
 
     private final Menu tela;
+    private Cliente cliente;
     JPanel panelPix;
 
-    public BotaoPix(Menu tela) {
+    public BotaoPix(Menu tela, Cliente cliente) {
         this.tela = tela;
+        this.cliente=cliente;
     }
 
     @Override
@@ -38,7 +41,7 @@ public class BotaoPix  implements ActionListener{
             panelPix.add(cpf);
 
             JButton btnPixRealizado = new JButton("Fazer o PIX!");
-            btnPixRealizado.addActionListener(new BotaoRealizaPix(tela,cpf));
+            btnPixRealizado.addActionListener(new BotaoRealizaPix(tela,cpf,valPix,cliente));
 
             panelPix.add(btnPixRealizado);
 

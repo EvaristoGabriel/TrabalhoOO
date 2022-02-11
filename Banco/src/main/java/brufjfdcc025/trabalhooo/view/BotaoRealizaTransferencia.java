@@ -18,14 +18,12 @@ public class BotaoRealizaTransferencia implements ActionListener {
     private final JTextField cpf;
     private final JTextField numConta;
     private final JTextField nomeConta;
-    private final JTextField tipoConta;
 
-    public BotaoRealizaTransferencia(Menu tela, JTextField cpf, JTextField num, JTextField nome, JTextField tipo) {
+    public BotaoRealizaTransferencia(Menu tela, JTextField cpf, JTextField num, JTextField nome) {
         this.cpf = cpf;
         this.tela = tela;
         this.nomeConta = nome;
         this.numConta = num;
-        this.tipoConta = tipo;
     }
 
     @Override
@@ -34,13 +32,12 @@ public class BotaoRealizaTransferencia implements ActionListener {
         try {
             int campoCpf = Integer.parseInt(cpf.getText());
             int campoNumConta = Integer.parseInt(numConta.getText());
-            int campoTipoConta = Integer.parseInt(tipoConta.getText());
-            int campoNomeConta = Integer.parseInt(nomeConta.getText());
+            //int campoNomeConta = Integer.parseInt(nomeConta.getText());
 
             //fazer uma busca pelo cpf da pessoa e creditar na conta dela
             JOptionPane.showMessageDialog(tela, "Transferencia realizada com sucesso!");
         } catch (NumberFormatException e2) {
-            JOptionPane.showMessageDialog(tela, "Um ou mais campo nao preenchido!");
+            JOptionPane.showMessageDialog(tela, "Um ou mais campo não preenchido!");
         }
 
     }
