@@ -20,6 +20,18 @@ public class Extrato {
         this.val=valor;
         this.data=data;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public float getVal() {
+        return val;
+    }
+
+    public Date getData() {
+        return data;
+    }
     
     
     

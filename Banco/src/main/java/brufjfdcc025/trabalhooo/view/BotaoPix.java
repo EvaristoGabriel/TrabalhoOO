@@ -14,7 +14,6 @@ public class BotaoPix  implements ActionListener{
 
     private final Menu tela;
     private Cliente cliente;
-    JPanel panelPix;
 
     public BotaoPix(Menu tela, Cliente cliente) {
         this.tela = tela;
@@ -30,22 +29,24 @@ public class BotaoPix  implements ActionListener{
             int valPix = Integer.parseInt(pix.getText());
 
             tela.jpMenuOpcoes.setVisible(false);
-            panelPix = new JPanel();
-            panelPix.setVisible(true);
+            tela.panelPix = new JPanel();
+            tela.panelPix.setVisible(true);
 
-            JLabel cpfJLabel = new JLabel("CPF do destinatário: ");
+            JLabel cpfJLabel = new JLabel("CPF/CNPJ do destinatário: ");
 
             JTextField cpf = new JTextField(15);
 
-            panelPix.add(cpfJLabel);
-            panelPix.add(cpf);
+            tela.panelPix.add(cpfJLabel);
+            tela.panelPix.add(cpf);
 
             JButton btnPixRealizado = new JButton("Fazer o PIX!");
             btnPixRealizado.addActionListener(new BotaoRealizaPix(tela,cpf,valPix,cliente));
 
-            panelPix.add(btnPixRealizado);
-
-            tela.add(panelPix, BorderLayout.CENTER);
+            tela.panelPix.add(btnPixRealizado);
+            tela.btnVoltar.addActionListener(new BotaoVoltar(tela,cliente));
+            tela.panelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
+            tela.add(tela.panelPix, BorderLayout.CENTER);
+            
 
         } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(tela, "Valor da transferencia nao foi digitado");

@@ -16,6 +16,7 @@ public class Conta {
     private String numero;
     private float saldo;
     
+    
 
     public Conta() {
         
@@ -36,18 +37,21 @@ public class Conta {
     
     public void addExtrato(String tipo, float valor, Date data){
         extrato.add(new Extrato(tipo,valor,data));
+        this.saldo+=valor;
     }
     
     public String imprimeExtrato(){
         String imprime="";
         for (Extrato e : extrato){
             imprime+="\n"+e;
+            
         }
+        imprime+="\n            Total: R$"+ this.saldo;
         return imprime;
     }
     
-    private void setSaldo(float saldo) {
-        this.saldo = saldo;
+    public void setSaldo(float saldo) {
+        this.saldo += saldo;
     }
     
    

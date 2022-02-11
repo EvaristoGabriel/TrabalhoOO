@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import brufjfdcc025.trabalhooo.Cliente;
 import brufjfdcc025.trabalhooo.Conta;
+import brufjfdcc025.trabalhooo.PessoaFisica;
+import brufjfdcc025.trabalhooo.PessoaJuridica;
 import java.util.Calendar;
 
 
@@ -41,9 +43,47 @@ public class BotaoRealizaPix  implements ActionListener{
         try{
              int cpfpix= Integer.parseInt(cpf.getText()); //para verificar se o textfield do cpf ta sendo preenchido
              //fazer uma busca pelo cpf da pessoa e creditar nele
+             Boolean cpf=false;
+             for(Cliente c:tela.clientes){
+                 if (c.getTipo().equals("F")) {
+                    PessoaFisica p = (PessoaFisica) c;
+                    if (p.getCpf().equals(tela.getjCpf().getText())) {
+                        
+                        cpf = true;
+                        c.getConta().setSaldo(valPix);
+                        c.getConta().addExtrato("Pix", valPix,Calendar.getInstance().getTime());
+                        cliente.getConta().setSaldo(-valPix);
+                        cliente.getConta().addExtrato("Pix",-valPix,Calendar.getInstance().getTime());
+                        JOptionPane.showMessageDialog(tela,"Pix realizado com sucesso!");
+                        
+                        break;
+                    }
+                } else {
+                    PessoaJuridica p = (PessoaJuridica) c;
+                    if (p.getCnpj().equals(tela.getjCpf().getText())) {
+
+                        cpf = true;
+                        c.getConta().setSaldo(valPix);
+                        c.getConta().addExtrato("Pix", valPix,Calendar.getInstance().getTime());
+                        cliente.getConta().setSaldo(-valPix);
+                        cliente.getConta().addExtrato("Pix",-valPix,Calendar.getInstance().getTime());
+                        JOptionPane.showMessageDialog(tela,"Pix realizado com sucesso!");
+                        
+                        break;
+                    }
+                }
+                 if(cpf==false){
+                    JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
+                 }
+                 else{
+                    tela.panelPix.setVisible(false); 
+                    tela.menuOpcoes(cliente);
+                 }
+             }
              
-             cliente.getConta().addExtrato("Pix",valPix,Calendar.getInstance().getTime());
-            JOptionPane.showMessageDialog(tela,"Pix realizado com sucesso!");
+             
+            
+            
         }catch(NumberFormatException e2){
             JOptionPane.showMessageDialog(tela,"Valor inválido. Digite o cpf do destinatário do Pix!");
         }finally{

@@ -29,8 +29,10 @@ public class Menu extends JFrame {
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
+    
+    JButton btnVoltar;
 
 //CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
     JTextField jBairro;
@@ -282,15 +284,7 @@ public class Menu extends JFrame {
         jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
         jpMenuOpcoes.setLayout(new BorderLayout());
-        //jpMenuOpcoes.setPreferredSize(new Dimension(250, 230)); //dimensao preferida do jpane
-
-        //JScrollPane listaPanel = new JScrollPane();
-
-        //listaClientes = new JList<>(); //lista para armazenar os clientes
-       // listaPanel.add(listaClientes);
-
-        //jpMenuOpcoes.add(listaPanel, BorderLayout.CENTER);
-       //cria os botoes para cada operacao e adiciona eles no painel
+        
         JPanel btnPainel = new JPanel();
         JButton btnEmprestimo = new JButton("Emprestimo");
         JButton btnSaque = new JButton("Saque");
@@ -301,6 +295,7 @@ public class Menu extends JFrame {
         JButton btnVerificarExtrato = new JButton("Verificar Extrato");
         JButton btnVerificarSaldo = new JButton("Verificar Saldo");
         JButton btnSair = new JButton("Sair");
+        btnVoltar = new JButton ("Voltar");
         
         btnPainel.setLayout(new GridLayout(0, 2,10,10));
         btnPainel.add(btnEmprestimo);
@@ -312,11 +307,12 @@ public class Menu extends JFrame {
         btnPainel.add(btnVerificarExtrato);
         btnPainel.add(btnVerificarSaldo);
        // btnPainel.add(btnSair);
+  
         
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
         jpMenuOpcoes.add(btnSair,BorderLayout.SOUTH);
         btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this,cliente));
-        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
+        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this,cliente));
         btnPix.addActionListener(new BotaoPix(this,cliente));
         btnTransferencias.addActionListener(new BotaoTransferencia(this,cliente));
         btnPagamento.addActionListener(new BotaoPagamento(this));
@@ -324,6 +320,7 @@ public class Menu extends JFrame {
         btnSaque.addActionListener(new BotaoSaque(this));
         btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
         btnSair.addActionListener(new BotaoSair(this));
+        
         
 
         this.add(jpMenuOpcoes, BorderLayout.CENTER);
