@@ -50,20 +50,17 @@ public class BotaoTransferencia implements ActionListener {
                 panelTransferencia.add(numeroConta);
                 panelTransferencia.add(cpfJLabel);
                 panelTransferencia.add(cpf);
-                
-                
-                JButton btntransferir = new JButton("Transferir");
-                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela,cpf,nomeDestinatario,tipoDestinatario,numeroConta));
-                
-                
-               panelTransferencia.add(btntransferir);
-               
-                
-                tela.add(panelTransferencia,BorderLayout.CENTER);
-                
-                
 
-                     
+                JButton btntransferir = new JButton("Transferir");
+                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela, cpf, nomeDestinatario, tipoDestinatario, numeroConta));
+
+                panelTransferencia.add(btntransferir);
+
+                tela.add(panelTransferencia, BorderLayout.CENTER);
+                JButton btnVoltar = new JButton("Voltar");
+                tela.add(btnVoltar,BorderLayout.SOUTH);
+                btnVoltar.addActionListener(new BotaoVoltar(tela));
+               
             }
 
         } catch (ArithmeticException e) {

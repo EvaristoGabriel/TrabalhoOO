@@ -300,6 +300,8 @@ public class Menu extends JFrame {
         JButton btnPix = new JButton("PIX");
         JButton btnVerificarExtrato = new JButton("Verificar Extrato");
         JButton btnVerificarSaldo = new JButton("Verificar Saldo");
+        JButton btnSair = new JButton("Sair");
+        
         btnPainel.setLayout(new GridLayout(0, 2,10,10));
         btnPainel.add(btnEmprestimo);
         btnPainel.add(btnSaque);
@@ -309,8 +311,10 @@ public class Menu extends JFrame {
         btnPainel.add(btnPix);
         btnPainel.add(btnVerificarExtrato);
         btnPainel.add(btnVerificarSaldo);
-
+       // btnPainel.add(btnSair);
+        
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
+        jpMenuOpcoes.add(btnSair,BorderLayout.SOUTH);
         btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this));
         btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
         btnPix.addActionListener(new BotaoPix(this));
@@ -319,6 +323,8 @@ public class Menu extends JFrame {
         btnDeposito.addActionListener(new BotaoDeposito(this));
         btnSaque.addActionListener(new BotaoSaque(this));
         btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
+        btnSair.addActionListener(new BotaoSair(this));
+        
 
         this.add(jpMenuOpcoes, BorderLayout.CENTER);
     }
