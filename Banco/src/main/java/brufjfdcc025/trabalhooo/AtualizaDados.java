@@ -26,7 +26,6 @@ public class AtualizaDados implements WindowListener{
     
     @Override
     public void windowOpened(WindowEvent e) {
-        System.out.println("AAAAAAAAAA");
         try {
             String dados1 = Arquivo.lerArquivo(PessoaFisica);
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
