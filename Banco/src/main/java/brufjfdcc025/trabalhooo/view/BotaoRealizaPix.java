@@ -39,15 +39,15 @@ public class BotaoRealizaPix implements ActionListener {
     public void actionPerformed(ActionEvent event) {
 
         try {
-            int cpfpix = Integer.parseInt(cpf.getText()); //para verificar se o textfield do cpf ta sendo preenchido
+//            int cpfpix = Integer.parseInt(cpf.getText()); //para verificar se o textfield do cpf ta sendo preenchido
             //fazer uma busca pelo cpf da pessoa e creditar nele
             boolean cpf = false;
             for (Cliente c : tela.getClientes()) {
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
-                    System.out.println(this.cpf);
+                    System.out.println(this.cpf.getText());
                     System.out.println(p.getCpf());
-                    if (p.getCpf().equals("1")) {
+                    if (p.getCpf().equals(this.cpf.getText())) {
                         cpf = true;
                         p.getConta().setSaldo(valPix);
                         p.getConta().addExtrato("Pix", valPix, Calendar.getInstance().getTime());
@@ -80,10 +80,7 @@ public class BotaoRealizaPix implements ActionListener {
 
         } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(tela, "Valor inválido. Digite o cpf do destinatário do Pix!");
-        } finally {
-
         }
-
     }
 
 }

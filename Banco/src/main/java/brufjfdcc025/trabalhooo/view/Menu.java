@@ -346,13 +346,14 @@ public class Menu extends JFrame {
 
     public void mostraMenu() {
         
+        this.addWindowListener(new AtualizaDados(this));
         painel = new JPanel();
         this.setSize(500,600);
         
         this.setPreferredSize(new Dimension(500, 300));
         
         
-        this.addWindowListener(new AtualizaDados(this));
+        
         this.setVisible(true);
         for(Cliente c: clientes)
             System.out.println(c);
