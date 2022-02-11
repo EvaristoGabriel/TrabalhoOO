@@ -11,6 +11,7 @@ public class Cartao {
         int mes, ano;
         mes = YearMonth.now().getMonthValue();
         ano = YearMonth.now().getYear();
+        
         this.vencimento = new Data(mes, ano);
         
         //random para cvv

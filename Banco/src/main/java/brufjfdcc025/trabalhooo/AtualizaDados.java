@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import brufjfdcc025.trabalhooo.PessoaFisica;
+import com.sun.tools.sjavac.CleanProperties;
 
 public class AtualizaDados implements WindowListener{
 
@@ -28,11 +29,20 @@ public class AtualizaDados implements WindowListener{
         try {
             String dados1 = Arquivo.lerArquivo(PessoaFisica);
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
+            System.out.println("Dados1 = " + dados1);
+            System.out.println("Dados2 = " + dados2);
             Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
-            clientes = JSON.toPessoaJuridica(dados2);
+            for(Cliente c : clientes){
+                System.out.println("dado1 c = "+c);
+                tela.getClientes().add(c);
+            }
             
+            clientes = JSON.toPessoaJuridica(dados2);
             for(Cliente c : clientes){
                 tela.getClientes().add(c);
+            }
+            for(Cliente c : tela.getClientes()){
+                System.out.println("C = "+c);
             }
             tela.repaint();
             
