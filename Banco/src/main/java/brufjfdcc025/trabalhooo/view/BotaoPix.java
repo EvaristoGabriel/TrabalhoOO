@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import brufjfdcc025.trabalhooo.Cliente;
+import javax.swing.JFrame;
 
 public class BotaoPix  implements ActionListener{
 
@@ -46,6 +47,7 @@ public class BotaoPix  implements ActionListener{
             tela.btnVoltar.addActionListener(new BotaoVoltar(tela,cliente));
             tela.panelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
             tela.add(tela.panelPix, BorderLayout.CENTER);
+            
             
 
         } catch (NumberFormatException e2) {
