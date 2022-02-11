@@ -53,7 +53,8 @@ public class BotaoTransferencia implements ActionListener {
                 
                 
                 JButton btntransferir = new JButton("Transferir");
-               // btntransferir.addActionListener(new BotaoTransferir(this));
+                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela,cpf,nomeDestinatario,tipoDestinatario,numeroConta));
+                
                 
                panelTransferencia.add(btntransferir);
                

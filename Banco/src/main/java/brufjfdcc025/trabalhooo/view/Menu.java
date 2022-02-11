@@ -313,7 +313,7 @@ public class Menu extends JFrame {
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
         btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this));
         btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
-       // btnPix.addActionListener(new BotaoVerificarExtrato(this));
+        btnPix.addActionListener(new BotaoPix(this));
         btnTransferencias.addActionListener(new BotaoTransferencia(this));
         btnPagamento.addActionListener(new BotaoPagamento(this));
         btnDeposito.addActionListener(new BotaoDeposito(this));
