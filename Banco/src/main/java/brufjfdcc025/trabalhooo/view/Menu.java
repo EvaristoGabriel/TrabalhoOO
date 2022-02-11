@@ -25,7 +25,7 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
-   Set<Cliente> clientes = new HashSet<>();
+   Set<Cliente> clientes;
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
@@ -275,7 +275,7 @@ public class Menu extends JFrame {
         this.add(jpMenuEndereco, BorderLayout.CENTER);
     }
     
-    public void menuOpcoes() {
+    public void menuOpcoes(Cliente cliente) {
 //        painelLogin.setVisible(false);
         
         jpMenuOpcoes = new JPanel();
@@ -315,10 +315,10 @@ public class Menu extends JFrame {
         
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
         jpMenuOpcoes.add(btnSair,BorderLayout.SOUTH);
-        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this));
+        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this,cliente));
         btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this));
-        btnPix.addActionListener(new BotaoPix(this));
-        btnTransferencias.addActionListener(new BotaoTransferencia(this));
+        btnPix.addActionListener(new BotaoPix(this,cliente));
+        btnTransferencias.addActionListener(new BotaoTransferencia(this,cliente));
         btnPagamento.addActionListener(new BotaoPagamento(this));
         btnDeposito.addActionListener(new BotaoDeposito(this));
         btnSaque.addActionListener(new BotaoSaque(this));
@@ -348,6 +348,8 @@ public class Menu extends JFrame {
     }
 
     public void mostraMenu() {
+        
+        painel = new JPanel();
         this.setSize(500,600);
         this.setVisible(true);
         this.setPreferredSize(new Dimension(500, 300));
@@ -358,7 +360,7 @@ public class Menu extends JFrame {
         for(Cliente c: clientes)
             System.out.println(c);
         
-        painel = new JPanel();
+        
         
         //this.painel.setLayout(new BorderLayout());
         /*"nascimento": "06081999",
@@ -376,7 +378,11 @@ public class Menu extends JFrame {
             "complemento": "13",
             "numero": 102
         }*/
-        menuPossuiConta();
+        menuPossuiConta(); 
+//        for(Cliente c : clientes){
+//            menuOpcoes(c);
+//            break;
+//        }
         
         this.add(this.painel);
         
@@ -555,6 +561,12 @@ public class Menu extends JFrame {
 
     public void setClientes(Set<Cliente> clientes) {
         this.clientes = clientes;
+    }
+    
+    public void addClientes(Set<Cliente> clientes) {
+         for(Cliente c : clientes){
+                this.clientes.add(c);
+            }
     }
 
     public JList getListaClientes() {
