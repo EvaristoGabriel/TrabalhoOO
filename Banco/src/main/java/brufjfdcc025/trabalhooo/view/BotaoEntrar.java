@@ -29,7 +29,7 @@ public class BotaoEntrar implements ActionListener {
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
                     if (p.getCpf().equals(tela.getjCpf().getText())
-                            && tela.getjSenha().getText().equals(c.getSenha())) {
+                            && tela.getjSenha().getText().equals(p.getSenha())) {
                         JOptionPane.showMessageDialog(tela, "Bem vindo " + c.getNome() + "!");
                         login = true;
                         
@@ -39,7 +39,7 @@ public class BotaoEntrar implements ActionListener {
                 } else {
                     PessoaJuridica p = (PessoaJuridica) c;
                     if (p.getCnpj().equals(tela.getjCpf().getText())
-                            && tela.getjSenha().getText().equals(c.getSenha())) {
+                            && tela.getjSenha().getText().equals(p.getSenha())) {
                         JOptionPane.showMessageDialog(tela, "Bem vindo " + c.getNome() + "!");
                         login = true;
                         

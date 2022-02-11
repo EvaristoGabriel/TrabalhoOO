@@ -19,7 +19,7 @@ public class Conta {
     
 
     public Conta() {
-        
+        saldo=0;
         extrato = new ArrayList<>();
     }
 

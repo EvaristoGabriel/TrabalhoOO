@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
 import brufjfdcc025.trabalhooo.PessoaFisica;
+import brufjfdcc025.trabalhooo.control.Propertys;
 import com.sun.tools.sjavac.CleanProperties;
 
 public class AtualizaDados implements WindowListener{
@@ -31,31 +32,25 @@ public class AtualizaDados implements WindowListener{
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
             System.out.println("Dados1 = " + dados1);
             System.out.println("Dados2 = " + dados2);
-            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
-            for(Cliente c : clientes){
-                System.out.println("dado1 c = "+c);
-                tela.getClientes().add(c);
-            }
             
-            clientes = JSON.toPessoaJuridica(dados2);
-            for(Cliente c : clientes){
-                tela.getClientes().add(c);
-            }
-            for(Cliente c : tela.getClientes()){
-                System.out.println("C = "+c);
-            }
+//            List<Cliente> clientes = JSON.toPessoaFisica(dados1);
+//            for(Cliente c : clientes){
+//                System.out.println("dado1 c = "+c);
+//                tela.getClientes().add(c);
+//            }
+//            
+//            clientes = JSON.toPessoaJuridica(dados2);
+//            for(Cliente c : clientes){
+//                tela.getClientes().add(c);
+//            }
+//            for(Cliente c : tela.getClientes()){
+//                System.out.println("C = "+c);
+//            }
             
             tela.addClientes(JSON.toPessoaFisica(dados1));
             tela.addClientes(JSON.toPessoaJuridica(dados2));
             System.out.println(tela.getClientes());
-//            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
-//            clientes = JSON.toPessoaJuridica(dados2);
-//            for(Cliente c : clientes){
-//                System.out.println(c); 
-//            }
-//            for(Cliente c : clientes){
-//                tela.getClientes().add(c);
-//            }
+
             tela.repaint();
             
         } catch (Exception ex) {
@@ -67,12 +62,7 @@ public class AtualizaDados implements WindowListener{
     @Override
     public void windowClosing(WindowEvent e) {
         try{
-            ListModel<Cliente> modelo = tela.getListaClientes().getModel();
-            Set<Cliente> clientes = new HashSet<>();
-            
-            for(int i=0; i< modelo.getSize(); i++){
-                clientes.add(modelo.getElementAt(i));
-            }
+            List<Cliente> clientes = tela.getClientes();
             
             for(Cliente c : clientes){
                 if(c.getTipo().equals("F")){
@@ -84,8 +74,6 @@ public class AtualizaDados implements WindowListener{
                     Arquivo.escreverArquivo(PessoaJuridica, toJSON);
                 }
             }
-                
-            
         }
         catch(IOException ex){
             JOptionPane.showMessageDialog(tela, "Não foi possível salvar os dados!", "ERROR", JOptionPane.ERROR_MESSAGE);

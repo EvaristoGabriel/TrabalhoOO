@@ -42,17 +42,22 @@ public class BotaoRealizaPix implements ActionListener {
 //            int cpfpix = Integer.parseInt(cpf.getText()); //para verificar se o textfield do cpf ta sendo preenchido
             //fazer uma busca pelo cpf da pessoa e creditar nele
             boolean cpf = false;
+
             for (Cliente c : tela.getClientes()) {
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
                     System.out.println(this.cpf.getText());
                     System.out.println(p.getCpf());
+//                    System.out.println(this.cpf);
+//                    System.out.println(p.getCpf());
                     if (p.getCpf().equals(this.cpf.getText())) {
                         cpf = true;
                         p.getConta().setSaldo(valPix);
                         p.getConta().addExtrato("Pix", valPix, Calendar.getInstance().getTime());
                         cliente.getConta().setSaldo(-valPix);
                         cliente.getConta().addExtrato("Pix", -valPix, Calendar.getInstance().getTime());
+                        JOptionPane.showMessageDialog(tela, "Pix realizado com sucesso!");
+
                         break;
                     }
                 } else {
@@ -64,14 +69,18 @@ public class BotaoRealizaPix implements ActionListener {
                         p.getConta().addExtrato("Pix", valPix, Calendar.getInstance().getTime());
                         cliente.getConta().setSaldo(-valPix);
                         cliente.getConta().addExtrato("Pix", -valPix, Calendar.getInstance().getTime());
+                        JOptionPane.showMessageDialog(tela, "Pix realizado com sucesso!");
+
                         break;
                     }
                 }
+
             }
 
             if (cpf == false) {
                 JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
             } else {
+                tela.panelPix.setVisible(false);
                 JOptionPane.showMessageDialog(tela, "Pix realizado com sucesso!");
                 tela.panelPix.setVisible(false);
                 tela.repaint();
@@ -82,5 +91,4 @@ public class BotaoRealizaPix implements ActionListener {
             JOptionPane.showMessageDialog(tela, "Valor inválido. Digite o cpf do destinatário do Pix!");
         }
     }
-
 }

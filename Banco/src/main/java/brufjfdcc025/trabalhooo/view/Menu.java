@@ -5,8 +5,8 @@ import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.HashSet;
-import java.util.Set;
+import brufjfdcc025.trabalhooo.PessoaFisica;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,8 +25,8 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
-   Set<Cliente> clientes;
-    JList ListaClientes =new JList<>();
+    List<Cliente> clientes;
+//    JList ListaClientes =new JList<>();
 
    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix;
@@ -58,7 +58,7 @@ public class Menu extends JFrame {
     JTextField jVerificarExtrato;
     JTextField jVerificarSaldo;
 
-    public Menu(Set<Cliente> clientes) {
+    public Menu(List<Cliente> clientes) {
         this.clientes = clientes;
     }
 
@@ -553,27 +553,31 @@ public class Menu extends JFrame {
         this.jEmprestimo = jEmprestimo;
     }
 
-    public Set<Cliente> getClientes() {
+    public List<Cliente> getClientes() {
         return clientes;
     }
 
-    public void setClientes(Set<Cliente> clientes) {
+    public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
     
-    public void addClientes(Set<Cliente> clientes) {
+    public void addClientes(List<Cliente> clientes) {
          for(Cliente c : clientes){
                 this.clientes.add(c);
             }
     }
-
-    public JList getListaClientes() {
-        return ListaClientes;
+    
+    public void AdicionarCliente(Cliente c){
+        this.clientes.add(c);
     }
 
-    public void setListaClientes(JList ListaClientes) {
-        this.ListaClientes = ListaClientes;
-    }
+//    public JList getListaClientes() {
+//        return ListaClientes;
+//    }
+//
+//    public void setListaClientes(JList ListaClientes) {
+//        this.ListaClientes = ListaClientes;
+    //}
     
         public JTextField getjOcupacao() {
         return jOcupacao;

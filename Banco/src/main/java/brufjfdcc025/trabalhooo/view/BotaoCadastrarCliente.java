@@ -6,13 +6,7 @@ import brufjfdcc025.trabalhooo.control.Arquivo;
 import brufjfdcc025.trabalhooo.control.JSON;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.InputMismatchException;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +16,7 @@ import javax.swing.JOptionPane;
 public class BotaoCadastrarCliente implements ActionListener {
 
     private final Menu tela;
-    Set<Cliente> clientes;
-    private static final String caminho = "dados.json";
+    List<Cliente> clientes;
     String nome;
 
     public BotaoCadastrarCliente(Menu tela, String nome) {
@@ -47,8 +40,6 @@ public class BotaoCadastrarCliente implements ActionListener {
                }
             }
             JOptionPane.showMessageDialog(tela, "Cadastro realizado!");
-            String json = JSON.toJSON(clientes);
-            Arquivo.escreverArquivo(caminho, json);
             tela.jpMenuEndereco.setVisible(false);
             tela.menuLogin();
             tela.repaint();

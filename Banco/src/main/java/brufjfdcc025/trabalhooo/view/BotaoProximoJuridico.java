@@ -17,8 +17,6 @@ public class BotaoProximoJuridico implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        DefaultListModel<Cliente> modelo = new DefaultListModel<>();
-        
         try{
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
                     tela.getjNome().getText().isEmpty() || tela.getjCnpj().getText().isEmpty()){
@@ -27,8 +25,6 @@ public class BotaoProximoJuridico implements ActionListener {
             PessoaJuridica cliente = new PessoaJuridica(tela.getjCnpj().getText(), tela.getjTelefone().getText(),
                     tela.getjNome().getText(),tela.getjSenha().getText());
             
-            modelo.addElement(cliente);
-            tela.getListaClientes().setModel(modelo);
             tela.getClientes().add(cliente);
             tela.menuCadastraEndereco(tela.getjNome().getText());
             tela.repaint(); 

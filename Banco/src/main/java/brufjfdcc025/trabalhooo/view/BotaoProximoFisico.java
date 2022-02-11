@@ -18,8 +18,6 @@ public class BotaoProximoFisico implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        DefaultListModel<Cliente> modelo = new DefaultListModel<>();
-        
         try{
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
                     tela.getjNome().getText().isEmpty() || tela.getjOcupacao().getText().isEmpty() ||
@@ -30,9 +28,7 @@ public class BotaoProximoFisico implements ActionListener {
                                                     tela.getjOcupacao().getText(), tela.getjRg().getText(),
                                                     tela.getjTelefone().getText(), tela.getjNome().getText(),
                                                     tela.getjSenha().getText());
-            modelo.addElement(cliente);
-            tela.getListaClientes().setModel(modelo);
-            tela.getClientes().add(cliente);
+            tela.AdicionarCliente(cliente);
             tela.menuCadastraEndereco(tela.getjNome().getText());
             tela.repaint(); 
         }catch(ArithmeticException e){
