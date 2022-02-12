@@ -15,12 +15,11 @@ public class BotaoTransferencia implements ActionListener {
 
     private final Menu tela;
     Cliente cliente;
-    JPanel panelTransferencia;
 
     public BotaoTransferencia(Menu tela, Cliente cliente) {
         this.tela = tela;
-        this.cliente=cliente;
-                
+        this.cliente = cliente;
+
     }
 
     @Override
@@ -35,8 +34,8 @@ public class BotaoTransferencia implements ActionListener {
                 int x = 100 / 0;
             } else {
                 tela.jpMenuOpcoes.setVisible(false);
-                panelTransferencia = new JPanel();
-                panelTransferencia.setVisible(true);
+                tela.panelTransferencia = new JPanel();
+                tela.panelTransferencia.setVisible(true);
                 JLabel nome = new JLabel("Nome:");
                 JLabel numConta = new JLabel("Número da conta:");
                 JLabel cpfJLabel = new JLabel("CPF: ");
@@ -44,23 +43,22 @@ public class BotaoTransferencia implements ActionListener {
                 JTextField nomeDestinatario = new JTextField(15);
                 JTextField numeroConta = new JTextField(15);
                 JTextField cpf = new JTextField(15);
-                panelTransferencia.add(nome);
-                panelTransferencia.add(nomeDestinatario);
-                panelTransferencia.add(numConta);
-                panelTransferencia.add(numeroConta);
-                panelTransferencia.add(cpfJLabel);
-                panelTransferencia.add(cpf);
+                tela.panelTransferencia.add(nome);
+                tela.panelTransferencia.add(nomeDestinatario);
+                tela.panelTransferencia.add(numConta);
+                tela.panelTransferencia.add(numeroConta);
+                tela.panelTransferencia.add(cpfJLabel);
+                tela.panelTransferencia.add(cpf);
 
                 JButton btntransferir = new JButton("Transferir");
-                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela, cpf,numeroConta, nomeDestinatario));
+                btntransferir.addActionListener(new BotaoRealizaTransferencia(tela, cpf, numeroConta, nomeDestinatario, cliente));
 
-                panelTransferencia.add(btntransferir);
+                tela.panelTransferencia.add(btntransferir);
 
-                tela.add(panelTransferencia, BorderLayout.CENTER);
-                JButton btnVoltar = new JButton("Voltar");
-                tela.add(btnVoltar,BorderLayout.SOUTH);
-                btnVoltar.addActionListener(new BotaoVoltar(tela,cliente));
-               
+                tela.btnVoltar.addActionListener(new BotaoVoltarTransferencia(tela, cliente));
+                tela.panelTransferencia.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
+                tela.add(tela.panelTransferencia, BorderLayout.CENTER);
+
             }
 
         } catch (ArithmeticException e) {

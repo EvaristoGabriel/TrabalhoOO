@@ -15,16 +15,17 @@ import javax.swing.ListModel;
 import brufjfdcc025.trabalhooo.PessoaFisica;
 import brufjfdcc025.trabalhooo.control.Propertys;
 import com.sun.tools.sjavac.CleanProperties;
+import java.util.ArrayList;
 
-public class AtualizaDados implements WindowListener{
+public class AtualizaDados implements WindowListener {
 
     private Menu tela;
-    private static  final String PessoaJuridica = "Juridica.json", PessoaFisica = "Fisica.json";
+    private static final String PessoaJuridica = "Juridica.json", PessoaFisica = "Fisica.json";
 
     public AtualizaDados(Menu tela) {
         this.tela = tela;
     }
-    
+
     @Override
     public void windowOpened(WindowEvent e) {
         try {
@@ -32,7 +33,7 @@ public class AtualizaDados implements WindowListener{
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
             System.out.println("Dados1 = " + dados1);
             System.out.println("Dados2 = " + dados2);
-            
+
 //            List<Cliente> clientes = JSON.toPessoaFisica(dados1);
 //            for(Cliente c : clientes){
 //                System.out.println("dado1 c = "+c);
@@ -46,13 +47,12 @@ public class AtualizaDados implements WindowListener{
 //            for(Cliente c : tela.getClientes()){
 //                System.out.println("C = "+c);
 //            }
-            
             tela.addClientes(JSON.toPessoaFisica(dados1));
             tela.addClientes(JSON.toPessoaJuridica(dados2));
             System.out.println(tela.getClientes());
 
             tela.repaint();
-            
+
         } catch (Exception ex) {
             System.out.println(ex);
             JOptionPane.showMessageDialog(tela, "Não foi possível ler os dados!", "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -61,25 +61,39 @@ public class AtualizaDados implements WindowListener{
 
     @Override
     public void windowClosing(WindowEvent e) {
-        try{
+        try {
             List<Cliente> clientes = tela.getClientes();
-            
-            for(Cliente c : clientes){
-                if(c.getTipo().equals("F")){
-                    String toJSON = JSON.toJSON(c);
-                    Arquivo.escreverArquivo(PessoaFisica, toJSON);
-                }
-                else{
-                    String toJSON = JSON.toJSON(c);
-                    Arquivo.escreverArquivo(PessoaJuridica, toJSON);
+//            List<Cliente> clienteF = new ArrayList<>();
+//            List<Cliente> clienteJ = new ArrayList<>();
+
+            for (Cliente c : clientes) {
+                if (c.getTipo().equals("F")) {
+                    String a = JSON.toJSON2(c);
+                    Arquivo.escreverArquivo(PessoaFisica, a);
+                } 
+                else {
+                    String b = JSON.toJSON2(c);
+                    Arquivo.escreverArquivo(PessoaJuridica, b);
                 }
             }
-        }
-        catch(IOException ex){
-            JOptionPane.showMessageDialog(tela, "Não foi possível salvar os dados!", "ERROR", JOptionPane.ERROR_MESSAGE);
+//            for(Cliente c : clientes){
+//                if(c.getTipo().equals("F")){
+//                    clienteF.add(c);
+//                }
+//                else{
+//                    clienteJ.add(c);
+//                }
+//            }
+//            String toJSON = JSON.toJSON(clienteF);
+//            Arquivo.escreverArquivo(PessoaFisica, toJSON);
+//            toJSON = JSON.toJSON(clienteJ);
+//            Arquivo.escreverArquivo(PessoaJuridica, toJSON);
+        } catch (Exception ex) {
+//            JOptionPane.showMessageDialog(tela, "Deu ruim!", "ERROR", JOptionPane.ERROR_MESSAGE);
+            System.out.println(ex);
         }
     }
-        
+
     @Override
     public void windowClosed(WindowEvent e) {
     }

@@ -29,7 +29,7 @@ public class Menu extends JFrame {
 //    JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix,panelTransferencia;
     int TAMANHO =15; //constante para tamanho dos campos de texto.
     
     JButton btnVoltar;

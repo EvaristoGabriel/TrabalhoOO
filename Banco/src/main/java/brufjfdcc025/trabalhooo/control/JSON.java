@@ -29,13 +29,18 @@ public class JSON {
     
     public static List<Cliente> toPessoaFisica(String json){
         Gson gson = new Gson();
-        Type clientesType = new TypeToken<Set<PessoaFisica>>(){}.getType();
+        Type clientesType = new TypeToken<List<PessoaFisica>>(){}.getType();
         return gson.fromJson(json, clientesType);
     }
     
     public static List<Cliente> toPessoaJuridica(String json){
         Gson gson = new Gson();
-        Type clientesType = new TypeToken<Set<PessoaJuridica>>(){}.getType();
+        Type clientesType = new TypeToken<List<PessoaJuridica>>(){}.getType();
         return gson.fromJson(json, clientesType);
+    }
+    
+    public static String toJSON2(Cliente cliente){
+        Gson gson = new Gson();
+        return gson.toJson(cliente);
     }
 }
