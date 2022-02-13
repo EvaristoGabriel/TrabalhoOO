@@ -19,11 +19,12 @@ public class BotaoProximoJuridico implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         DefaultListModel<Cliente> modelo = new DefaultListModel<>();
 
-        try {
+
+        try{
             //verificando áreas vazias
-            if (tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty()
-                    || tela.getjNome().getText().isEmpty() || tela.getjCnpj().getText().isEmpty()) {
-                int x = 100 / 0;
+            if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
+                    tela.getjNome().getText().isEmpty() || tela.getjCnpj().getText().isEmpty()){
+                int x = 100/0;
             }
 
             //verificando áreas que permitem somente números

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.Cliente;
@@ -11,10 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Israel Louback
- */
 public class BotaoVoltar  implements ActionListener{
     
       private final Menu tela;
@@ -32,14 +23,13 @@ public class BotaoVoltar  implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         try{
-           
             tela.panelPix.setVisible(false);
             tela.repaint();
-            //tela.menuOpcoes(cliente);
             tela.jpMenuOpcoes.setVisible(true);
             tela.repaint();
+            tela.menuOpcoes(cliente);
         }catch(Exception e2){
-            
+            JOptionPane.showMessageDialog(tela, "ERROR","ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
     

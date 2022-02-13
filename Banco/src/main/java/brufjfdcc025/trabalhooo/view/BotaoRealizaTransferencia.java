@@ -5,11 +5,13 @@
  */
 package brufjfdcc025.trabalhooo.view;
 
+import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class BotaoRealizaTransferencia implements ActionListener {
@@ -18,12 +20,14 @@ public class BotaoRealizaTransferencia implements ActionListener {
     private final JTextField cpf;
     private final JTextField numConta;
     private final JTextField nomeConta;
+    private final Cliente cliente;
 
-    public BotaoRealizaTransferencia(Menu tela, JTextField cpf, JTextField num, JTextField nome) {
+    public BotaoRealizaTransferencia(Menu tela, JTextField cpf, JTextField num, JTextField nome, Cliente cliente) {
         this.cpf = cpf;
         this.tela = tela;
         this.nomeConta = nome;
         this.numConta = num;
+        this.cliente = cliente;
     }
 
     @Override
@@ -33,9 +37,12 @@ public class BotaoRealizaTransferencia implements ActionListener {
             int campoCpf = Integer.parseInt(cpf.getText());
             int campoNumConta = Integer.parseInt(numConta.getText());
             //int campoNomeConta = Integer.parseInt(nomeConta.getText());
-
+            
             //fazer uma busca pelo cpf da pessoa e creditar na conta dela
             JOptionPane.showMessageDialog(tela, "Transferencia realizada com sucesso!");
+            tela.panelTransferencia.setVisible(false);
+            tela.repaint();
+            tela.menuOpcoes(cliente);
         } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(tela, "Um ou mais campo não preenchido!");
         }

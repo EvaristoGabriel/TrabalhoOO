@@ -7,12 +7,9 @@ import brufjfdcc025.trabalhooo.control.JSON;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.InputMismatchException;
-import java.util.Set;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +19,7 @@ import javax.swing.JOptionPane;
 public class BotaoCadastrarCliente implements ActionListener {
 
     private final Menu tela;
-    Set<Cliente> clientes;
+    List<Cliente> clientes;
     private static final String caminho = "dados.json";
     String nome;
 
@@ -72,11 +69,10 @@ public class BotaoCadastrarCliente implements ActionListener {
         
         catch (NumberFormatException a) {
             JOptionPane.showMessageDialog(tela, "Um ou mais campos preenchidos incorretamente");
-        } 
-        
-        catch (IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(BotaoCadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
+//  
 //        catch (Exception e) {
 //            JOptionPane.showMessageDialog(tela, "Não foi possível realizar o cadastro. Um ou mais campos preenchido incorretamente!");
 //            tela.painel.setVisible(false);

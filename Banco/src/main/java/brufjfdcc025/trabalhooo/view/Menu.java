@@ -5,7 +5,8 @@ import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.HashSet;
+import brufjfdcc025.trabalhooo.PessoaFisica;
+import java.util.List;
 import java.util.Set;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -25,12 +26,14 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
+
+    
     Set<Cliente> clientes;
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix;
-    int TAMANHO =20; //constante para tamanho dos campos de texto.
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix,panelTransferencia;
+    int TAMANHO =15; //constante para tamanho dos campos de texto.//constante para tamanho dos campos de texto.
     
     JButton btnVoltar;
 
@@ -354,13 +357,14 @@ public class Menu extends JFrame {
 
     public void mostraMenu() {
         
+        this.addWindowListener(new AtualizaDados(this));
         painel = new JPanel();
 //        this.setSize(500,600);
         
         this.setPreferredSize(new Dimension(500, 400));
         
         
-        this.addWindowListener(new AtualizaDados(this));
+        
         this.setVisible(true);
         for(Cliente c: clientes)
             System.out.println(c);
@@ -568,10 +572,14 @@ public class Menu extends JFrame {
         this.clientes = clientes;
     }
     
-    public void addClientes(Set<Cliente> clientes) {
+    public void addClientes(List<Cliente> clientes) {
          for(Cliente c : clientes){
                 this.clientes.add(c);
             }
+    }
+    
+    public void AdicionarCliente(Cliente c){
+        this.clientes.add(c);
     }
 
     public JList getListaClientes() {

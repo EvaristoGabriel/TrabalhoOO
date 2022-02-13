@@ -43,10 +43,11 @@ public class BotaoRealizaPix implements ActionListener {
             
             //fazer uma busca pelo cpf da pessoa e creditar nele
             boolean boolcpf = false;
-
+            
             for (Cliente c : tela.getClientes()) {
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
+
 //                    System.out.println(this.cpf);
 //                    System.out.println(p.getCpf());
                     if (p.getCpf().equals(this.cpf)) {
@@ -79,8 +80,7 @@ public class BotaoRealizaPix implements ActionListener {
                         }
                         break;
                     }
-                }
-
+                                    }
             }
 
             if (boolcpf) {
@@ -90,11 +90,9 @@ public class BotaoRealizaPix implements ActionListener {
             } else {
                 JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
-
         } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido. Digite apenas os números do CPF/CNPJ do destinatário do Pix!");
 
         }
-
     }
 }
