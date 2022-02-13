@@ -1,11 +1,31 @@
 package brufjfdcc025.trabalhooo.view;
+
+
 //imports do swing
-import brufjfdcc025.trabalhooo.AtualizaDados;
-import brufjfdcc025.trabalhooo.Cliente;
+import brufjfdcc025.trabalhooo.model.AtualizaDados;
+import brufjfdcc025.trabalhooo.model.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import brufjfdcc025.trabalhooo.PessoaFisica;
+import brufjfdcc025.trabalhooo.model.PessoaFisica;
+import brufjfdcc025.trabalhooo.view.CadastrarCliente;
+import brufjfdcc025.trabalhooo.view.CadastroPessoaFisica;
+import brufjfdcc025.trabalhooo.view.CadastroPessoaJuridica;
+import brufjfdcc025.trabalhooo.view.Deposito;
+import brufjfdcc025.trabalhooo.view.Emprestimo;
+import brufjfdcc025.trabalhooo.view.Entrar;
+import brufjfdcc025.trabalhooo.view.Nao;
+import brufjfdcc025.trabalhooo.view.Pagamento;
+import brufjfdcc025.trabalhooo.view.Pix;
+import brufjfdcc025.trabalhooo.view.ProximoFisico;
+import brufjfdcc025.trabalhooo.view.ProximoJuridico;
+import brufjfdcc025.trabalhooo.view.Sair;
+import brufjfdcc025.trabalhooo.view.Saque;
+import brufjfdcc025.trabalhooo.view.Sim;
+import brufjfdcc025.trabalhooo.view.Transferencia;
+import brufjfdcc025.trabalhooo.view.VerificarExtrato;
+import brufjfdcc025.trabalhooo.view.VerificarSaldo;
+import brufjfdcc025.trabalhooo.view.VoltarLogin;
 import java.util.List;
 import java.util.Set;
 import javax.swing.BorderFactory;
@@ -71,21 +91,24 @@ public class Menu extends JFrame {
     }
 
     public void menuPossuiConta(){
+        this.painel.setVisible(true);
         painelPossuiConta = new JPanel();
         painelPossuiConta.setVisible(true);
         painelPossuiConta.setLayout(new GridLayout(0,1,10,10));
-        JLabel pergunta = new JLabel("Já possui uma conta?");
+        JLabel titulo = new JLabel ("BEM-VINDO AO BANCO DCC025!");
+        JLabel pergunta = new JLabel("        Já possui uma conta?");
         
         JPanel painelBotoes = new JPanel();
         painelBotoes.setLayout(new GridLayout(0,1,10,10));
         JButton btSim = new JButton("Sim");
-        btSim.addActionListener(new BotaoSim(this));
+        btSim.addActionListener(new Sim(this));
         JButton btNao = new JButton("Não");
-        btNao.addActionListener(new BotaoNao(this));
+        btNao.addActionListener(new Nao(this));
         
         painelBotoes.add(btSim);
         painelBotoes.add(btNao);
         
+        painelPossuiConta.add(titulo);
         painelPossuiConta.add(pergunta);
         painelPossuiConta.add(painelBotoes);
         
@@ -118,11 +141,11 @@ public class Menu extends JFrame {
         JPanel painelBotoes = new JPanel();
         
         JButton btEntrar = new JButton("Entrar");
-        btEntrar.addActionListener(new BotaoEntrar(this));
+        btEntrar.addActionListener(new Entrar(this));
         painelBotoes.add(btEntrar);
         
         JButton btVoltarLogin = new JButton("Voltar");
-        btVoltarLogin.addActionListener(new BotaoVoltarLogin(this));
+        btVoltarLogin.addActionListener(new VoltarLogin(this));
         painelBotoes.add(btVoltarLogin);
      
         painelLogin.add(painelBotoes);
@@ -134,15 +157,15 @@ public class Menu extends JFrame {
         this.painelPossuiConta.setVisible(false);
         PerguntaPessoa  = new JPanel();
         PerguntaPessoa.setVisible(true);
-        PerguntaPessoa.setLayout(new GridLayout(3,3,20,20));
+        PerguntaPessoa.setLayout(new GridLayout(5,3,20,20));
         JLabel pergunta = new JLabel("Que tipo de pessoa você é: ");
         
         JPanel painelBotoes = new JPanel();
         painelBotoes.setLayout(new GridLayout(2,2,20,20));
         JButton btPFis = new JButton("Pessoa Física");
-        btPFis.addActionListener(new BotaoPessoaFisica(this));
+        btPFis.addActionListener(new CadastroPessoaFisica(this));
         JButton btPJuri = new JButton("Pessoa Jurídica");
-        btPJuri.addActionListener(new BotaoPessoaJuridica(this));
+        btPJuri.addActionListener(new CadastroPessoaJuridica(this));
         
         painelBotoes.add(btPFis);
         painelBotoes.add(btPJuri);
@@ -164,7 +187,7 @@ public class Menu extends JFrame {
         //jpMenuInicial.setLayout(new BorderLayout());
 //        jpMenuInicial.setSize(new Dimension(450, 800));
         jpMenuInicial.setPreferredSize(new Dimension(500, 300));
-        jpMenuInicial.setLayout(new GridLayout(10, 5));
+        jpMenuInicial.setLayout(new GridLayout(14, 5));
         
         //adiciona os labels para e as caixas de texto para da campo.
         jpMenuInicial.add(new JLabel("Nome: "));
@@ -186,10 +209,15 @@ public class Menu extends JFrame {
         this.add(jpMenuInicial, BorderLayout.CENTER);
         //botao para registrar cadastro
         JPanel btnPainel = new JPanel();
-        //falta fazer o action listener para ele realizar a acao.
+
         JButton btnProximo = new JButton("Próximo");
-        btnProximo.addActionListener(new BotaoProximoJuridico(this));
+        btnProximo.addActionListener(new ProximoJuridico(this));
         btnPainel.add(btnProximo); //adiciona ele no formulario
+        
+        JButton btnVolta = new JButton("Voltar");
+        btnVolta.addActionListener(new VoltarCadastro(this));
+        btnPainel.add(btnVolta);
+        
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
        
     }
@@ -205,7 +233,7 @@ public class Menu extends JFrame {
 //        jpMenuInicial.setSize(new Dimension(450, 800));
         jpMenuInicial.setPreferredSize(new Dimension(500, 300));
 
-        jpMenuInicial.setLayout(new GridLayout(10, 5));
+        jpMenuInicial.setLayout(new GridLayout(12, 5));
         
         //adiciona os labels para e as caixas de texto para da campo.
         //cpf, nascimento,ocupacao,rg
@@ -240,15 +268,20 @@ public class Menu extends JFrame {
         this.add(jpMenuInicial, BorderLayout.CENTER);
         //botao para registrar cadastro
         JPanel btnPainel = new JPanel();
-        //falta fazer o action listener para ele realizar a acao.
+        
         JButton btnProximo = new JButton("Próximo");
-        btnProximo.addActionListener(new BotaoProximoFisico(this));
+        btnProximo.addActionListener(new ProximoFisico(this));
         btnPainel.add(btnProximo); //adiciona ele no formulario
+        
+        JButton btnVolta = new JButton("Voltar");
+        btnVolta.addActionListener(new VoltarCadastro(this));
+        btnPainel.add(btnVolta);
+        
         jpMenuInicial.add(btnPainel, BorderLayout.SOUTH);
        
     }
 
-    public void menuCadastraEndereco(String nome){
+    public void menuCadastraEndereco(Cliente cliente){
         this.jpMenuInicial.setVisible(false);
         
         jpMenuEndereco = new JPanel();
@@ -256,7 +289,7 @@ public class Menu extends JFrame {
         jpMenuEndereco.setBorder(BorderFactory.createTitledBorder("ENDEREÇO"));
 //        jpMenuEndereco.setSize(new Dimension(450, 800));
         jpMenuEndereco.setPreferredSize(new Dimension(500, 300));
-        jpMenuEndereco.setLayout(new GridLayout(10, 0));
+        jpMenuEndereco.setLayout(new GridLayout(12, 0));
         
         
         jpMenuEndereco.add(new JLabel("CEP: (apenas números) "));
@@ -286,7 +319,7 @@ public class Menu extends JFrame {
         JPanel btnPainel = new JPanel();
         //falta fazer o action listener para ele realizar a acao.
         JButton btnCadastro = new JButton("Realizar Cadastro");
-        btnCadastro.addActionListener(new BotaoCadastrarCliente(this, nome));
+        btnCadastro.addActionListener(new CadastrarCliente(this, cliente));
         btnPainel.add(btnCadastro);
         
         jpMenuEndereco.add(btnPainel);
@@ -328,15 +361,15 @@ public class Menu extends JFrame {
         
         jpMenuOpcoes.add(btnPainel, BorderLayout.NORTH);
         jpMenuOpcoes.add(btnSair,BorderLayout.SOUTH);
-        btnVerificarExtrato.addActionListener(new BotaoVerificarExtrato(this,cliente));
-        btnVerificarSaldo.addActionListener(new BotaoVerificarSaldo(this,cliente));
-        btnPix.addActionListener(new BotaoPix(this,cliente));
-        btnTransferencias.addActionListener(new BotaoTransferencia(this,cliente));
-        btnPagamento.addActionListener(new BotaoPagamento(this));
-        btnDeposito.addActionListener(new BotaoDeposito(this,cliente));
-        btnSaque.addActionListener(new BotaoSaque(this,cliente));
-        btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
-        btnSair.addActionListener(new BotaoSair(this));
+        btnVerificarExtrato.addActionListener(new VerificarExtrato(this,cliente));
+        btnVerificarSaldo.addActionListener(new VerificarSaldo(this,cliente));
+        btnPix.addActionListener(new Pix(this,cliente));
+        btnTransferencias.addActionListener(new Transferencia(this,cliente));
+        btnPagamento.addActionListener(new Pagamento(this));
+        btnDeposito.addActionListener(new Deposito(this,cliente));
+        btnSaque.addActionListener(new Saque(this,cliente));
+        btnEmprestimo.addActionListener(new Emprestimo(this));
+        btnSair.addActionListener(new Sair(this));
         
         
 
@@ -367,15 +400,11 @@ public class Menu extends JFrame {
         painel = new JPanel();
 //        this.setSize(500,600);
         
-        this.setPreferredSize(new Dimension(500, 400));
-        
-        
-        
+        this.setPreferredSize(new Dimension(500, 500));
+                
         this.setVisible(true);
         for(Cliente c: clientes)
             System.out.println(c);
-        
-        
         
         //this.painel.setLayout(new BorderLayout());
         /*"nascimento": "06081999",
@@ -584,9 +613,7 @@ public class Menu extends JFrame {
             }
     }
     
-    public void AdicionarCliente(Cliente c){
-        this.clientes.add(c);
-    }
+    
 
     public JList getListaClientes() {
         return ListaClientes;

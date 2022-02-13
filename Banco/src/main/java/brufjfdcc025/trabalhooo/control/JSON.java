@@ -1,8 +1,8 @@
 package brufjfdcc025.trabalhooo.control;
 
-import brufjfdcc025.trabalhooo.Cliente;
-import brufjfdcc025.trabalhooo.PessoaFisica;
-import brufjfdcc025.trabalhooo.PessoaJuridica;
+import brufjfdcc025.trabalhooo.model.Cliente;
+import brufjfdcc025.trabalhooo.model.PessoaFisica;
+import brufjfdcc025.trabalhooo.model.PessoaJuridica;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
