@@ -23,11 +23,11 @@ import java.util.Calendar;
 public class BotaoRealizaPix implements ActionListener {
 
     private final Menu tela;
-    private final JTextField cpf;
+    private final String cpf;
     private float valPix;
     private Cliente cliente;
 
-    public BotaoRealizaPix(Menu tela, JTextField cpf, float valPix, Cliente cliente) {
+    public BotaoRealizaPix(Menu tela, String cpf, float valPix, Cliente cliente) {
         this.cpf = cpf;
         this.tela = tela;
         this.valPix = valPix;
@@ -39,54 +39,60 @@ public class BotaoRealizaPix implements ActionListener {
     public void actionPerformed(ActionEvent event) {
 
         try {
-            int cpfpix = Integer.parseInt(cpf.getText()); //para verificar se o textfield do cpf ta sendo preenchido
+            int numcpf = Integer.parseInt(tela.getValCpf().getText()); //para verificar se o textfield do cpf ta sendo preenchido apenas com numeros
+            
             //fazer uma busca pelo cpf da pessoa e creditar nele
-            boolean cpf = false;
+            boolean boolcpf = false;
 
             for (Cliente c : tela.getClientes()) {
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
 //                    System.out.println(this.cpf);
 //                    System.out.println(p.getCpf());
-                    if (p.getCpf().equals(this.cpf.getText())) {
-                        cpf = true;
-                        p.getConta().setSaldo(valPix);
+                    if (p.getCpf().equals(this.cpf)) {
+                        boolcpf = true;
+                        if(p.getConta().getSaldo()>=valPix){
+//                        p.getConta().setSaldo(valPix);
                         p.getConta().addExtrato("Pix", valPix, Calendar.getInstance().getTime());
-                        cliente.getConta().setSaldo(-valPix);
+//                        cliente.getConta().setSaldo(-valPix);
                         cliente.getConta().addExtrato("Pix", -valPix, Calendar.getInstance().getTime());
                         JOptionPane.showMessageDialog(tela, "Pix realizado com sucesso!");
-
+                        }else{
+                            JOptionPane.showMessageDialog(tela,"Saldo insuficiente!");
+                        }
                         break;
                     }
                 } else {
                     PessoaJuridica p = (PessoaJuridica) c;
-                    if (p.getCnpj().equals(tela.getjCpf().getText())) {
+                    if (p.getCnpj().equals(this.cpf)) {
 
-                        cpf = true;
-                        p.getConta().setSaldo(valPix);
+                        boolcpf = true;
+                        if(p.getConta().getSaldo()>=valPix){
+                         
+//                        p.getConta().setSaldo(valPix);
                         p.getConta().addExtrato("Pix", valPix, Calendar.getInstance().getTime());
-                        cliente.getConta().setSaldo(-valPix);
+//                        cliente.getConta().setSaldo(-valPix);
                         cliente.getConta().addExtrato("Pix", -valPix, Calendar.getInstance().getTime());
                         JOptionPane.showMessageDialog(tela, "Pix realizado com sucesso!");
-
+                        }else{
+                            JOptionPane.showMessageDialog(tela,"Saldo insuficiente!");
+                        }
                         break;
                     }
                 }
 
             }
 
-            if (cpf == false) {
-                JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
-            } else {
-                tela.panelPix.setVisible(false);
-                JOptionPane.showMessageDialog(tela, "Pix realizado com sucesso!");
+            if (boolcpf) {
                 tela.panelPix.setVisible(false);
                 tela.repaint();
                 tela.menuOpcoes(cliente);
+            } else {
+                JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
 
         } catch (NumberFormatException e2) {
-            JOptionPane.showMessageDialog(tela, "Valor inválido. Digite o cpf do destinatário do Pix!");
+            JOptionPane.showMessageDialog(tela, "CPF/CNPJ inválido. Digite apenas os números do CPF/CNPJ do destinatário do Pix!");
 
         }
 

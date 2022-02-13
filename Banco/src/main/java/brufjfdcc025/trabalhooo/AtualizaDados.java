@@ -31,31 +31,24 @@ public class AtualizaDados implements WindowListener{
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
             System.out.println("Dados1 = " + dados1);
             System.out.println("Dados2 = " + dados2);
-            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
-            for(Cliente c : clientes){
-                System.out.println("dado1 c = "+c);
-                tela.getClientes().add(c);
-            }
-            
-            clientes = JSON.toPessoaJuridica(dados2);
-            for(Cliente c : clientes){
-                tela.getClientes().add(c);
-            }
-            for(Cliente c : tela.getClientes()){
-                System.out.println("C = "+c);
-            }
-            
-            tela.addClientes(JSON.toPessoaFisica(dados1));
-            tela.addClientes(JSON.toPessoaJuridica(dados2));
-            System.out.println(tela.getClientes());
 //            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
-//            clientes = JSON.toPessoaJuridica(dados2);
 //            for(Cliente c : clientes){
-//                System.out.println(c); 
+//                System.out.println("dado1 c = "+c);
+//                tela.getClientes().add(c);
 //            }
+//            
+//            clientes = JSON.toPessoaJuridica(dados2);
 //            for(Cliente c : clientes){
 //                tela.getClientes().add(c);
 //            }
+//            for(Cliente c : tela.getClientes()){
+//                System.out.println("C = "+c);
+//            }
+//            
+            tela.addClientes(JSON.toPessoaFisica(dados1));
+            tela.addClientes(JSON.toPessoaJuridica(dados2));
+            System.out.println(tela.getClientes());
+
             tela.repaint();
             
         } catch (Exception ex) {

@@ -4,6 +4,7 @@ package brufjfdcc025.trabalhooo.view;
 import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 public class BotaoVerificarSaldo implements ActionListener{
 
@@ -17,7 +18,7 @@ public class BotaoVerificarSaldo implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        JOptionPane.showMessageDialog(tela, "O seu saldo é de R$"+cliente.getConta().getSaldo(), "Saldo", JOptionPane.INFORMATION_MESSAGE);
         
         
     }

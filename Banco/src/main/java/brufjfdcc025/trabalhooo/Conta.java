@@ -34,25 +34,30 @@ public class Conta {
     public float getSaldo() {
         return saldo;
     }
+
+    public List<Extrato> getExtrato() {
+        return extrato;
+    }
     
-    public void addExtrato(String tipo, float valor, Date data){
+    public void addExtrato(String tipo, float valor, Date data){ //usar sempre esse ao inves do set
         extrato.add(new Extrato(tipo,valor,data));
-        this.saldo+=valor;
+        this.saldo+=valor; //ja adiciona o valor ao saldo
     }
     
-    public String imprimeExtrato(){
-        String imprime="";
-        for (Extrato e : extrato){
-            imprime+="\n"+e;
-            
-        }
-        imprime+="\n            Total: R$"+ this.saldo;
-        return imprime;
-    }
+//    public String imprimeExtrato(){
+//        String imprime="";
+//        for (Extrato e : extrato){
+//            imprime+="\n"+e;
+//            
+//        }
+//        imprime+="\n            Total: R$"+ this.saldo;
+//        return imprime;
+//    }
     
-    public void setSaldo(float saldo) {
-        this.saldo += saldo;
-    }
+//    public void setSaldo(float saldo) {
+//        this.saldo += saldo;
+//    }
+    
     
    
     

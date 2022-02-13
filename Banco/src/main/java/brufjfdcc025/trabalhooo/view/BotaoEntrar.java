@@ -17,6 +17,7 @@ public class BotaoEntrar implements ActionListener {
 
     public BotaoEntrar(Menu tela) {
         this.tela = tela;
+        this.clientes = tela.getClientes();
     }
 
     @Override
@@ -24,7 +25,7 @@ public class BotaoEntrar implements ActionListener {
         try {
             boolean login = false;
             Cliente cliente = null;
-            for (Cliente c : tela.getClientes()) {
+            for (Cliente c : this.clientes) {
                 //usar mascara para ver se é fisica ou juridica
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
@@ -53,6 +54,7 @@ public class BotaoEntrar implements ActionListener {
                 JOptionPane.showMessageDialog(tela, "Usuário não encontrado!", "Usuário", JOptionPane.ERROR_MESSAGE);
             } else {
                 tela.painelLogin.setVisible(false);
+                tela.repaint();
                 tela.menuOpcoes(cliente);
                 tela.repaint();
             }

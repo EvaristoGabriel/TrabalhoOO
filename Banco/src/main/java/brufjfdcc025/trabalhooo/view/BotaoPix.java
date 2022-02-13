@@ -25,32 +25,38 @@ public class BotaoPix  implements ActionListener{
     public void actionPerformed(ActionEvent event) {
 
         try {
-            JTextField pix = new JTextField();
-            JOptionPane.showMessageDialog(tela, pix, "Digite o valor da transferencia:", JOptionPane.INFORMATION_MESSAGE);
-            int valPix = Integer.parseInt(pix.getText());
+//            JTextField pix = new JTextField();
+//            JOptionPane.showMessageDialog(tela, pix, "Digite o valor da transferencia:", JOptionPane.INFORMATION_MESSAGE);
+//            int valPix = Integer.parseInt(pix.getText());
+            
 
             tela.jpMenuOpcoes.setVisible(false);
             tela.panelPix = new JPanel();
             tela.panelPix.setVisible(true);
+            tela.repaint();
 
-            JLabel cpfJLabel = new JLabel("CPF/CNPJ do destinatário: ");
 
-            JTextField cpf = new JTextField(15);
+            tela.panelPix.add(new JLabel("Valor do Pix: "));
+            tela.valPix = new JTextField(15);
+            tela.panelPix.add(tela.valPix);
 
-            tela.panelPix.add(cpfJLabel);
-            tela.panelPix.add(cpf);
+            tela.panelPix.add(new JLabel("CPF/CNPJ do destinatário: "));
+            tela.valCpf = new JTextField(15);
+            tela.panelPix.add(tela.valCpf);
+            
+            float val = Float.parseFloat(tela.getValPix().getText());
+            String cpf = tela.getValCpf().getText();
 
             JButton btnPixRealizado = new JButton("Fazer o PIX!");
-            btnPixRealizado.addActionListener(new BotaoRealizaPix(tela,cpf,valPix,cliente));
+            btnPixRealizado.addActionListener(new BotaoRealizaPix(tela,cpf,val,cliente));
 
             tela.panelPix.add(btnPixRealizado);
             tela.panelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
             tela.add(tela.panelPix, BorderLayout.CENTER);
             
-            
 
-        } catch (NumberFormatException e2) {
-            JOptionPane.showMessageDialog(tela, "Valor da transferencia nao foi digitado");
+        } catch (NumberFormatException a) {
+            JOptionPane.showMessageDialog(tela, "Digite o valor da transferência apenas com números");
         }
 //        
     }

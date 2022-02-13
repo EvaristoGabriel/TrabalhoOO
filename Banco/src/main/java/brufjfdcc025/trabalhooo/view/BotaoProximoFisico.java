@@ -21,11 +21,19 @@ public class BotaoProximoFisico implements ActionListener {
         DefaultListModel<Cliente> modelo = new DefaultListModel<>();
         
         try{
+            //conferindo se há campos vazios
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
                     tela.getjNome().getText().isEmpty() || tela.getjOcupacao().getText().isEmpty() ||
                     tela.getjRg().getText().isEmpty() || tela.getjCpf().getText().isEmpty()){
                 int x = 100/0;
             }
+            
+            //verificando áreas que permitem apenas números
+            int numcpf = Integer.parseInt(tela.getjCpf().getText());
+            int numrg = Integer.parseInt(tela.getjRg().getText());
+            int numtel = Integer.parseInt(tela.getjTelefone().getText());
+
+            
             PessoaFisica cliente = new PessoaFisica(tela.getjCpf().getText(), tela.getjDataNascimento().getText(),
                                                     tela.getjOcupacao().getText(), tela.getjRg().getText(),
                                                     tela.getjTelefone().getText(), tela.getjNome().getText(),
@@ -35,9 +43,16 @@ public class BotaoProximoFisico implements ActionListener {
             tela.getClientes().add(cliente);
             tela.menuCadastraEndereco(tela.getjNome().getText());
             tela.repaint(); 
-        }catch(ArithmeticException e){
-            JOptionPane.showMessageDialog(tela, "Não deixe campos vazios");
         }
+        
+        catch(ArithmeticException e){
+            JOptionPane.showMessageDialog(tela, "Não deixe campos vazios!");
+        }
+        
+        catch(NumberFormatException a){
+            JOptionPane.showMessageDialog(tela, "Um ou mais campos preenchidos incorretamente");
+        }
+
             
         
     }

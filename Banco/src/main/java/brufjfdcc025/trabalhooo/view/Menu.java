@@ -25,12 +25,12 @@ import static javax.swing.border.TitledBorder.LEFT;
  */
 public class Menu extends JFrame {
 
-   Set<Cliente> clientes;
+    Set<Cliente> clientes;
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix;
-    int TAMANHO =15; //constante para tamanho dos campos de texto.
+    int TAMANHO =20; //constante para tamanho dos campos de texto.
     
     JButton btnVoltar;
 
@@ -57,6 +57,10 @@ public class Menu extends JFrame {
     JTextField jTransferencias;
     JTextField jVerificarExtrato;
     JTextField jVerificarSaldo;
+    JTextField valPix;
+    JTextField valCpf;
+    
+
 
     public Menu(Set<Cliente> clientes) {
         this.clientes = clientes;
@@ -121,11 +125,11 @@ public class Menu extends JFrame {
         this.painelPossuiConta.setVisible(false);
         PerguntaPessoa  = new JPanel();
         PerguntaPessoa.setVisible(true);
-        PerguntaPessoa.setLayout(new GridLayout(0,1,10,10));
+        PerguntaPessoa.setLayout(new GridLayout(3,3,20,20));
         JLabel pergunta = new JLabel("Que tipo de pessoa você é: ");
         
         JPanel painelBotoes = new JPanel();
-        painelBotoes.setLayout(new GridLayout(0,1,10,10));
+        painelBotoes.setLayout(new GridLayout(2,2,20,20));
         JButton btPFis = new JButton("Pessoa Física");
         btPFis.addActionListener(new BotaoPessoaFisica(this));
         JButton btPJuri = new JButton("Pessoa Jurídica");
@@ -149,23 +153,24 @@ public class Menu extends JFrame {
         jpMenuInicial.setVisible(true);
         jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
         //jpMenuInicial.setLayout(new BorderLayout());
-        jpMenuInicial.setSize(new Dimension(450, 800));
-        jpMenuInicial.setLayout(new GridLayout(25, 5));
+//        jpMenuInicial.setSize(new Dimension(450, 800));
+        jpMenuInicial.setPreferredSize(new Dimension(500, 300));
+        jpMenuInicial.setLayout(new GridLayout(10, 5));
         
         //adiciona os labels para e as caixas de texto para da campo.
         jpMenuInicial.add(new JLabel("Nome: "));
         jNome = new JTextField(TAMANHO);
         jpMenuInicial.add(jNome);
 
-        jpMenuInicial.add(new JLabel("Senha"));
+        jpMenuInicial.add(new JLabel("Senha:"));
         jSenha = new JTextField(TAMANHO);
         jpMenuInicial.add(jSenha);
 
-        jpMenuInicial.add(new JLabel("Telefone: "));
+        jpMenuInicial.add(new JLabel("Telefone: (apenas números) "));
         jTelefone = new JTextField(TAMANHO);
         jpMenuInicial.add(jTelefone);
         
-        jpMenuInicial.add(new JLabel("CNPJ: "));
+        jpMenuInicial.add(new JLabel("CNPJ: (apenas números) "));
         jCnpj = new JTextField(TAMANHO);
         jpMenuInicial.add(jCnpj);
         
@@ -188,8 +193,10 @@ public class Menu extends JFrame {
         jpMenuInicial.setVisible(true);
         jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
         //jpMenuInicial.setLayout(new BorderLayout());
-        jpMenuInicial.setSize(new Dimension(450, 800));
-        jpMenuInicial.setLayout(new GridLayout(25, 5));
+//        jpMenuInicial.setSize(new Dimension(450, 800));
+        jpMenuInicial.setPreferredSize(new Dimension(500, 300));
+
+        jpMenuInicial.setLayout(new GridLayout(10, 5));
         
         //adiciona os labels para e as caixas de texto para da campo.
         //cpf, nascimento,ocupacao,rg
@@ -197,15 +204,15 @@ public class Menu extends JFrame {
         jNome = new JTextField(TAMANHO);
         jpMenuInicial.add(jNome);
 
-        jpMenuInicial.add(new JLabel("Senha"));
+        jpMenuInicial.add(new JLabel("Senha:"));
         jSenha = new JTextField(TAMANHO);
         jpMenuInicial.add(jSenha);
 
-        jpMenuInicial.add(new JLabel("Telefone: "));
+        jpMenuInicial.add(new JLabel("Telefone: (apenas números) "));
         jTelefone = new JTextField(TAMANHO);
         jpMenuInicial.add(jTelefone);
         
-        jpMenuInicial.add(new JLabel("CPF: "));
+        jpMenuInicial.add(new JLabel("CPF: (apenas números) "));
         jCpf = new JTextField(TAMANHO);
         jpMenuInicial.add(jCpf);
         
@@ -217,7 +224,7 @@ public class Menu extends JFrame {
         jDataNascimento = new JTextField(TAMANHO);
         jpMenuInicial.add(jDataNascimento);
         
-        jpMenuInicial.add(new JLabel("RG: "));
+        jpMenuInicial.add(new JLabel("RG: (apenas números) "));
         jRg = new JTextField(TAMANHO);
         jpMenuInicial.add(jRg);
         
@@ -238,11 +245,12 @@ public class Menu extends JFrame {
         jpMenuEndereco = new JPanel();
         jpMenuEndereco.setVisible(true);
         jpMenuEndereco.setBorder(BorderFactory.createTitledBorder("ENDEREÇO"));
-        jpMenuEndereco.setSize(new Dimension(450, 800));
-        jpMenuEndereco.setLayout(new GridLayout(25, 5));
+//        jpMenuEndereco.setSize(new Dimension(450, 800));
+        jpMenuEndereco.setPreferredSize(new Dimension(500, 300));
+        jpMenuEndereco.setLayout(new GridLayout(10, 0));
         
         
-        jpMenuEndereco.add(new JLabel("CEP: "));
+        jpMenuEndereco.add(new JLabel("CEP: (apenas números) "));
         jCep = new JTextField(TAMANHO);
         jpMenuEndereco.add(jCep);
 
@@ -250,11 +258,11 @@ public class Menu extends JFrame {
         jBairro = new JTextField(TAMANHO);
         jpMenuEndereco.add(jBairro);
 
-        jpMenuEndereco.add(new JLabel("Numero: " +" (somente numeros) "));
+        jpMenuEndereco.add(new JLabel("Numero: (apenas números) "));
         jNumero = new JTextField(TAMANHO);
         jpMenuEndereco.add(jNumero);
 
-        jpMenuEndereco.add(new JLabel("Complemento: "));
+        jpMenuEndereco.add(new JLabel("Complemento: (opcional)"));
         jComplemento = new JTextField(TAMANHO);
         jpMenuEndereco.add(jComplemento);
 
@@ -316,8 +324,8 @@ public class Menu extends JFrame {
         btnPix.addActionListener(new BotaoPix(this,cliente));
         btnTransferencias.addActionListener(new BotaoTransferencia(this,cliente));
         btnPagamento.addActionListener(new BotaoPagamento(this));
-        btnDeposito.addActionListener(new BotaoDeposito(this));
-        btnSaque.addActionListener(new BotaoSaque(this));
+        btnDeposito.addActionListener(new BotaoDeposito(this,cliente));
+        btnSaque.addActionListener(new BotaoSaque(this,cliente));
         btnEmprestimo.addActionListener(new BotaoEmprestimo(this));
         btnSair.addActionListener(new BotaoSair(this));
         
@@ -335,7 +343,7 @@ public class Menu extends JFrame {
     }
 
     private void configuraMenu() {
-        this.setSize(500,800); //tamanho em px da janela
+//        this.setSize(500,800); //tamanho em px da janela
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 
         this.painel = new JPanel(); //painel 1
@@ -347,9 +355,9 @@ public class Menu extends JFrame {
     public void mostraMenu() {
         
         painel = new JPanel();
-        this.setSize(500,600);
+//        this.setSize(500,600);
         
-        this.setPreferredSize(new Dimension(500, 300));
+        this.setPreferredSize(new Dimension(500, 400));
         
         
         this.addWindowListener(new AtualizaDados(this));
@@ -589,4 +597,22 @@ public class Menu extends JFrame {
     public void setjRg(JTextField jRg) {
         this.jRg = jRg;
     }
+
+    public JTextField getValPix() {
+        return valPix;
+    }
+
+    public void setValPix(JTextField valPix) {
+        this.valPix = valPix;
+    }
+
+    public JTextField getValCpf() {
+        return valCpf;
+    }
+
+    public void setValCpf(JTextField valCpf) {
+        this.valCpf = valCpf;
+    }
+    
+    
 }
