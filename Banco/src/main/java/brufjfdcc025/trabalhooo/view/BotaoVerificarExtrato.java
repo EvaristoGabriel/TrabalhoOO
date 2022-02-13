@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import brufjfdcc025.trabalhooo.Cliente;
 import brufjfdcc025.trabalhooo.Extrato;
+import java.awt.BorderLayout;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -17,7 +18,7 @@ public class BotaoVerificarExtrato implements ActionListener{
 
     private final Menu tela;
     private Cliente cliente;
-    private JPanel painel;
+//    private JPanel painelExtrato;
     private String[] colunas = {"Operação","Valor","Data"};
 //    private Object[][] linhas = {};
     private JTable tabela;
@@ -28,7 +29,15 @@ public class BotaoVerificarExtrato implements ActionListener{
         this.tela = tela;
         this.cliente=cliente;
         this.extrato=cliente.getConta().getExtrato();
-        painel = new JPanel();
+        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        tela.jpMenuOpcoes.setVisible(false);
+        tela.painelExtrato = new JPanel();
+        tela.painelExtrato.setVisible(true);
         
         model =  new DefaultTableModel();
         model.addColumn(colunas[0]);
@@ -36,23 +45,18 @@ public class BotaoVerificarExtrato implements ActionListener{
         model.addColumn(colunas[2]);
         
         tabela = new JTable(model);
-        
+                
         JScrollPane scroll = new JScrollPane(tabela);
-        
-        painel.add(scroll);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-        tela.setVisible(true);
-        painel.setVisible(true);
-        painel.setLayout(new java.awt.GridBagLayout());
+        tela.painelExtrato.add(scroll);
+//        tela.painelExtrato.setLayout(new java.awt.GridBagLayout());
 //        JLabel label = new JLabel(cliente.getConta().imprimeExtrato());
 //        painel.add(label);
         
         for(Extrato ex: extrato)    
             model.addRow(new Object[]{ ex.getTipo(), ex.getVal(), ex.getData()});
+        
+        tela.btnVoltar.addActionListener(new BotaoVoltarExtrato(tela, cliente));
+        tela.painelExtrato.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
         
         tela.repaint();
         

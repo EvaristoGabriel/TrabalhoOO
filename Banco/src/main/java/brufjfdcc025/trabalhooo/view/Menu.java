@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import static javax.swing.border.TitledBorder.LEFT;
 
 /**
@@ -32,7 +33,7 @@ public class Menu extends JFrame {
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix,panelTransferencia;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix,panelTransferencia,painelExtrato;
     int TAMANHO =15; //constante para tamanho dos campos de texto.//constante para tamanho dos campos de texto.
     
     JButton btnVoltar;

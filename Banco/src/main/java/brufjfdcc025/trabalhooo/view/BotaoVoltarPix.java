@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class BotaoVoltar  implements ActionListener{
+public class BotaoVoltarPix  implements ActionListener{
     
       private final Menu tela;
       Cliente cliente;
    
 
-    public BotaoVoltar(Menu tela, Cliente cliente) {
+    public BotaoVoltarPix(Menu tela, Cliente cliente) {
       
         this.tela = tela;
         this.cliente=cliente;
@@ -25,9 +25,11 @@ public class BotaoVoltar  implements ActionListener{
         try{
             tela.panelPix.setVisible(false);
             tela.repaint();
-            tela.jpMenuOpcoes.setVisible(true);
-            tela.repaint();
+//            tela.jpMenuOpcoes.setVisible(true);
+//            tela.repaint();
             tela.menuOpcoes(cliente);
+            
+            
         }catch(Exception e2){
             JOptionPane.showMessageDialog(tela, "ERROR","ERROR", JOptionPane.ERROR_MESSAGE);
         }
