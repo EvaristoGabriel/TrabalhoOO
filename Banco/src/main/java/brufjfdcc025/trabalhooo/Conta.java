@@ -21,6 +21,7 @@ public class Conta {
     public Conta() {
         saldo=0;
         extrato = new ArrayList<>();
+        //numero= ;
     }
 
     
@@ -29,7 +30,6 @@ public class Conta {
         return numero;
     }
 
-    
 
     public float getSaldo() {
         return saldo;
@@ -58,16 +58,6 @@ public class Conta {
 //        this.saldo += saldo;
 //    }
     
-    
-   
-    
-    
-    
-    /*implementar funções:
-  
-    emprestimos
-    
-    */
     
     
 }

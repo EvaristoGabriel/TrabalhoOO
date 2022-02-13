@@ -64,7 +64,7 @@ public class AtualizaDados implements WindowListener {
     @Override
     public void windowClosing(WindowEvent e) {
         try {
-            Set<Cliente> clientes = tela.getClientes();
+            List<Cliente> clientes = tela.getClientes();
 //            List<Cliente> clienteF = new ArrayList<>();
 //            List<Cliente> clienteJ = new ArrayList<>();
 

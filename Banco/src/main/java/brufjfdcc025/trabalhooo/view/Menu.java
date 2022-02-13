@@ -29,7 +29,7 @@ public class Menu extends JFrame {
 
 
     
-    Set<Cliente> clientes;
+    List<Cliente> clientes;
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
@@ -66,7 +66,7 @@ public class Menu extends JFrame {
     
 
 
-    public Menu(Set<Cliente> clientes) {
+    public Menu(List<Cliente> clientes) {
         this.clientes = clientes;
     }
 
@@ -116,9 +116,14 @@ public class Menu extends JFrame {
         painelLogin.add(campos);
         
         JPanel painelBotoes = new JPanel();
+        
         JButton btEntrar = new JButton("Entrar");
         btEntrar.addActionListener(new BotaoEntrar(this));
         painelBotoes.add(btEntrar);
+        
+        JButton btVoltarLogin = new JButton("Voltar");
+        btVoltarLogin.addActionListener(new BotaoVoltarLogin(this));
+        painelBotoes.add(btVoltarLogin);
      
         painelLogin.add(painelBotoes);
         
@@ -565,11 +570,11 @@ public class Menu extends JFrame {
         this.jEmprestimo = jEmprestimo;
     }
 
-    public Set<Cliente> getClientes() {
+    public List<Cliente> getClientes() {
         return clientes;
     }
 
-    public void setClientes(Set<Cliente> clientes) {
+    public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
     

@@ -15,7 +15,7 @@ import java.util.Set;
 public class Banco {
 
     public static void main(String[] args) {
-        Set<Cliente> clientes = new HashSet<>(); //conjunto de clientes 
+        List<Cliente> clientes = new ArrayList<>(); //conjunto de clientes 
 
         Menu tela = new Menu(clientes);
         tela.mostraMenu();

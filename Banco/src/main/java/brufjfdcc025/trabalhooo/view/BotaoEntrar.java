@@ -9,11 +9,12 @@ import javax.swing.JOptionPane;
 import brufjfdcc025.trabalhooo.Cliente;
 import brufjfdcc025.trabalhooo.PessoaFisica;
 import brufjfdcc025.trabalhooo.PessoaJuridica;
+import java.util.List;
 
 public class BotaoEntrar implements ActionListener {
 
     private final Menu tela;
-    Set<Cliente> clientes;
+    List<Cliente> clientes;
 
     public BotaoEntrar(Menu tela) {
         this.tela = tela;

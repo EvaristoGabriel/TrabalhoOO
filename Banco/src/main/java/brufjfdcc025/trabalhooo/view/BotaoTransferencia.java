@@ -40,9 +40,9 @@ public class BotaoTransferencia implements ActionListener {
                 JLabel numConta = new JLabel("Número da conta:");
                 JLabel cpfJLabel = new JLabel("CPF: ");
 
-                JTextField nomeDestinatario = new JTextField(15);
-                JTextField numeroConta = new JTextField(15);
-                JTextField cpf = new JTextField(15);
+                JTextField nomeDestinatario = new JTextField(20);
+                JTextField numeroConta = new JTextField(20);
+                JTextField cpf = new JTextField(20);
                 tela.panelTransferencia.add(nome);
                 tela.panelTransferencia.add(nomeDestinatario);
                 tela.panelTransferencia.add(numConta);
