@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-
 public class VoltarTransferencia implements ActionListener {
 
     private final Menu tela;
@@ -26,15 +25,10 @@ public class VoltarTransferencia implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        try {
+        tela.painelTransferencia.setVisible(false);
+        tela.repaint();
+        tela.menuOpcoes(cliente);
 
-            tela.panelTransferencia.setVisible(false);
-            tela.repaint();
-            tela.menuOpcoes(cliente);
-
-        } catch (Exception e2) {
-
-        }
     }
 
 }

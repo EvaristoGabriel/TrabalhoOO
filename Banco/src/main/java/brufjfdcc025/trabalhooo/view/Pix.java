@@ -34,8 +34,8 @@ public class Pix  implements ActionListener{
             } else {
 
             tela.jpMenuOpcoes.setVisible(false);
-            tela.panelPix = new JPanel();
-            tela.panelPix.setVisible(true);
+            tela.painelPix = new JPanel();
+            tela.painelPix.setVisible(true);
             tela.repaint();
 
 
@@ -43,9 +43,9 @@ public class Pix  implements ActionListener{
 //            tela.valPix = new JTextField(15);
 //            tela.panelPix.add(tela.valPix);
 
-            tela.panelPix.add(new JLabel("CPF/CNPJ do destinatário: "));
+            tela.painelPix.add(new JLabel("CPF/CNPJ do destinatário: "));
             tela.valCpf = new JTextField(15);
-            tela.panelPix.add(tela.valCpf);
+            tela.painelPix.add(tela.valCpf);
             
 //            float val = Float.parseFloat(tela.getValPix().getText());
             String cpf = tela.getValCpf().getText();
@@ -53,11 +53,11 @@ public class Pix  implements ActionListener{
             JButton btnPixRealizado = new JButton("Fazer o PIX!");
             btnPixRealizado.addActionListener(new RealizaPix(tela,cpf,valPix,cliente));
 
-            tela.panelPix.add(btnPixRealizado);
+            tela.painelPix.add(btnPixRealizado);
             
             tela.btnVoltar.addActionListener(new VoltarPix(tela, cliente));
-            tela.panelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
-            tela.add(tela.panelPix, BorderLayout.CENTER);
+            tela.painelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
+            tela.add(tela.painelPix, BorderLayout.CENTER);
             }
 
         } catch (NumberFormatException a) {

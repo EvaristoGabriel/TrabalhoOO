@@ -23,7 +23,7 @@ public class VoltarPix  implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         try{
-            tela.panelPix.setVisible(false);
+            tela.painelPix.setVisible(false);
             tela.repaint();
 //            tela.jpMenuOpcoes.setVisible(true);
 //            tela.repaint();

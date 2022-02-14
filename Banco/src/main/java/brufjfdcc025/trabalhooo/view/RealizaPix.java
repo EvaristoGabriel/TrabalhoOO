@@ -73,7 +73,7 @@ public class RealizaPix implements ActionListener {
             }
 
             if (boolcpf==true) {
-                tela.panelPix.setVisible(false);
+                tela.painelPix.setVisible(false);
                 tela.repaint();
                 tela.menuOpcoes(cliente);
             } else {

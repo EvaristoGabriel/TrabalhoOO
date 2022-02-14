@@ -3,6 +3,7 @@ package brufjfdcc025.trabalhooo.view;
 import brufjfdcc025.trabalhooo.model.Cliente;
 import com.sun.org.apache.xerces.internal.util.DOMUtil;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -28,36 +29,40 @@ public class Transferencia implements ActionListener {
         try {
             JTextField transferencia = new JTextField();
             JOptionPane.showMessageDialog(tela, transferencia, "Digite o valor da transferência:", JOptionPane.INFORMATION_MESSAGE);
-            int valTransferencia = Integer.parseInt(transferencia.getText());
+            float valTransferencia = Float.parseFloat(transferencia.getText());
 
             if (valTransferencia >= cliente.getConta().getSaldo()) {
                 int x = 100 / 0;
             } else {
                 tela.jpMenuOpcoes.setVisible(false);
-                tela.panelTransferencia = new JPanel();
-                tela.panelTransferencia.setVisible(true);
+                tela.painelTransferencia = new JPanel();
+                tela.painelTransferencia.setVisible(true);
+                tela.painelTransferencia.setLayout(new GridLayout(10, 1, 10, 10));
                 JLabel nome = new JLabel("Nome:");
                 JLabel numConta = new JLabel("Número da conta:");
-                JLabel cpfJLabel = new JLabel("CPF/CNPJ: ");
+                JLabel cpfJLabel = new JLabel("CPF: ");
+                JLabel aviso = new JLabel("OBS.: Transferência só pode ser feita para pessoas físicas.");
 
-                JTextField nomeDestinatario = new JTextField(20);
-                JTextField numeroConta = new JTextField(20);
-                JTextField cpf = new JTextField(20);
-                tela.panelTransferencia.add(nome);
-                tela.panelTransferencia.add(nomeDestinatario);
-                tela.panelTransferencia.add(numConta);
-                tela.panelTransferencia.add(numeroConta);
-                tela.panelTransferencia.add(cpfJLabel);
-                tela.panelTransferencia.add(cpf);
+                JTextField nomeDestinatario = new JTextField(15);
+                JTextField numeroConta = new JTextField(15);
+                JTextField cpf = new JTextField(15);
+                tela.painelTransferencia.add(nome);
+                tela.painelTransferencia.add(nomeDestinatario);
+                tela.painelTransferencia.add(numConta);
+                tela.painelTransferencia.add(numeroConta);
+                tela.painelTransferencia.add(cpfJLabel);
+                tela.painelTransferencia.add(cpf);
+                tela.painelTransferencia.add(aviso);
+
 
                 JButton btntransferir = new JButton("Transferir");
-                btntransferir.addActionListener(new RealizaTransferencia(tela, cpf, numeroConta, nomeDestinatario, cliente));
+                btntransferir.addActionListener(new RealizaTransferencia(tela, cpf, numeroConta, nomeDestinatario.getText(), valTransferencia, cliente));
 
-                tela.panelTransferencia.add(btntransferir);
+                tela.painelTransferencia.add(btntransferir);
 
                 tela.btnVoltar.addActionListener(new VoltarTransferencia(tela, cliente));
-                tela.panelTransferencia.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
-                tela.add(tela.panelTransferencia, BorderLayout.CENTER);
+                tela.painelTransferencia.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
+                tela.add(tela.painelTransferencia, BorderLayout.CENTER);
 
             }
 

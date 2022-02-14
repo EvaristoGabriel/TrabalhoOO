@@ -8,24 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import brufjfdcc025.trabalhooo.model.PessoaFisica;
-import brufjfdcc025.trabalhooo.view.CadastrarCliente;
-import brufjfdcc025.trabalhooo.view.CadastroPessoaFisica;
-import brufjfdcc025.trabalhooo.view.CadastroPessoaJuridica;
-import brufjfdcc025.trabalhooo.view.Deposito;
-import brufjfdcc025.trabalhooo.view.Emprestimo;
-import brufjfdcc025.trabalhooo.view.Entrar;
-import brufjfdcc025.trabalhooo.view.Nao;
-import brufjfdcc025.trabalhooo.view.Pagamento;
-import brufjfdcc025.trabalhooo.view.Pix;
-import brufjfdcc025.trabalhooo.view.ProximoFisico;
-import brufjfdcc025.trabalhooo.view.ProximoJuridico;
-import brufjfdcc025.trabalhooo.view.Sair;
-import brufjfdcc025.trabalhooo.view.Saque;
-import brufjfdcc025.trabalhooo.view.Sim;
-import brufjfdcc025.trabalhooo.view.Transferencia;
-import brufjfdcc025.trabalhooo.view.VerificarExtrato;
-import brufjfdcc025.trabalhooo.view.VerificarSaldo;
-import brufjfdcc025.trabalhooo.view.VoltarLogin;
 import java.util.List;
 import java.util.Set;
 import javax.swing.BorderFactory;
@@ -53,7 +35,8 @@ public class Menu extends JFrame {
     JList ListaClientes =new JList<>();
 
    //painel é o painel principal
-    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,panelPix,panelTransferencia,painelExtrato;
+    JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, 
+            jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,painelPix,painelTransferencia,painelExtrato,painelPagamento;
     int TAMANHO =15; //constante para tamanho dos campos de texto.//constante para tamanho dos campos de texto.
     
     JButton btnVoltar;
@@ -338,9 +321,9 @@ public class Menu extends JFrame {
         JPanel btnPainel = new JPanel();
         JButton btnEmprestimo = new JButton("Emprestimo");
         JButton btnSaque = new JButton("Saque");
-        JButton btnTransferencias = new JButton("Transferencias");
+        JButton btnTransferencias = new JButton("Transferência");
         JButton btnPagamento = new JButton("Pagamento");
-        JButton btnDeposito = new JButton("Deposito");
+        JButton btnDeposito = new JButton("Depósito");
         JButton btnPix = new JButton("PIX");
         JButton btnVerificarExtrato = new JButton("Verificar Extrato");
         JButton btnVerificarSaldo = new JButton("Verificar Saldo");
@@ -365,7 +348,7 @@ public class Menu extends JFrame {
         btnVerificarSaldo.addActionListener(new VerificarSaldo(this,cliente));
         btnPix.addActionListener(new Pix(this,cliente));
         btnTransferencias.addActionListener(new Transferencia(this,cliente));
-        btnPagamento.addActionListener(new Pagamento(this));
+        btnPagamento.addActionListener(new Pagamento(this, cliente));
         btnDeposito.addActionListener(new Deposito(this,cliente));
         btnSaque.addActionListener(new Saque(this,cliente));
         btnEmprestimo.addActionListener(new Emprestimo(this));

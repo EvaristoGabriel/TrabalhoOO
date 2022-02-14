@@ -26,7 +26,7 @@ public class Saque implements ActionListener {
 //            JOptionPane.showMessageDialog(tela, saque, "Digite o valor a ser sacado:", JOptionPane.INFORMATION_MESSAGE);
 //            float valSaque = Float.parseFloat(saque.getText());
             
-            float valSaque = Float.parseFloat(JOptionPane.showInputDialog(tela, "Digite o valor a ser sacado:", "Saque", JOptionPane.INFORMATION_MESSAGE));
+            float valSaque = Float.parseFloat(JOptionPane.showInputDialog(tela, "Digite o valor a ser sacado:"));
 
             
             if(cliente.getConta().getSaldo()>=valSaque){
