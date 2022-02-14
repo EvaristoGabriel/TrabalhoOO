@@ -1,7 +1,7 @@
 package brufjfdcc025.trabalhooo.model;
 
-import brufjfdcc025.trabalhooo.view.Menu;
-import brufjfdcc025.trabalhooo.control.Arquivo;
+import brufjfdcc025.trabalhooo.ViweControl.Menu;
+import brufjfdcc025.trabalhooo.Arquivo.Arquivo;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
