@@ -1,7 +1,7 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.model.Cliente;
-import com.sun.org.apache.xerces.internal.util.DOMUtil;
+//import com.sun.org.apache.xerces.internal.util.DOMUtil;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
