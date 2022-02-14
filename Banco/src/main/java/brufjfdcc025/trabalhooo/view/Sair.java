@@ -21,9 +21,7 @@ public class Sair implements ActionListener {
         if (option == 0) {
             tela.jpMenuOpcoes.setVisible(false);
             tela.repaint();
-            tela.menuPossuiConta();
+            tela.painel.setVisible(true);
         }
-
     }
-
 }

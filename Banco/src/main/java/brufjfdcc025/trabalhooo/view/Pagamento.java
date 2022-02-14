@@ -53,7 +53,7 @@ try {
 
 
                 JButton btnpagar = new JButton("Pagar");
-                btnpagar.addActionListener(new RealizaPagamento(tela, Integer.parseInt(cnpj.getText()), numeroConta.getText(), nomeDestinatario.getText(), valPagamento, cliente));
+                btnpagar.addActionListener(new RealizaPagamento(tela, cnpj, numeroConta, nomeDestinatario, valPagamento, cliente));
 
                 tela.painelPagamento.add(btnpagar);
 

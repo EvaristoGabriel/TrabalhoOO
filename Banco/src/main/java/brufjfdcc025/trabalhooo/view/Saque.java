@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class Saque implements ActionListener {
 
@@ -20,7 +21,9 @@ public class Saque implements ActionListener {
     public void actionPerformed(ActionEvent event) {
 
         try {
-            float valSaque = Float.parseFloat(JOptionPane.showInputDialog(tela, "Digite o valor a ser sacado:"));
+            JTextField saque = new JTextField();
+            JOptionPane.showMessageDialog(tela,saque, "Digite o valor a ser sacado:",JOptionPane.INFORMATION_MESSAGE);
+            float valSaque = Float.parseFloat(saque.getText());
             
             if(cliente.getConta().getSaldo()>=valSaque){
                 cliente.getConta().addExtrato("Saque", -valSaque, Calendar.getInstance().getTime());
@@ -31,7 +34,7 @@ public class Saque implements ActionListener {
             }
         }
         catch(NumberFormatException e2){
-            JOptionPane.showMessageDialog(tela, "Voce não digitou o valor a ser sacado\nou digiotu um valor inválido!");
+            JOptionPane.showMessageDialog(tela, "Voce não digitou o valor a ser sacado\nou digitou um valor inválido!", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }

@@ -38,7 +38,6 @@ public class Arquivo {
                     clientes.add(p);
                 }
                 else{
-                    System.out.println(s);
                     PessoaJuridica p = new PessoaJuridica(user[4], user[3], user[1], user[2]);
                     p.getConta().setNumero(user[5]);
                     p.getConta().setSaldo(Float.parseFloat(user[6]));

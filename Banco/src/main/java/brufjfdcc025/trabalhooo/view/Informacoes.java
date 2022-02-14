@@ -44,7 +44,6 @@ public class Informacoes implements ActionListener{
             }
             tela.painelInfo.add(new JLabel("Numero da conta: "));
             tela.painelInfo.add(new JLabel(cliente.getConta().getNumero()));
-            System.out.println(cliente.getConta().getNumero());
             tela.painelInfo.add(new JLabel("Saldo: "));
             tela.painelInfo.add(new JLabel(String.valueOf(cliente.getConta().getSaldo())));
             tela.painelInfo.add(new JLabel("Cep: "));

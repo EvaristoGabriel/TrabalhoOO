@@ -11,13 +11,13 @@ import javax.swing.JTextField;
 public class RealizaPagamento implements ActionListener {
 
     private final Menu tela;
-    private final int cpf;
-    private final String numConta;
-    private final String nomeConta;
+    private final JTextField cpf;
+    private final JTextField numConta;
+    private final JTextField nomeConta;
     private final Cliente cliente;
     private final float val;
 
-    public RealizaPagamento(Menu tela, int cpf, String numConta, String nomeConta, float val, Cliente cliente) {
+    public RealizaPagamento(Menu tela, JTextField cpf, JTextField numConta, JTextField nomeConta, float val, Cliente cliente) {
         this.tela = tela;
         this.cpf = cpf;
         this.numConta = numConta;
@@ -33,7 +33,7 @@ public class RealizaPagamento implements ActionListener {
             for (Cliente c : tela.getClientes()) {
                 if (c.getTipo().equals("J")) {
                     PessoaJuridica p = (PessoaJuridica) c;
-                    if (p.getCnpj().equals(cpf) && p.getConta().getNumero().equals(numConta) && p.getNome().equals(nomeConta)) {
+                    if (p.getCnpj().equals(cpf.getText()) && p.getConta().getNumero().equals(numConta.getText()) && p.getNome().equals(nomeConta.getText())) {
                         c.getConta().addExtrato("Pagamento", val, Calendar.getInstance().getTime());
                         cliente.getConta().addExtrato("Pagamento", -val, Calendar.getInstance().getTime());
                         pag = true;

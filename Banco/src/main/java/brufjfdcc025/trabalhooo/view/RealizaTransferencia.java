@@ -11,13 +11,13 @@ import javax.swing.JTextField;
 public class RealizaTransferencia implements ActionListener {
 
     private final Menu tela;
-    private final int cpf;
-    private final String numConta;
-    private final String nomeConta;
+    private final JTextField cpf;
+    private final JTextField numConta;
+    private final JTextField nomeConta;
     private final Cliente cliente;
     private final float val;
 
-    public RealizaTransferencia(Menu tela, int cpf,String num, String nome, Float val, Cliente cliente) {
+    public RealizaTransferencia(Menu tela, JTextField cpf,JTextField num, JTextField nome, Float val, Cliente cliente) {
         this.cpf = cpf;
         this.tela = tela;
         this.nomeConta = nome;
@@ -31,10 +31,9 @@ public class RealizaTransferencia implements ActionListener {
         try {
             boolean trans = false;
             for (Cliente c : tela.getClientes()) {
-                System.out.println(c);
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
-                    if (p.getCpf().equals(cpf) && p.getConta().getNumero().equals(numConta) && p.getNome().equals(nomeConta)) {
+                    if (p.getCpf().equals(cpf.getText()) && p.getConta().getNumero().equals(numConta.getText()) && p.getNome().equals(nomeConta.getText())) {
                         c.getConta().addExtrato("Transferência", val, Calendar.getInstance().getTime());
                         cliente.getConta().addExtrato("Transferência", -val, Calendar.getInstance().getTime());
                         trans = true;

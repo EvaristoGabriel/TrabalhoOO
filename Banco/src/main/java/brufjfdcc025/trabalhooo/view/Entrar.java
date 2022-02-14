@@ -24,8 +24,6 @@ public class Entrar implements ActionListener {
             boolean login = false;
             Cliente cliente = null;
             for (Cliente c : this.clientes) {
-                //usar mascara para ver se é fisica ou juridica
-                System.out.println(c);
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
                     if (p.getCpf().equals(tela.getjCpf().getText())
