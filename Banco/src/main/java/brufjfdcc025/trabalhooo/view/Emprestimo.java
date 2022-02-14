@@ -1,7 +1,6 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.model.Cliente;
-import brufjfdcc025.trabalhooo.model.Data;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;

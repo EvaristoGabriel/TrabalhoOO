@@ -5,9 +5,7 @@ import java.awt.event.ActionListener;
 import brufjfdcc025.trabalhooo.model.Cliente;
 import brufjfdcc025.trabalhooo.model.Extrato;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.util.List;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -19,9 +17,7 @@ public class VerificarExtrato implements ActionListener{
 
     private final Menu tela;
     private Cliente cliente;
-//    private JPanel painelExtrato;
     private String[] colunas = {"Operação","Valor","Data"};
-//    private Object[][] linhas = {};
     private JTable tabela;
     private DefaultTableModel model;
     private List <Extrato> extrato;
@@ -50,9 +46,6 @@ public class VerificarExtrato implements ActionListener{
                 
         JScrollPane scroll = new JScrollPane(tabela);
         tela.painelExtrato.add(scroll);
-//        tela.painelExtrato.setLayout(new java.awt.GridBagLayout());
-//        JLabel label = new JLabel(cliente.getConta().imprimeExtrato());
-//        painel.add(label);
         
         for(Extrato ex: extrato)    
             model.addRow(new Object[]{ ex.getTipo(), ex.getVal(), ex.getData()});
@@ -62,7 +55,5 @@ public class VerificarExtrato implements ActionListener{
         
         tela.add(tela.painelExtrato, BorderLayout.CENTER);
         tela.repaint();
-        
-
     }
-    }
+}

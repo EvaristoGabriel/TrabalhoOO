@@ -1,10 +1,8 @@
 package brufjfdcc025.trabalhooo.view;
 
-//import brufjfdcc025.trabalhooo.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class Sim implements ActionListener{
 

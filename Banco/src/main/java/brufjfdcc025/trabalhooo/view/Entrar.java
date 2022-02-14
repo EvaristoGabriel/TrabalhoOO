@@ -1,10 +1,7 @@
 package brufjfdcc025.trabalhooo.view;
 
-import brufjfdcc025.trabalhooo.model.Cliente;
-//import com.sun.security.ntlm.Client;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import brufjfdcc025.trabalhooo.model.Cliente;
 import brufjfdcc025.trabalhooo.model.PessoaFisica;
@@ -28,6 +25,7 @@ public class Entrar implements ActionListener {
             Cliente cliente = null;
             for (Cliente c : this.clientes) {
                 //usar mascara para ver se é fisica ou juridica
+                System.out.println(c);
                 if (c.getTipo().equals("F")) {
                     PessoaFisica p = (PessoaFisica) c;
                     if (p.getCpf().equals(tela.getjCpf().getText())

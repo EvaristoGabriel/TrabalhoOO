@@ -1,7 +1,6 @@
 package brufjfdcc025.trabalhooo.model;
 
 public class PessoaFisica extends Cliente{
-    //nome, cpf, Endereço, nascimento
     private String nascimento,ocupacao,rg, cpf;
     
     public PessoaFisica(String cpf, String nascimento, String ocupacao, String rg, String telefone, String nome, String senha){

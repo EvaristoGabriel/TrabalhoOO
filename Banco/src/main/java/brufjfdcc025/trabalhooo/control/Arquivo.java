@@ -42,7 +42,6 @@ public class Arquivo {
                     PessoaJuridica p = new PessoaJuridica(user[4], user[3], user[1], user[2]);
                     p.getConta().setNumero(user[5]);
                     p.getConta().setSaldo(Float.parseFloat(user[6]));
-                    //;jUIZ sw for\;tres;Centro;369784;0;1
                     Endereco end = new Endereco(user[7], user[8], user[9], user[10], Integer.parseInt(user[11]), user[12]);
                     p.setEndereco(end);
                     clientes.add(p);

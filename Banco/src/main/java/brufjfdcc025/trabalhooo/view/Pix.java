@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import brufjfdcc025.trabalhooo.model.Cliente;
-import javax.swing.JFrame;
 
 public class Pix  implements ActionListener{
 
@@ -38,16 +37,10 @@ public class Pix  implements ActionListener{
             tela.painelPix.setVisible(true);
             tela.repaint();
 
-
-//            tela.panelPix.add(new JLabel("Valor do Pix: "));
-//            tela.valPix = new JTextField(15);
-//            tela.panelPix.add(tela.valPix);
-
             tela.painelPix.add(new JLabel("CPF/CNPJ do destinatário: "));
             tela.valCpf = new JTextField(15);
             tela.painelPix.add(tela.valCpf);
             
-//            float val = Float.parseFloat(tela.getValPix().getText());
             String cpf = tela.getValCpf().getText();
 
             JButton btnPixRealizado = new JButton("Fazer o PIX!");
@@ -59,12 +52,10 @@ public class Pix  implements ActionListener{
             tela.painelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
             tela.add(tela.painelPix, BorderLayout.CENTER);
             }
-
         } catch (NumberFormatException a) {
             JOptionPane.showMessageDialog(tela, "Digite o valor da transferência apenas com números");
         } catch (ArithmeticException e){
             JOptionPane.showMessageDialog(tela, "Saldo insuficiente!");
         }
-//        
     }
 }

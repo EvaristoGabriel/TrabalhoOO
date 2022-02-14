@@ -1,7 +1,6 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.model.Cliente;
-import brufjfdcc025.trabalhooo.model.PessoaFisica;
 import brufjfdcc025.trabalhooo.model.PessoaJuridica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,24 +17,20 @@ public class ProximoJuridico implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        DefaultListModel<Cliente> modelo = new DefaultListModel<>();
-
-
         try{
             //verificando áreas vazias
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
                     tela.getjNome().getText().isEmpty() || tela.getjCnpj().getText().isEmpty()){
                 int x = 100/0;
             }   
-            //verificando áreas que permitem somente números
-//            int numCnpj = Integer.parseInt(tela.getjCnpj().getText());
-//            int numTel = Integer.parseInt(tela.getjTelefone().getText());
-            
+            //verificando se os valores de cpf, rg e telefone são numeros
+            int y;
+            if(!tela.getjCnpj().getText().substring(0,tela.getjCnpj().getText().length()).matches("[0-9]*") ||
+                !tela.getjTelefone().getText().substring(0,tela.getjTelefone().getText().length()).matches("[0-9]*"))
+                y = 100/0;
             PessoaJuridica cliente = new PessoaJuridica(tela.getjCnpj().getText(), tela.getjTelefone().getText(),
                     tela.getjNome().getText(), tela.getjSenha().getText());
 
-            modelo.addElement(cliente);
-            tela.getListaClientes().setModel(modelo);
             tela.getClientes().add(cliente);
             tela.menuCadastraEndereco(cliente);
             tela.repaint();

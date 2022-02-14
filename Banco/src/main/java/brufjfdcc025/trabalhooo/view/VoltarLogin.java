@@ -13,12 +13,8 @@ public class VoltarLogin implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         tela.painelLogin.setVisible(false);
         tela.repaint();
         tela.painel.setVisible(true);
-               
     }    
-    
-    
 }
