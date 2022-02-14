@@ -70,7 +70,7 @@ public class Transferencia implements ActionListener {
             JOptionPane.showMessageDialog(tela, "Saldo Insuficiente!");
         } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(tela, "Digite o valor da transferência usando apenas números.");
-        }
+        } 
 //        
     }
 }
