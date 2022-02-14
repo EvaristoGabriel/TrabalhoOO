@@ -28,7 +28,6 @@ public class Deposito implements ActionListener {
                 int x = 100 / 0; 
             } else {
                 cliente.getConta().addExtrato("Depósito", valDeposito, Calendar.getInstance().getTime());
-
                 JOptionPane.showMessageDialog(tela, "Depósito efetuado com sucesso!");
             }
         } catch (ArithmeticException e) {

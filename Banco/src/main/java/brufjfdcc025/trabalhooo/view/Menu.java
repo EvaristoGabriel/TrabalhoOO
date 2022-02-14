@@ -23,10 +23,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import static javax.swing.border.TitledBorder.LEFT;
 
-/**
- *
- * @author Israel Louback
- */
 public class Menu extends JFrame {
 
 
@@ -36,7 +32,8 @@ public class Menu extends JFrame {
 
    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, 
-            jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,painelPix,painelTransferencia,painelExtrato,painelPagamento;
+            jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,painelPix,painelTransferencia,painelExtrato,
+            painelPagamento, painelInfo;
     int TAMANHO =15; //constante para tamanho dos campos de texto.//constante para tamanho dos campos de texto.
     
     JButton btnVoltar;
@@ -328,6 +325,7 @@ public class Menu extends JFrame {
         JButton btnVerificarExtrato = new JButton("Verificar Extrato");
         JButton btnVerificarSaldo = new JButton("Verificar Saldo");
         JButton btnSair = new JButton("Sair");
+        JButton btnInfo = new JButton("Perfil");
         btnVoltar = new JButton ("Voltar");
         
         btnPainel.setLayout(new GridLayout(0, 2,10,10));
@@ -339,6 +337,7 @@ public class Menu extends JFrame {
         btnPainel.add(btnPix);
         btnPainel.add(btnVerificarExtrato);
         btnPainel.add(btnVerificarSaldo);
+        btnPainel.add(btnInfo);
        // btnPainel.add(btnSair);
   
         
@@ -351,9 +350,9 @@ public class Menu extends JFrame {
         btnPagamento.addActionListener(new Pagamento(this, cliente));
         btnDeposito.addActionListener(new Deposito(this,cliente));
         btnSaque.addActionListener(new Saque(this,cliente));
-        btnEmprestimo.addActionListener(new Emprestimo(this));
+        btnEmprestimo.addActionListener(new Emprestimo(this,cliente));
         btnSair.addActionListener(new Sair(this));
-        
+        btnInfo.addActionListener(new Informacoes(this,cliente));
         
 
         this.add(jpMenuOpcoes, BorderLayout.CENTER);
@@ -390,27 +389,9 @@ public class Menu extends JFrame {
             System.out.println(c);
         
         //this.painel.setLayout(new BorderLayout());
-        /*"nascimento": "06081999",
-        "ocupacao": "advogado",
-        "rg": "MG187654894",
-        "senha": "1234",
-        "telefone": "329889565487",
-        "nome": "Gerivaldo",
-        "cpfcnpj": "12",
-        "endereco": {
-            "cidade": "JF",
-            "rua": "Rio Branco",
-            "bairro": "Centro",
-            "cep": "3698788",
-            "complemento": "13",
-            "numero": 102
-        }*/
+
         menuPossuiConta(); 
-//        for(Cliente c : clientes){
-//            menuOpcoes(c);
-//            break;
-//        }
-        
+
         this.add(this.painel);
         
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

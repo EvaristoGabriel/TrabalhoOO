@@ -1,30 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package brufjfdcc025.trabalhooo.model;
 import java.util.Scanner;
 import java.util.*;
-/**
- *
- * @author Mari Richa
- */
+
 public class Conta {
     Scanner teclado = new Scanner(System.in);
     
     private List <Extrato> extrato;
     private String numero;
     private float saldo;
-    
-    
 
     public Conta() {
         saldo=0;
         extrato = new ArrayList<>();
         
     }
-
-    
 
     public String getNumero() {
         return numero;
@@ -61,6 +50,11 @@ public class Conta {
 //    public void setSaldo(float saldo) {
 //        this.saldo += saldo;
 //    }
+
+    @Override
+    public String toString() {
+        return "\n  Numero: " + numero + "\n Saldo: " + saldo;
+    }
     
     
     

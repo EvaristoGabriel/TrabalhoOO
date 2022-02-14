@@ -5,8 +5,7 @@ public abstract class Cliente {
     private String telefone, nome;
     private Endereco endereco;
     private Conta conta;
-    
-    
+    private float divida = 0f;
 
     public Cliente(String senha, String telefone, String nome) {
         this.senha = senha;
@@ -27,7 +26,13 @@ public abstract class Cliente {
         return conta;
     }
     
-    
+    public float getDivida() {
+        return divida;
+    }
+
+    public void setDivida(float divida) {
+        this.divida = divida;
+    }
 
     public String getTelefone() {
         return telefone;
@@ -55,7 +60,8 @@ public abstract class Cliente {
 
     @Override
     public String toString() {
-        return this.nome ;
+        return "Nome: "+this.nome +"\nTelefone: "+this.telefone + "\nConta: "+this.conta.toString()+
+                "\nEndereço: "+this.endereco.toString();
     }
     
     public abstract String getTipo();

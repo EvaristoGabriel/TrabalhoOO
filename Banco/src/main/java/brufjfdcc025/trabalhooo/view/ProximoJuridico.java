@@ -1,6 +1,7 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.model.Cliente;
+import brufjfdcc025.trabalhooo.model.PessoaFisica;
 import brufjfdcc025.trabalhooo.model.PessoaJuridica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,11 +26,10 @@ public class ProximoJuridico implements ActionListener {
             if(tela.getjSenha().getText().isEmpty() || tela.getjTelefone().getText().isEmpty() ||
                     tela.getjNome().getText().isEmpty() || tela.getjCnpj().getText().isEmpty()){
                 int x = 100/0;
-            }
-
+            }   
             //verificando áreas que permitem somente números
-            int numCnpj = Integer.parseInt(tela.getjCnpj().getText());
-            int numTel = Integer.parseInt(tela.getjTelefone().getText());
+//            int numCnpj = Integer.parseInt(tela.getjCnpj().getText());
+//            int numTel = Integer.parseInt(tela.getjTelefone().getText());
             
             PessoaJuridica cliente = new PessoaJuridica(tela.getjCnpj().getText(), tela.getjTelefone().getText(),
                     tela.getjNome().getText(), tela.getjSenha().getText());

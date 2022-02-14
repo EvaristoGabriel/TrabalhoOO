@@ -14,10 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Israel Louback
- */
 public class CadastrarCliente implements ActionListener {
 
     private final Menu tela;

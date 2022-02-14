@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package brufjfdcc025.trabalhooo.view;
 
 import java.awt.event.ActionEvent;
@@ -16,10 +11,6 @@ import brufjfdcc025.trabalhooo.model.PessoaFisica;
 import brufjfdcc025.trabalhooo.model.PessoaJuridica;
 import java.util.Calendar;
 
-/**
- *
- * @author Israel Louback
- */
 public class RealizaPix implements ActionListener {
 
     private final Menu tela;
