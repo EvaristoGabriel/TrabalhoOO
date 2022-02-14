@@ -8,15 +8,25 @@ public class Conta {
     private List <Extrato> extrato;
     private String numero;
     private float saldo;
+    private static String digito = "-025";
 
     public Conta() {
         saldo=0;
         extrato = new ArrayList<>();
         
+        //digito do Banco é 025
+        int a = (int) (Math.random() * 10);
+        int b = (int) (Math.random() * 10);
+        int c = (int) (Math.random() * 10);
+        int d = (int) (Math.random() * 10);
+        int e = (int) (Math.random() * 10);
+        this.numero = Integer.toString(a) + Integer.toString(b) +Integer.toString(c) +
+                Integer.toString(d) +Integer.toString(e) + digito;
+        System.out.println(this.numero);
     }
 
     public String getNumero() {
-        return numero;
+        return this.numero;
     }
     
     public void setNumero(String numero){
@@ -53,9 +63,6 @@ public class Conta {
 
     @Override
     public String toString() {
-        return "\n  Numero: " + numero + "\n Saldo: " + saldo;
-    }
-    
-    
-    
+        return "\n  Numero: " + this.getNumero() + "\n Saldo: " + saldo;
+    }    
 }

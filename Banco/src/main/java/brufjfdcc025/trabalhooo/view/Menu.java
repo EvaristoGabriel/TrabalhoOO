@@ -4,68 +4,37 @@ package brufjfdcc025.trabalhooo.view;
 //imports do swing
 import brufjfdcc025.trabalhooo.model.AtualizaDados;
 import brufjfdcc025.trabalhooo.model.Cliente;
+import brufjfdcc025.trabalhooo.model.Data;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import brufjfdcc025.trabalhooo.model.PessoaFisica;
+import java.util.Calendar;
 import java.util.List;
-import java.util.Set;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import static javax.swing.border.TitledBorder.LEFT;
 
 public class Menu extends JFrame {
-
-
-    
     List<Cliente> clientes;
     JList ListaClientes =new JList<>();
+    int TAMANHO =15; //constante para tamanho dos campos de texto.
 
-   //painel é o painel principal
+    //painel é o painel principal
     JPanel painel, painelRegistro, painelOperacoes, jpMenuEndereco,painelLogin, painelPossuiConta, 
             jpMenuInicial,PerguntaPessoa,jpMenuOpcoes,painelPix,painelTransferencia,painelExtrato,
             painelPagamento, painelInfo;
-    int TAMANHO =15; //constante para tamanho dos campos de texto.//constante para tamanho dos campos de texto.
     
     JButton btnVoltar;
 
-//CAMPOS DE TEXTO QUE APARECERAM NA INTERFACE.
-    JTextField jBairro;
-    JTextField jCep;
-    JTextField jCidade;
-    JTextField jCnpj;
-    JTextField jComplemento;
-    JTextField jCpf;
-    JTextField jDataNascimento;
-    JTextField jDeposito;
-    JTextField jEmprestimo;    
-    JTextField jNome;
-    JTextField jNumero;
-    JTextField jOcupacao;
-    JTextField jPagamento;
-    JTextField jPix;
-    JTextField jRg;
-    JTextField jRua;
-    JTextField jSaque;
-    JTextField jSenha;
-    JTextField jTelefone;
-    JTextField jTransferencias;
-    JTextField jVerificarExtrato;
-    JTextField jVerificarSaldo;
-    JTextField valPix;
-    JTextField valCpf;
+    JTextField jBairro, jCep, jCidade, jCnpj, jComplemento, jCpf, jDataNascimento, 
+            jDeposito, jEmprestimo, jNome, jNumero, jOcupacao, jPagamento, jPix, 
+            jRg, jRua, jSaque, jSenha, jTelefone, jTransferencias, jVerificarExtrato, 
+            jVerificarSaldo, valPix, valCpf;
     
-
-
     public Menu(List<Cliente> clientes) {
         this.clientes = clientes;
     }
@@ -379,14 +348,13 @@ public class Menu extends JFrame {
     public void mostraMenu() {
         
         this.addWindowListener(new AtualizaDados(this));
+        VerificaEmprestimos();
         painel = new JPanel();
 //        this.setSize(500,600);
         
         this.setPreferredSize(new Dimension(500, 500));
                 
         this.setVisible(true);
-        for(Cliente c: clientes)
-            System.out.println(c);
         
         //this.painel.setLayout(new BorderLayout());
 
@@ -400,6 +368,23 @@ public class Menu extends JFrame {
         this.setLocationRelativeTo(null);
         
         this.repaint();
+    }
+    
+    private void VerificaEmprestimos(){
+        Data date = new Data();
+        date.setAno(Calendar.YEAR);
+        date.setDia(Calendar.DAY_OF_MONTH);
+        date.setMes(Calendar.MONTH);
+        for(Cliente c : clientes){
+            if(c.getDivida()>0){
+                int dif = c.getDataemprestimo().Diferenca(date);
+                if(dif >= 1){
+                    if(c.getDataemprestimo().getDia() >= date.getDia()){
+                        c.setDivida(c.getDivida()*(dif*0.01f));
+                    }
+                }
+            }
+        }
     }
     
      //getters e setters dos campos

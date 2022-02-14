@@ -27,7 +27,6 @@ public class Informacoes implements ActionListener{
             tela.painelInfo.setLayout(new GridLayout(0,2));
             tela.jpMenuOpcoes.setVisible(false);
             tela.painelInfo.setVisible(true);
-            System.out.println(cliente.toString());
             
             tela.painelInfo.add(new JLabel("Nome: "));
             tela.painelInfo.add(new JLabel(cliente.getNome()));
@@ -45,6 +44,7 @@ public class Informacoes implements ActionListener{
             }
             tela.painelInfo.add(new JLabel("Numero da conta: "));
             tela.painelInfo.add(new JLabel(cliente.getConta().getNumero()));
+            System.out.println(cliente.getConta().getNumero());
             tela.painelInfo.add(new JLabel("Saldo: "));
             tela.painelInfo.add(new JLabel(String.valueOf(cliente.getConta().getSaldo())));
             tela.painelInfo.add(new JLabel("Cep: "));
@@ -67,6 +67,7 @@ public class Informacoes implements ActionListener{
             tela.add(tela.painelInfo);
             tela.repaint();
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(tela, "Não foi possível mostrar o perfil","ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

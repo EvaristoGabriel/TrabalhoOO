@@ -31,8 +31,6 @@ public class AtualizaDados implements WindowListener {
         try {
             String dados1 = Arquivo.lerArquivo(PessoaFisica);
             String dados2 = Arquivo.lerArquivo(PessoaJuridica);
-            System.out.println("Dados1 = " + dados1);
-            System.out.println("Dados2 = " + dados2);
 //            Set<Cliente> clientes = JSON.toPessoaFisica(dados1);
 
 //            List<Cliente> clientes = JSON.toPessoaFisica(dados1);

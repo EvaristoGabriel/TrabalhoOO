@@ -6,6 +6,8 @@ public abstract class Cliente {
     private Endereco endereco;
     private Conta conta;
     private float divida = 0f;
+    private Data dataemprestimo;
+
 
     public Cliente(String senha, String telefone, String nome) {
         this.senha = senha;
@@ -57,6 +59,15 @@ public abstract class Cliente {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public Data getDataemprestimo() {
+        return dataemprestimo;
+    }
+
+    public void setDataemprestimo(Data dataemprestimo) {
+        this.dataemprestimo = dataemprestimo;
+    }
+    
 
     @Override
     public String toString() {

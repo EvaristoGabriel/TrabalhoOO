@@ -46,25 +46,25 @@ public class CadastrarCliente implements ActionListener {
                     tela.getjBairro().getText(), tela.getjCep().getText(),
                     num, tela.getjComplemento().getText());
             
-            for(Cliente c : tela.getClientes())
-            {
-               if(c.getTipo().equals(cliente.getTipo()) && cliente.getTipo().equals("F")){
-                   PessoaFisica p = (PessoaFisica) c;
-                   PessoaFisica p2 = (PessoaFisica) cliente;
-                   if(p.getCpf().equals(p2.getCpf())){
-                        cliente.getConta().setNumero(String.valueOf(tela.getClientes().indexOf(c)));
-                        break;
-                   }
-               }
-               if(c.getTipo().equals(cliente.getTipo()) && cliente.getTipo().equals("J")){
-                   PessoaJuridica p = (PessoaJuridica)c;
-                   PessoaJuridica p2 = (PessoaJuridica)cliente;
-                   if(p.getCnpj().equals(p2.getCnpj())){
-                        cliente.getConta().setNumero(String.valueOf(tela.getClientes().indexOf(c)));
-                        break;
-                   }
-               }
-            }
+//            for(Cliente c : tela.getClientes())
+//            {
+//               if(c.getTipo().equals(cliente.getTipo()) && cliente.getTipo().equals("F")){
+//                   PessoaFisica p = (PessoaFisica) c;
+//                   PessoaFisica p2 = (PessoaFisica) cliente;
+//                   if(p.getCpf().equals(p2.getCpf())){
+//                        cliente.getConta().setNumero(String.valueOf(tela.getClientes().indexOf(c)));
+//                        break;
+//                   }
+//               }
+//               if(c.getTipo().equals(cliente.getTipo()) && cliente.getTipo().equals("J")){
+//                   PessoaJuridica p = (PessoaJuridica)c;
+//                   PessoaJuridica p2 = (PessoaJuridica)cliente;
+//                   if(p.getCnpj().equals(p2.getCnpj())){
+//                        cliente.getConta().setNumero(String.valueOf(tela.getClientes().indexOf(c)));
+//                        break;
+//                   }
+//               }
+//            }
             
             cliente.setEndereco(end);
              
