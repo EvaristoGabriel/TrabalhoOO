@@ -2,13 +2,8 @@ package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.model.Cliente;
 import brufjfdcc025.trabalhooo.model.Endereco;
-import brufjfdcc025.trabalhooo.control.Arquivo;
-import brufjfdcc025.trabalhooo.control.JSON;
-import brufjfdcc025.trabalhooo.model.PessoaFisica;
-import brufjfdcc025.trabalhooo.model.PessoaJuridica;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +13,6 @@ public class CadastrarCliente implements ActionListener {
 
     private final Menu tela;
     List<Cliente> clientes;
-    private static final String caminho = "dados.json";
     Cliente cliente;
 
     public CadastrarCliente(Menu tela, Cliente cliente) {
@@ -69,8 +63,6 @@ public class CadastrarCliente implements ActionListener {
             cliente.setEndereco(end);
              
             JOptionPane.showMessageDialog(tela, "Cadastro realizado!");
-            String json = JSON.toJSON(clientes);
-            Arquivo.escreverArquivo(caminho, json);
             tela.jpMenuEndereco.setVisible(false);
             tela.menuLogin();
             tela.repaint();
@@ -83,7 +75,7 @@ public class CadastrarCliente implements ActionListener {
         
         catch (NumberFormatException a) {
             JOptionPane.showMessageDialog(tela, "Um ou mais campos preenchidos incorretamente");
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         } 
 //  

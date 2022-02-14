@@ -21,4 +21,11 @@ public class PessoaJuridica extends Cliente{
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    @Override
+    public String toString() {
+        return this.getTipo()+";"+this.getNome()+";"+ this.getSenha() +";"+this.getTelefone() +";"+this.getCnpj()+
+                ";"+this.getConta().toString()+";"+this.getEndereco().toString();
+    }
+    
 }

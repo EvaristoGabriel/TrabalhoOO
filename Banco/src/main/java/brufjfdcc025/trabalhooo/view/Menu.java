@@ -344,14 +344,15 @@ public class Menu extends JFrame {
         painelOperacoes= new JPanel(); //painel 2
          this.painelOperacoes.setLayout(new BorderLayout());
     }
-
+    
     public void mostraMenu() {
         
-        this.addWindowListener(new AtualizaDados(this));
+        this.addWindowListener(new AtualizaDados(this, clientes));
         VerificaEmprestimos();
         painel = new JPanel();
 //        this.setSize(500,600);
-        
+        for(Cliente c : clientes)
+            System.out.println(c);
         this.setPreferredSize(new Dimension(500, 500));
                 
         this.setVisible(true);

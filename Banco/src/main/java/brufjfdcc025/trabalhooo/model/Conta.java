@@ -14,15 +14,16 @@ public class Conta {
         saldo=0;
         extrato = new ArrayList<>();
         
-        //digito do Banco é 025
-        int a = (int) (Math.random() * 10);
-        int b = (int) (Math.random() * 10);
-        int c = (int) (Math.random() * 10);
-        int d = (int) (Math.random() * 10);
-        int e = (int) (Math.random() * 10);
-        this.numero = Integer.toString(a) + Integer.toString(b) +Integer.toString(c) +
-                Integer.toString(d) +Integer.toString(e) + digito;
-        System.out.println(this.numero);
+        if(this.numero == null){
+            //digito do Banco é 025
+            int a = (int) (Math.random() * 10);
+            int b = (int) (Math.random() * 10);
+            int c = (int) (Math.random() * 10);
+            int d = (int) (Math.random() * 10);
+            int e = (int) (Math.random() * 10);
+            this.numero = Integer.toString(a) + Integer.toString(b) +Integer.toString(c) +
+                    Integer.toString(d) +Integer.toString(e) + digito;
+        }
     }
 
     public String getNumero() {
@@ -36,6 +37,10 @@ public class Conta {
 
     public float getSaldo() {
         return saldo;
+    }
+    
+    public void setSaldo(float val){
+        this.saldo = val;
     }
 
     public List<Extrato> getExtrato() {
@@ -63,6 +68,6 @@ public class Conta {
 
     @Override
     public String toString() {
-        return "\n  Numero: " + this.getNumero() + "\n Saldo: " + saldo;
+        return this.getNumero() + ";" + saldo;
     }    
 }

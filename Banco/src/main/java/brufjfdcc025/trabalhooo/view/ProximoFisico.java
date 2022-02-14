@@ -27,9 +27,9 @@ public class ProximoFisico implements ActionListener {
             }
             int y;
             //verificando áreas que permitem apenas números
-            int numcpf = Integer.parseInt(tela.getjCpf().getText());
-            int numrg = Integer.parseInt(tela.getjRg().getText());
-            int numtel = Integer.parseInt(tela.getjTelefone().getText());
+//            int numcpf = Integer.parseInt(tela.getjCpf().getText());
+//            int numrg = Integer.parseInt(tela.getjRg().getText());
+//            int numtel = Integer.parseInt(tela.getjTelefone().getText());
             if(!tela.getjCpf().getText().substring(0,tela.getjCpf().getText().length()).matches("[0-9]*"))
                 y = 100/0;
             

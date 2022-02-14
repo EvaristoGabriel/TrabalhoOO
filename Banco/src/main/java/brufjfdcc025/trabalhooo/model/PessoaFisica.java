@@ -38,8 +38,10 @@ public class PessoaFisica extends Cliente{
    
     @Override
     public String toString() {
-        return "Nome: "+this.getNome() +"\nTelefone: "+this.getTelefone() + "\nConta: "+this.getConta().toString()+
-                "\nEndereço: "+this.getEndereco().toString();
+        return this.getTipo()+";"+this.getNome() +";"+this.getSenha()+";"+this.getTelefone() +";"+this.getCpf()+
+                ";"+ this.getRg()+ ";" + this.getNascimento() + ";"+
+                this.getOcupacao()+ ";"+this.getConta().toString()+
+                ";"+this.getEndereco().toString();
     }
 
     @Override
