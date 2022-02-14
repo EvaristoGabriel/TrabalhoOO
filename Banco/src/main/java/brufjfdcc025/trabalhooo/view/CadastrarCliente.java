@@ -40,26 +40,6 @@ public class CadastrarCliente implements ActionListener {
                     tela.getjBairro().getText(), tela.getjCep().getText(),
                     num, tela.getjComplemento().getText());
             
-//            for(Cliente c : tela.getClientes())
-//            {
-//               if(c.getTipo().equals(cliente.getTipo()) && cliente.getTipo().equals("F")){
-//                   PessoaFisica p = (PessoaFisica) c;
-//                   PessoaFisica p2 = (PessoaFisica) cliente;
-//                   if(p.getCpf().equals(p2.getCpf())){
-//                        cliente.getConta().setNumero(String.valueOf(tela.getClientes().indexOf(c)));
-//                        break;
-//                   }
-//               }
-//               if(c.getTipo().equals(cliente.getTipo()) && cliente.getTipo().equals("J")){
-//                   PessoaJuridica p = (PessoaJuridica)c;
-//                   PessoaJuridica p2 = (PessoaJuridica)cliente;
-//                   if(p.getCnpj().equals(p2.getCnpj())){
-//                        cliente.getConta().setNumero(String.valueOf(tela.getClientes().indexOf(c)));
-//                        break;
-//                   }
-//               }
-//            }
-            
             cliente.setEndereco(end);
              
             JOptionPane.showMessageDialog(tela, "Cadastro realizado!");
@@ -78,17 +58,5 @@ public class CadastrarCliente implements ActionListener {
         } catch (Exception ex) {
             Logger.getLogger(CadastrarCliente.class.getName()).log(Level.SEVERE, null, ex);
         } 
-//  
-//        catch (Exception e) {
-//            JOptionPane.showMessageDialog(tela, "Não foi possível realizar o cadastro. Um ou mais campos preenchido incorretamente!");
-//            tela.painel.setVisible(false);
-//            tela.repaint();
-//        }  
-//  
-//        catch (Exception e) {
-//            JOptionPane.showMessageDialog(tela, "Não foi possível realizar o cadastro. Um ou mais campos preenchido incorretamente!");
-//            tela.painel.setVisible(false);
-//            tela.repaint();
-//        } 
     }
 }

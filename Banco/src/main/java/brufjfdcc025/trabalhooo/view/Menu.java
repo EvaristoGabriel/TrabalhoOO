@@ -133,8 +133,6 @@ public class Menu extends JFrame {
         
         jpMenuInicial.setVisible(true);
         jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
-        //jpMenuInicial.setLayout(new BorderLayout());
-//        jpMenuInicial.setSize(new Dimension(450, 800));
         jpMenuInicial.setPreferredSize(new Dimension(500, 300));
         jpMenuInicial.setLayout(new GridLayout(14, 5));
         
@@ -178,14 +176,11 @@ public class Menu extends JFrame {
         
         jpMenuInicial.setVisible(true);
         jpMenuInicial.setBorder(BorderFactory.createTitledBorder("FICHA CADASTRAL")); //titulo do formulario
-        //jpMenuInicial.setLayout(new BorderLayout());
-//        jpMenuInicial.setSize(new Dimension(450, 800));
         jpMenuInicial.setPreferredSize(new Dimension(500, 300));
 
         jpMenuInicial.setLayout(new GridLayout(12, 5));
         
         //adiciona os labels para e as caixas de texto para da campo.
-        //cpf, nascimento,ocupacao,rg
         jpMenuInicial.add(new JLabel("Nome: "));
         jNome = new JTextField(TAMANHO);
         jpMenuInicial.add(jNome);
@@ -236,7 +231,6 @@ public class Menu extends JFrame {
         jpMenuEndereco = new JPanel();
         jpMenuEndereco.setVisible(true);
         jpMenuEndereco.setBorder(BorderFactory.createTitledBorder("ENDEREÇO"));
-//        jpMenuEndereco.setSize(new Dimension(450, 800));
         jpMenuEndereco.setPreferredSize(new Dimension(500, 300));
         jpMenuEndereco.setLayout(new GridLayout(12, 0));
         
@@ -277,8 +271,6 @@ public class Menu extends JFrame {
     }
     
     public void menuOpcoes(Cliente cliente) {
-//        painelLogin.setVisible(false);
-        
         jpMenuOpcoes = new JPanel();
         jpMenuOpcoes.setVisible(true);
         jpMenuOpcoes.setBorder(BorderFactory.createTitledBorder("Servicos:")); //borda com titulo
@@ -327,38 +319,15 @@ public class Menu extends JFrame {
         this.add(jpMenuOpcoes, BorderLayout.CENTER);
     }
     
-    private void configuraClientes() {
-        //frame = new JFrame();
-        painel = new JPanel();
-        painelOperacoes= new JPanel();
-        //frame.getContentPane().add(painel);
-
-    }
-
-    private void configuraMenu() {
-//        this.setSize(500,800); //tamanho em px da janela
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-
-        this.painel = new JPanel(); //painel 1
-        this.painel.setLayout(new BorderLayout()); //referencia de onde sera adicionado o painel
-        painelOperacoes= new JPanel(); //painel 2
-         this.painelOperacoes.setLayout(new BorderLayout());
-    }
-    
     public void mostraMenu() {
         
         this.addWindowListener(new AtualizaDados(this, clientes));
         VerificaEmprestimos();
         painel = new JPanel();
-//        this.setSize(500,600);
-        for(Cliente c : clientes)
-            System.out.println(c);
         this.setPreferredSize(new Dimension(500, 500));
                 
         this.setVisible(true);
         
-        //this.painel.setLayout(new BorderLayout());
-
         menuPossuiConta(); 
 
         this.add(this.painel);

@@ -54,18 +54,6 @@ public class Arquivo {
         }finally{
             return clientes;
         }
-        
-//        StringBuilder conteudo = new StringBuilder();
-//        
-//        File arquivo = new File(caminho);
-//        
-//        Scanner leitor = new Scanner(arquivo);
-//        
-//        while (leitor.hasNextLine()) {
-//            conteudo.append(leitor.nextLine()).append("\n");
-//        }
-//        
-//        return conteudo.toString();
     }
     
     public static void escreverArquivo(String caminho, List<Cliente> clientes) throws IOException{
@@ -89,20 +77,5 @@ public class Arquivo {
         } catch (Exception e) {
             System.out.println(e);
         }
-        
-        
-//        FileWriter fwArquivo;
-//        BufferedWriter bwArquivo;
-//
-//        File arquivo = new File(caminho);
-//            
-//        fwArquivo = new FileWriter(arquivo,false);
-//        bwArquivo = new BufferedWriter(fwArquivo);
-//            
-//        bwArquivo.write(conteudo);
-//            
-//        bwArquivo.close();
-//        fwArquivo.close();
-            
     }
 }

@@ -2,7 +2,6 @@ package brufjfdcc025.trabalhooo.model;
 
 import brufjfdcc025.trabalhooo.view.Menu;
 import brufjfdcc025.trabalhooo.control.Arquivo;
-import brufjfdcc025.trabalhooo.control.JSON;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.util.List;
@@ -12,7 +11,7 @@ public class AtualizaDados implements WindowListener {
 
     private Menu tela;
     private List<Cliente> clientes;
-    private static final String PessoaJuridica = "Juridica.txt", PessoaFisica = "Fisica.txt";
+    private static final String  Dados = "Dados.txt";
 
     public AtualizaDados(Menu tela, List<Cliente> clientes) {
         this.tela = tela;
@@ -22,7 +21,7 @@ public class AtualizaDados implements WindowListener {
     @Override
     public void windowOpened(WindowEvent e) {
         try {
-            clientes = Arquivo.lerArquivo(PessoaFisica);
+            clientes = Arquivo.lerArquivo(Dados);
             tela.setClientes(clientes);
             tela.repaint();
             
@@ -36,7 +35,7 @@ public class AtualizaDados implements WindowListener {
     public void windowClosing(WindowEvent e) {
         try {
             List<Cliente> clientes = tela.getClientes();
-            Arquivo.escreverArquivo(PessoaFisica, clientes);
+            Arquivo.escreverArquivo(Dados, clientes);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(tela, "Deu ruim!", "ERROR", JOptionPane.ERROR_MESSAGE);
             System.out.println(ex);
