@@ -1,11 +1,11 @@
 package brufjfdcc025.trabalhooo.view;
 
 import brufjfdcc025.trabalhooo.model.Cliente;
-//import com.sun.org.apache.xerces.internal.util.DOMUtil;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,11 +16,12 @@ public class Transferencia implements ActionListener {
 
     private final Menu tela;
     Cliente cliente;
+    List<Cliente> clientes;
 
-    public Transferencia(Menu tela, Cliente cliente) {
+    public Transferencia(Menu tela, Cliente cliente, List<Cliente> clientes) {
         this.tela = tela;
         this.cliente = cliente;
-
+        this.clientes = clientes;
     }
 
     @Override
@@ -30,7 +31,7 @@ public class Transferencia implements ActionListener {
             JTextField transferencia = new JTextField();
             JOptionPane.showMessageDialog(tela, transferencia, "Digite o valor da transferência:", JOptionPane.INFORMATION_MESSAGE);
             float valTransferencia = Float.parseFloat(transferencia.getText());
-
+            
             if (valTransferencia >= cliente.getConta().getSaldo()) {
                 int x = 100 / 0;
             } else {
@@ -54,9 +55,8 @@ public class Transferencia implements ActionListener {
                 tela.painelTransferencia.add(cpf);
                 tela.painelTransferencia.add(aviso);
 
-
                 JButton btntransferir = new JButton("Transferir");
-                btntransferir.addActionListener(new RealizaTransferencia(tela, cpf, numeroConta, nomeDestinatario.getText(), valTransferencia, cliente));
+                btntransferir.addActionListener(new RealizaTransferencia(tela, cpf, numeroConta, nomeDestinatario, valTransferencia, cliente));
 
                 tela.painelTransferencia.add(btntransferir);
 
@@ -72,5 +72,5 @@ public class Transferencia implements ActionListener {
             JOptionPane.showMessageDialog(tela, "Digite o valor da transferência usando apenas números.");
         } 
 //        
+        }
     }
-}

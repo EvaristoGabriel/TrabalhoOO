@@ -52,20 +52,6 @@ public class Conta {
         this.saldo+=valor; //ja adiciona o valor ao saldo
     }
     
-//    public String imprimeExtrato(){
-//        String imprime="";
-//        for (Extrato e : extrato){
-//            imprime+="\n"+e;
-//            
-//        }
-//        imprime+="\n            Total: R$"+ this.saldo;
-//        return imprime;
-//    }
-    
-//    public void setSaldo(float saldo) {
-//        this.saldo += saldo;
-//    }
-
     @Override
     public String toString() {
         return this.getNumero() + ";" + saldo;

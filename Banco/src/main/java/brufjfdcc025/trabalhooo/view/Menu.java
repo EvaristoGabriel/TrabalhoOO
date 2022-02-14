@@ -307,7 +307,7 @@ public class Menu extends JFrame {
         btnVerificarExtrato.addActionListener(new VerificarExtrato(this,cliente));
         btnVerificarSaldo.addActionListener(new VerificarSaldo(this,cliente));
         btnPix.addActionListener(new Pix(this,cliente));
-        btnTransferencias.addActionListener(new Transferencia(this,cliente));
+        btnTransferencias.addActionListener(new Transferencia(this,cliente, clientes));
         btnPagamento.addActionListener(new Pagamento(this, cliente));
         btnDeposito.addActionListener(new Deposito(this,cliente));
         btnSaque.addActionListener(new Saque(this,cliente));

@@ -31,9 +31,14 @@ public class Emprestimo implements ActionListener {
             if(valEmprestimo > 0){
                 cliente.setDivida(valEmprestimo);
                 cliente.getConta().addExtrato("Empréstimo", valEmprestimo, Calendar.getInstance().getTime());
-                cliente.getDataemprestimo().setAno(Calendar.YEAR);
-                cliente.getDataemprestimo().setDia(Calendar.DAY_OF_MONTH);
-                cliente.getDataemprestimo().setAno(Calendar.MONTH);
+                Data date = new Data();
+                date.setAno(Calendar.YEAR);
+                date.setDia(Calendar.DAY_OF_MONTH);
+                date.setMes(Calendar.MONTH);
+                
+                cliente.setDataemprestimo(date);
+                
+                JOptionPane.showMessageDialog(tela, "Empréstimo concedido com sucesso!","SUCESSO",JOptionPane.INFORMATION_MESSAGE);
             }
             else{
                 JOptionPane.showMessageDialog(tela, "O valor digitado não é permitido", "Valor inválido!",JOptionPane.ERROR_MESSAGE);

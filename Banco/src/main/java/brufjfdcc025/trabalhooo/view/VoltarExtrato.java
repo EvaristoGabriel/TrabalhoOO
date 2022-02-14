@@ -3,8 +3,6 @@ package brufjfdcc025.trabalhooo.view;
 import brufjfdcc025.trabalhooo.model.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 public class VoltarExtrato implements ActionListener {
     
@@ -12,7 +10,6 @@ public class VoltarExtrato implements ActionListener {
     Cliente cliente;
 
     public VoltarExtrato(Menu tela, Cliente cliente) {
-
         this.tela = tela;
         this.cliente = cliente;
     }

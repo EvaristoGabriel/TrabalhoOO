@@ -19,7 +19,5 @@ public class VerificarSaldo implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         JOptionPane.showMessageDialog(tela, "O seu saldo é de R$"+cliente.getConta().getSaldo(), "Saldo", JOptionPane.INFORMATION_MESSAGE);
-        
-        
     }
-    }
+}

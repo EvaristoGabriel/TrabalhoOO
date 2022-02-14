@@ -1,7 +1,6 @@
 package brufjfdcc025.trabalhooo.model;
 
 public class Endereco {
-    //rua, bairro, numero, cep, complemento
     private String cidade, rua, bairro, cep, complemento;
     private int numero;
 

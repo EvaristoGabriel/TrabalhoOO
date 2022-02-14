@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import brufjfdcc025.trabalhooo.model.Cliente;
-import javax.swing.JFrame;
 
 public class Pix implements ActionListener {
 
@@ -34,6 +33,16 @@ public class Pix implements ActionListener {
                 int x = 100 / 0;
             } else {
 
+            tela.jpMenuOpcoes.setVisible(false);
+            tela.painelPix = new JPanel();
+            tela.painelPix.setVisible(true);
+            tela.repaint();
+
+            tela.painelPix.add(new JLabel("CPF/CNPJ do destinatário: "));
+            tela.valCpf = new JTextField(15);
+            tela.painelPix.add(tela.valCpf);
+            
+            String cpf = tela.getValCpf().getText();
                 tela.jpMenuOpcoes.setVisible(false);
                 tela.painelPix = new JPanel();
                 tela.painelPix.setVisible(true);
@@ -47,7 +56,6 @@ public class Pix implements ActionListener {
                 tela.painelPix.add(tela.valCpf);
 
 //            float val = Float.parseFloat(tela.getValPix().getText());
-                String cpf = tela.getValCpf().getText();
 
                 JButton btnPixRealizado = new JButton("Fazer o PIX!");
                 btnPixRealizado.addActionListener(new RealizaPix(tela, cpf, valPix, cliente));
@@ -58,12 +66,10 @@ public class Pix implements ActionListener {
                 tela.painelPix.add(tela.btnVoltar, BorderLayout.SOUTH);//BOTAO VOLTAR 
                 tela.add(tela.painelPix, BorderLayout.CENTER);
             }
-
         } catch (NumberFormatException a) {
             JOptionPane.showMessageDialog(tela, "Digite o valor da transferência apenas com números");
         } catch (ArithmeticException e) {
             JOptionPane.showMessageDialog(tela, "Saldo insuficiente!");
         }
-//        
     }
 }

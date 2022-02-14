@@ -10,17 +10,14 @@ public class VoltarPagamento implements ActionListener {
     private Cliente cliente;
 
     public VoltarPagamento(Menu tela, Cliente cliente) {
-
         this.tela = tela;
         this.cliente = cliente;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         tela.painelPagamento.setVisible(false);
         tela.repaint();
         tela.menuOpcoes(cliente);
     }
-
 }

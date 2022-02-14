@@ -4,7 +4,6 @@ import brufjfdcc025.trabalhooo.model.Cliente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
@@ -32,7 +31,6 @@ public class Deposito implements ActionListener {
             }
         } catch (ArithmeticException e) {
             JOptionPane.showMessageDialog(tela, "Não foi possível efetuar o depósito! \nSó é válido depósitos acima de R$10,00");
-//            JOptionPane.showMessageDialog(tela, "Só é válido depósitos acima de R$10,00");
 
         } catch (NumberFormatException e2) {
             JOptionPane.showMessageDialog(tela, "Você não digitou o valor a ser depositado\nou digitou um valor inválido. ");

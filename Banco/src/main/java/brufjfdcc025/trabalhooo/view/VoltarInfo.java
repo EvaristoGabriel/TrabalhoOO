@@ -9,7 +9,6 @@ public class VoltarInfo implements ActionListener{
     Cliente cliente;
 
     public VoltarInfo(Menu tela, Cliente cliente) {
-
         this.tela = tela;
         this.cliente = cliente;
     }

@@ -13,12 +13,8 @@ public class VoltarCadastro implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         tela.jpMenuInicial.setVisible(false);
         tela.repaint();
         tela.menuPossuiConta();
-        
     }
-    
-    
 }
