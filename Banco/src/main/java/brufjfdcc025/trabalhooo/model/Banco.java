@@ -1,6 +1,6 @@
 package brufjfdcc025.trabalhooo.model;
 
-import brufjfdcc025.trabalhooo.view.Menu;
+import brufjfdcc025.trabalhooo.ViweControl.Menu;
 import java.util.List;
 import java.util.ArrayList;
 

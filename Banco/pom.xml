@@ -17,7 +17,7 @@
                 <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>brufjfdcc025.trabalhooo.Banco</mainClass>
+                        <mainClass>brufjfdcc025.trabalhooo.model.Banco</mainClass>
                     </manifest>
                 </archive>
                 <descriptorRefs>
